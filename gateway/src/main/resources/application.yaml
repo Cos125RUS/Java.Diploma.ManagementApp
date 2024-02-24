@@ -10,11 +10,7 @@ spring:
   cloud:
     gateway:
       routes:
-#        - id: site
-#          uri: http://localhost:8080/
+#        - id: auth
+#          uri: http://localhost:/
 #          predicates:
-#            - Path=/site/**
-#        - id: notes
-#          uri: http://localhost:8081/
-#          predicates:
-#            - Path=/notes/**
+#            - Path=/auth/**
