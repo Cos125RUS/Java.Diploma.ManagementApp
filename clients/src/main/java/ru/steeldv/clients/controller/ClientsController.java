@@ -20,24 +20,24 @@ public class ClientsController {
     }
 
     @PostMapping("/addClient")
-    public Client addClient(Client client) {
+    public Client addClient(@RequestBody Client client) {
         return clientService.addClient(client);
     }
 
-    @PutMapping("/update")
-    public Client update(Client client, Long id) {
+    @PutMapping("/update/{id}")
+    public Client update(@RequestBody Client client, @PathVariable Long id) {
         Client oldClient = clientService.findById(id).get();
         client.setId(oldClient.getId());
         return clientService.update(client);
     }
 
-    @DeleteMapping("/delete")
-    public boolean delete(Long id) {
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable Long id) {
         return clientService.deleteById(id);
     }
 
-    @GetMapping("/findClient")
-    public Client findClient(Long id) {
+    @GetMapping("/findClient/{id}")
+    public Client findClient(@PathVariable Long id) {
         return clientService.findById(id).get();
     }
 
