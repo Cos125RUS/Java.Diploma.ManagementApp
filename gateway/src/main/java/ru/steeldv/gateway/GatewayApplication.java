@@ -16,8 +16,7 @@ public class GatewayApplication {
 	@Bean
 	public RouteLocator managementAppLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
-//				.route("site", r -> r.path("/site/**").uri("http://localhost:8080/"))
-//				.route("notes", r -> r.path("/notes/**").uri("http://localhost:8081/"))
+				.route("clients", r -> r.path("/clients/**").uri("http://localhost:8081/"))
 				.build();
 	}
 }

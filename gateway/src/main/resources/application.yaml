@@ -10,6 +10,10 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: clients
+          url: http://localhost:8081/
+          predicates:
+            - Path=/clients/**
 #        - id: auth
 #          uri: http://localhost:/
 #          predicates:

@@ -12,6 +12,7 @@
         <module>front</module>
         <module>gateway</module>
         <module>eureka</module>
+        <module>clients</module>
     </modules>
 
     <properties>
