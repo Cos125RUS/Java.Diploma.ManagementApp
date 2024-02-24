@@ -20,6 +20,7 @@ public class Client {
      * Тип клиента
      */
     @Enumerated
+    @Column(nullable = false)
     private OrganizationType type;
     /**
      * ИНН
