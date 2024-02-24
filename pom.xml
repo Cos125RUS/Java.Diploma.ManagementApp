@@ -13,6 +13,7 @@
         <module>gateway</module>
         <module>eureka</module>
         <module>clients</module>
+        <module>storage</module>
     </modules>
 
     <properties>

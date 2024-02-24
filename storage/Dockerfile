@@ -1,0 +1,4 @@
+FROM postgres:16.2-alpine
+ENV POSTGRES_DB storage_db
+ENV POSTGRES_USER user
+ENV POSTGRES_PASSWORD password
