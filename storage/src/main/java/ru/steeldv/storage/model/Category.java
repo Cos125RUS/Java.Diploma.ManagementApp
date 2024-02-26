@@ -15,8 +15,18 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Subcategory> subcategories;
+
+    public boolean addSubcategory(Subcategory subcategory) {
+        subcategories.add(subcategory);
+        return true;
+    }
+
+    public boolean removeSubcategory(Subcategory subcategory) {
+        subcategories.remove(subcategory);
+        return true;
+    }
 }

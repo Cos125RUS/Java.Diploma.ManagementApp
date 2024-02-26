@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,4 +23,6 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(joinColumns = @JoinColumn(name = "subcategory_id"))
     private Subcategory subcategory;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Item> items;
 }

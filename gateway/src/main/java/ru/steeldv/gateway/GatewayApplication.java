@@ -17,6 +17,7 @@ public class GatewayApplication {
 	public RouteLocator managementAppLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
 				.route("clients", r -> r.path("/clients/**").uri("http://localhost:8081/"))
+				.route("storage", r -> r.path("/storage/**").uri("http://localhost:8082/"))
 				.build();
 	}
 }

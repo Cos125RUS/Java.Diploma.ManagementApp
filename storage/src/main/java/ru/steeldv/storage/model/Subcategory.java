@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import ru.steeldv.storage.repository.CategoryRepository;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -15,7 +19,15 @@ public class Subcategory {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(joinColumns = @JoinColumn(name = "category_id"))
-    private Category category;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinTable(joinColumns = @JoinColumn(name = "category_id"))
+    @Column(name = "category_id", nullable = false)
+    private Long categoryId;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Product> products;
+
+    public Subcategory(String name, Long categoryId) {
+        this.name = name;
+        this.categoryId = categoryId;
+    }
 }

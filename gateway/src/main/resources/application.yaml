@@ -11,11 +11,11 @@ spring:
     gateway:
       routes:
         - id: clients
-          url: http://localhost:8081/
+          uri: http://localhost:8081/
           predicates:
             - Path=/clients/**
         - id: storage
-          url: http://localhost:8082/
+          uri: http://localhost:8082/
           predicates:
             - Path=/storage/**
 #        - id: auth

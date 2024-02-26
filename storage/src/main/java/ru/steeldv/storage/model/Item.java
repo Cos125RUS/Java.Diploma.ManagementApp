@@ -19,6 +19,8 @@ public class Item {
     @JoinTable(joinColumns = @JoinColumn(name = "product_id"))
     private Product product;
     @Column(nullable = false)
+    private String thickness;
+    @Column(nullable = false)
     private String size;
     @Column(nullable = false)
     private Double price;

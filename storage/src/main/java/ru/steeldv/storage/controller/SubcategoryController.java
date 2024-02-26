@@ -2,7 +2,9 @@ package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import ru.steeldv.storage.model.Category;
 import ru.steeldv.storage.model.Subcategory;
+import ru.steeldv.storage.service.CategoryService;
 import ru.steeldv.storage.service.SubcategoryService;
 
 import java.util.List;
@@ -11,32 +13,32 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/storage/subcategory")
 public class SubcategoryController {
-    private final SubcategoryService service;
+    private final SubcategoryService subcategoryService;
 
     @GetMapping("/findAll")
     public List<Subcategory> findAll() {
-        return service.getAllSubcategory();
+        return subcategoryService.getAllSubcategory();
     }
 
     @PostMapping("/addSubcategory")
     public Subcategory addSubcategory(@RequestBody Subcategory subcategory) {
-        return service.addSubcategory(subcategory);
+        return subcategoryService.addSubcategory(subcategory);
     }
 
     @PutMapping("/update/{id}")
     public Subcategory update(@RequestBody Subcategory subcategory, @PathVariable Long id) {
-        Subcategory oldSubcategory = service.findById(id).get();
+        Subcategory oldSubcategory = subcategoryService.findById(id).get();
         subcategory.setId(oldSubcategory.getId());
-        return service.update(subcategory);
+        return subcategoryService.update(subcategory);
     }
 
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable Long id) {
-        return service.deleteById(id);
+        return subcategoryService.deleteById(id);
     }
 
     @GetMapping("/findSubcategory/{id}")
     public Subcategory findSubcategory(@PathVariable Long id) {
-        return service.findById(id).get();
+        return subcategoryService.findById(id).get();
     }
 }
