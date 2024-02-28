@@ -19,15 +19,15 @@ public class Subcategory {
     private Long id;
     @Column(nullable = false)
     private String name;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinTable(joinColumns = @JoinColumn(name = "category_id"))
-    @Column(name = "category_id", nullable = false)
-    private Long categoryId;
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
+    private Category category;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subcategory", orphanRemoval = true)
     private List<Product> products;
 
-    public Subcategory(String name, Long categoryId) {
+    public Subcategory(Long id, String name, Category category) {
+        this.id = id;
         this.name = name;
-        this.categoryId = categoryId;
+        this.category = category;
     }
 }

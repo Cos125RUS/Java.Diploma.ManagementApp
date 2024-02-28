@@ -17,12 +17,19 @@ public class Product {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(joinColumns = @JoinColumn(name = "category_id"))
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(joinColumns = @JoinColumn(name = "subcategory_id"))
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subcategory_id")
     private Subcategory subcategory;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", orphanRemoval = true)
     private List<Item> items;
+
+    public Product(Long id, String name, Category category, Subcategory subcategory) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.subcategory = subcategory;
+    }
 }

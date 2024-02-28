@@ -17,7 +17,7 @@ public class Category {
     private Long id;
     @Column(nullable = false, unique = true)
     private String name;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", orphanRemoval = true)
     private List<Subcategory> subcategories;
 
     public boolean addSubcategory(Subcategory subcategory) {

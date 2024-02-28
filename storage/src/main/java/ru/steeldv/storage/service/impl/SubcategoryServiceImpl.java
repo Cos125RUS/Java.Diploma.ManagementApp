@@ -24,12 +24,9 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     @Override
     public Subcategory addSubcategory(Subcategory subcategory) {
-        Category category = categoryRepository.findById(subcategory.getCategoryId()).get();
-        category.addSubcategory(subcategory);
-        category = categoryRepository.save(category);
-        List<Subcategory> subcategories = category.getSubcategories();
-        return subcategories.stream()
-                .filter(s -> s.getName().equals(subcategory.getName())).findFirst().get();
+        Category category = categoryRepository.findById(subcategory.getCategory().getId()).get();
+        subcategory.setCategory(category);
+        return subcategoryRepository.save(subcategory);
     }
 
     @Override

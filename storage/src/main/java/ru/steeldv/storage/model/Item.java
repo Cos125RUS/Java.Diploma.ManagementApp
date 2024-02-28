@@ -13,20 +13,20 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(joinColumns = @JoinColumn(name = "product_id"))
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
     private Product product;
-    @Column(nullable = false)
-    private String thickness;
-    @Column(nullable = false)
-    private String size;
+    private Double thickness; // толщина
+    private String size; // длина/габариты
+    private String print; // отображение при печати
     @Column(nullable = false)
     private Double price;
+    private Double cutting; // Стоимость резки
     @Enumerated
     @Column(nullable = false, name = "unit_type")
-    private UnitType unitType;
+    private UnitType unitType; // единицы измененрия
     @Column(nullable = false)
-    private Double units;
+    private Double units; // на остатках
+
+
 }
