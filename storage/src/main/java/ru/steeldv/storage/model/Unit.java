@@ -1,5 +1,6 @@
 package ru.steeldv.storage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +16,7 @@ public class Unit {
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "position_id")
+    @JsonIgnoreProperties("units")
     private Position position;
     @Enumerated
     @Column(nullable = false, name = "unit_type")

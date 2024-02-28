@@ -1,13 +1,12 @@
 package ru.steeldv.storage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -19,6 +18,9 @@ public class Category {
     private Long id;
     @Column(nullable = false, unique = true)
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", orphanRemoval = true)
-    private Set<Subcategory> subcategories = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category", orphanRemoval = true,
+            fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("category")
+    private List<Subcategory> subcategories;
+
 }

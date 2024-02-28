@@ -1,12 +1,12 @@
 package ru.steeldv.storage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -18,6 +18,7 @@ public class Item {
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
+    @JsonIgnoreProperties("items")
     private Product product;
     private Double thickness; // толщина
     private String size; // длина/габариты
@@ -25,16 +26,8 @@ public class Item {
     @Column(nullable = false)
     private Double price;
     private Double cutting; // Стоимость резки
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item", orphanRemoval = true)
-    private Set<Position> positions = new HashSet<>();
-
-    public Item(Long id, Product product, Double thickness, String size, String print, Double price, Double cutting) {
-        this.id = id;
-        this.product = product;
-        this.thickness = thickness;
-        this.size = size;
-        this.print = print;
-        this.price = price;
-        this.cutting = cutting;
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item", orphanRemoval = true,
+            fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("item")
+    private List<Position> positions;
 }

@@ -1,13 +1,12 @@
 package ru.steeldv.storage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -21,17 +20,14 @@ public class Product {
     private String name;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties("products")
     private Category category;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "subcategory_id")
+    @JsonIgnoreProperties("products")
     private Subcategory subcategory;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", orphanRemoval = true)
-    private Set<Item> items = new HashSet<>();
-
-    public Product(Long id, String name, Category category, Subcategory subcategory) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.subcategory = subcategory;
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", orphanRemoval = true,
+            fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("product")
+    private List<Item> items;
 }

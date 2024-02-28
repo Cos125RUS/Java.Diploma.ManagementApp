@@ -1,15 +1,12 @@
 package ru.steeldv.storage.model;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import ru.steeldv.storage.repository.CategoryRepository;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -23,13 +20,10 @@ public class Subcategory {
     private String name;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties("subcategories")
     private Category category;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subcategory", orphanRemoval = true)
-    private Set<Product> products = new HashSet<>();
-
-    public Subcategory(Long id, String name, Category category) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-    }
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subcategory", orphanRemoval = true,
+            fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = {"subcategory", "category"})
+    private List<Product> products;
 }
