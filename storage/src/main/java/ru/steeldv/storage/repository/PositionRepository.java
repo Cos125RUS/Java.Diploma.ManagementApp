@@ -2,11 +2,11 @@ package ru.steeldv.storage.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.steeldv.storage.model.Item;
+import ru.steeldv.storage.model.Position;
 
 import java.util.Optional;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, Long> {
-    Optional<Item> findById(Long id);
+public interface PositionRepository extends JpaRepository<Position, Long> {
+    Optional<Position> findById(Long id);
 }

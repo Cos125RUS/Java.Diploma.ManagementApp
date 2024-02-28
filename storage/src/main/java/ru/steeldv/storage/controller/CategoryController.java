@@ -15,7 +15,7 @@ public class CategoryController {
 
     @GetMapping("/findAll")
     public List<Category> findAll() {
-        return service.getAllCategory();
+        return service.getAllCategories();
     }
 
     @PostMapping("/addCategory")

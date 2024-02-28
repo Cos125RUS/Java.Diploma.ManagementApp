@@ -1,11 +1,12 @@
 package ru.steeldv.storage.model;
 
 public enum UnitType {
-    kg, //килограммы
-    t, //тонны
+    kilogram, //килограммы
+    ton, //тонны
     unit, //штуки
     coil, //бухты
     roll, //рулоны
+    meter, //метры
     m2, //квадратные метры
-    m //метры
+    m3 //кубические метры
 }

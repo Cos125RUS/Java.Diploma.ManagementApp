@@ -15,7 +15,7 @@ public class ItemController {
 
     @GetMapping("/findAll")
     public List<Item> findAll() {
-        return service.getAllItem();
+        return service.getAllItems();
     }
 
     @PostMapping("/addItem")

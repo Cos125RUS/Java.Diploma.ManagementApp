@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import ru.steeldv.storage.repository.CategoryRepository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -23,7 +25,7 @@ public class Subcategory {
     @JoinColumn(name = "category_id")
     private Category category;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "subcategory", orphanRemoval = true)
-    private List<Product> products;
+    private Set<Product> products = new HashSet<>();
 
     public Subcategory(Long id, String name, Category category) {
         this.id = id;

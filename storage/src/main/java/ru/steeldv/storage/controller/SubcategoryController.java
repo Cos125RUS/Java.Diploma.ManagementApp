@@ -2,9 +2,7 @@ package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.storage.model.Category;
 import ru.steeldv.storage.model.Subcategory;
-import ru.steeldv.storage.service.CategoryService;
 import ru.steeldv.storage.service.SubcategoryService;
 
 import java.util.List;
@@ -17,7 +15,7 @@ public class SubcategoryController {
 
     @GetMapping("/findAll")
     public List<Subcategory> findAll() {
-        return subcategoryService.getAllSubcategory();
+        return subcategoryService.getAllSubcategories();
     }
 
     @PostMapping("/addSubcategory")

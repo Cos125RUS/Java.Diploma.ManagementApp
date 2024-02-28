@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,11 +25,16 @@ public class Item {
     @Column(nullable = false)
     private Double price;
     private Double cutting; // Стоимость резки
-    @Enumerated
-    @Column(nullable = false, name = "unit_type")
-    private UnitType unitType; // единицы измененрия
-    @Column(nullable = false)
-    private Double units; // на остатках
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item", orphanRemoval = true)
+    private Set<Position> positions = new HashSet<>();
 
-
+    public Item(Long id, Product product, Double thickness, String size, String print, Double price, Double cutting) {
+        this.id = id;
+        this.product = product;
+        this.thickness = thickness;
+        this.size = size;
+        this.print = print;
+        this.price = price;
+        this.cutting = cutting;
+    }
 }

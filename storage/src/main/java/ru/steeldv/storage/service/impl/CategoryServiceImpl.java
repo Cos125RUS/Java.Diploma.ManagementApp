@@ -14,7 +14,7 @@ import java.util.Optional;
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository repository;
     @Override
-    public List<Category> getAllCategory() {
+    public List<Category> getAllCategories() {
         return repository.findAll();
     }
 
