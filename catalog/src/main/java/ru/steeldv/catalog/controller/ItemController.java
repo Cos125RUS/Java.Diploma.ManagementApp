@@ -42,7 +42,7 @@ public class ItemController {
     }
 
     @GetMapping("/findByProductId/{id}")
-    public List<Product> findByProductId(@PathVariable Long id) {
+    public List<Item> findByProductId(@PathVariable Long id) {
         return service.findByProductId(id).get();
     }
 }

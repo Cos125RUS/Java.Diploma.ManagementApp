@@ -26,3 +26,6 @@ spring:
 #          uri: http://localhost:/
 #          predicates:
 #            - Path=/auth/**
+
+#  config:
+#    import: configserver:http://localhost:8888

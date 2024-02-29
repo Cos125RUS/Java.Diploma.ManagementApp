@@ -15,6 +15,7 @@
         <module>clients</module>
         <module>storage</module>
         <module>catalog</module>
+        <module>config</module>
     </modules>
 
     <properties>
