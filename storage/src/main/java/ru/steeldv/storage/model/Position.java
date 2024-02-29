@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.steeldv.storage.model.enums.DocType;
 
 import java.util.List;
 
@@ -16,6 +17,13 @@ public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Enumerated
+    @Column(nullable = false, name = "doc_type")
+    private DocType docType; // тип документа (расположение позиции)
+    @Column(nullable = false, name = "document_book_id")
+    private Long documentBookId; // журнал учёта
+    @Column(nullable = false, name = "storage_id")
+    private Long storageId; // журнал учёта
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "item_id")
     @JsonIgnoreProperties("positions")

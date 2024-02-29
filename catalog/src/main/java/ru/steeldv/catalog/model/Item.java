@@ -1,13 +1,11 @@
-package ru.steeldv.storage.model;
+package ru.steeldv.catalog.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.storage.model.enums.UnitType;
-
-import java.util.List;
+import ru.steeldv.catalog.model.enums.UnitType;
 
 @Entity
 @NoArgsConstructor
@@ -31,8 +29,4 @@ public class Item {
     private Double unitPrice; // цена за единицу товара
     @Column(name = "cutting_price")
     private Double cuttingPrise; // Стоимость резки
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item", orphanRemoval = true,
-            fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("item")
-    private List<Position> positions;
 }
