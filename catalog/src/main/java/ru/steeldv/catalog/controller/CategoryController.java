@@ -2,14 +2,14 @@ package ru.steeldv.catalog.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.storage.model.Category;
-import ru.steeldv.storage.service.CategoryService;
+import ru.steeldv.catalog.model.Category;
+import ru.steeldv.catalog.service.CategoryService;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/storage/category")
+@RequestMapping("/catalog/category")
 public class CategoryController {
     private final CategoryService service;
 

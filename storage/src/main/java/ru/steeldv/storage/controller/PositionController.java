@@ -14,9 +14,9 @@ import java.util.List;
 public class PositionController {
     private final PositionService service;
 
-    @GetMapping("/findAll")
-    public List<Position> findAll() {
-        return service.getAllPositions();
+    @GetMapping("/findByItemId/{itemId}")
+    public List<Position> findByItemId(@PathVariable Long itemId) {
+        return service.findByItemId(itemId);
     }
 
     @PostMapping("/addPosition")

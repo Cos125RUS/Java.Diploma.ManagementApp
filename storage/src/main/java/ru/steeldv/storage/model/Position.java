@@ -24,10 +24,8 @@ public class Position {
     private Long documentBookId; // журнал учёта
     @Column(nullable = false, name = "storage_id")
     private Long storageId; // журнал учёта
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "item_id")
-    @JsonIgnoreProperties("positions")
-    private Item item;
+    @Column(nullable = false, name = "item_id")
+    private Long itemId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "position", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("position")

@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.storage.model.Item;
 import ru.steeldv.storage.model.Position;
-import ru.steeldv.storage.repository.ItemRepository;
 import ru.steeldv.storage.repository.PositionRepository;
 import ru.steeldv.storage.service.PositionService;
 
@@ -15,17 +14,14 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PositionServiceImpl implements PositionService {
     private final PositionRepository positionRepository;
-    private final ItemRepository itemRepository;
 
     @Override
-    public List<Position> getAllPositions() {
-        return positionRepository.findAll();
+    public List<Position> findByItemId(Long itemId) {
+        return positionRepository.findByItemId(itemId).get();
     }
 
     @Override
     public Position addPosition(Position position) {
-        Item item = itemRepository.findById(position.getItem().getId()).get();
-        position.setItem(item);
         return positionRepository.save(position);
     }
 

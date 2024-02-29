@@ -2,14 +2,14 @@ package ru.steeldv.catalog.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.storage.model.Product;
-import ru.steeldv.storage.service.ProductService;
+import ru.steeldv.catalog.model.Product;
+import ru.steeldv.catalog.service.ProductService;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/storage/product")
+@RequestMapping("/catalog/product")
 public class ProductController {
     private final ProductService service;
 

@@ -2,11 +2,11 @@ package ru.steeldv.catalog.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.storage.model.Item;
-import ru.steeldv.storage.model.Product;
-import ru.steeldv.storage.repository.ItemRepository;
-import ru.steeldv.storage.repository.ProductRepository;
-import ru.steeldv.storage.service.ItemService;
+import ru.steeldv.catalog.model.Item;
+import ru.steeldv.catalog.model.Product;
+import ru.steeldv.catalog.repository.ItemRepository;
+import ru.steeldv.catalog.repository.ProductRepository;
+import ru.steeldv.catalog.service.ItemService;
 
 import java.util.List;
 import java.util.Optional;

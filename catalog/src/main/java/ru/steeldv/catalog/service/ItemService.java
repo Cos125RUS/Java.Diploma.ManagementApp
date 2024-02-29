@@ -1,6 +1,6 @@
 package ru.steeldv.catalog.service;
 
-import ru.steeldv.storage.model.Item;
+import ru.steeldv.catalog.model.Item;
 
 import java.util.List;
 import java.util.Optional;

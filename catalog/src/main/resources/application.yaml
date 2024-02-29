@@ -8,7 +8,7 @@ spring:
       catalog
 
   datasource:
-    url: jdbc:postgresql://localhost:65432/storage_db
+    url: jdbc:postgresql://localhost:65432/catalog_db
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
