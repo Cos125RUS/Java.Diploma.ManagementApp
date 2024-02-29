@@ -1,14 +1,16 @@
 package ru.steeldv.storage.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.steeldv.storage.model.dto.Position;
 import ru.steeldv.storage.model.enums.UnitType;
 
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Item {
     private Long id;
     private Product product;
