@@ -4,8 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.storage.model.dto.Availability;
 import ru.steeldv.storage.model.dto.Position;
+import ru.steeldv.storage.model.dto.Storage;
 import ru.steeldv.storage.repository.AvailabilityRepository;
 import ru.steeldv.storage.repository.PositionRepository;
+import ru.steeldv.storage.repository.StorageRepository;
 import ru.steeldv.storage.service.AvailabilityService;
 
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.Optional;
 public class AvailabilityServiceImpl implements AvailabilityService {
     private final AvailabilityRepository availabilityRepository;
     private final PositionRepository positionRepository;
+    private final StorageRepository storageRepository;
 
 
     @Override
@@ -32,6 +35,8 @@ public class AvailabilityServiceImpl implements AvailabilityService {
     public Availability addAvailability(Availability availability) {
         Position position = positionRepository.findById(availability.getPosition().getId()).get();
         availability.setPosition(position);
+        Storage storage = storageRepository.findById(availability.getStorage().getId()).get();
+        availability.setStorage(storage);
         return availabilityRepository.save(availability);
     }
 
