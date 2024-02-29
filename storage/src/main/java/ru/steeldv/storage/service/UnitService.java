@@ -12,4 +12,5 @@ public interface UnitService {
     Optional<Unit> findById(Long id);
     Unit update(Unit unit);
     boolean deleteById(Long id);
+    List<Position> findByPositionId(Long id);
 }

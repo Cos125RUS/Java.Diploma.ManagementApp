@@ -11,4 +11,5 @@ public interface ItemService {
     Optional<Item> findById(Long id);
     Item update(Item item);
     boolean deleteById(Long id);
+    Optional<List<Item>> findByProductId(Long id);
 }

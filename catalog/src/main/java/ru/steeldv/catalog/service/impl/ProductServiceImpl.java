@@ -49,4 +49,14 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
         return true;
     }
+
+    @Override
+    public Optional<List<Product>> findByCategoryId(Long id) {
+        return productRepository.findByCategoryId(id);
+    }
+
+    @Override
+    public Optional<List<Product>> findBySubcategoryId(Long id) {
+        return productRepository.findBySubcategoryId(id);
+    }
 }

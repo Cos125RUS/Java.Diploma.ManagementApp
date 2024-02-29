@@ -9,6 +9,7 @@ public interface SubcategoryService {
     List<Subcategory> getAllSubcategories();
     Subcategory addSubcategory(Subcategory subcategory);
     Optional<Subcategory> findById(Long id);
+    Optional<List<Subcategory>> findByCategoryId(Long id);
     Subcategory update(Subcategory subcategory);
     boolean deleteById(Long id);
 }

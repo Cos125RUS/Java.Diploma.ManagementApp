@@ -40,4 +40,9 @@ public class UnitController {
     public Unit findUnit(@PathVariable Long id) {
         return service.findById(id).get();
     }
+
+    @GetMapping("/findByPositionId/{id}")
+    public List<Position> findByPositionId(@PathVariable Long id) {
+        return service.findByPositionId(id);
+    }
 }

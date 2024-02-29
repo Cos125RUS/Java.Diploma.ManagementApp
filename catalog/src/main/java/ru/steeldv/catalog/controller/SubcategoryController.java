@@ -39,4 +39,10 @@ public class SubcategoryController {
     public Subcategory findSubcategory(@PathVariable Long id) {
         return subcategoryService.findById(id).get();
     }
+
+    @GetMapping("/findByCategoryId/{id}")
+    public List<Subcategory> findByCategoryId(@PathVariable Long id) {
+        return subcategoryService.findByCategoryId(id).get();
+    }
+
 }

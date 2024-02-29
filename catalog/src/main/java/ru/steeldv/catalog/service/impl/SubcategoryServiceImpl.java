@@ -35,6 +35,11 @@ public class SubcategoryServiceImpl implements SubcategoryService {
     }
 
     @Override
+    public Optional<List<Subcategory>> findByCategoryId(Long id) {
+        return subcategoryRepository.findByCategoryId(id);
+    }
+
+    @Override
     public Subcategory update(Subcategory subcategory) {
         return subcategoryRepository.save(subcategory);
     }

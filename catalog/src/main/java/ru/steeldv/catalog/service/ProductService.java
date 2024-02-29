@@ -11,4 +11,7 @@ public interface ProductService {
     Optional<Product> findById(Long id);
     Product update(Product product);
     boolean deleteById(Long id);
+    Optional<List<Product>> findByCategoryId(Long id);
+
+    Optional<List<Product>> findBySubcategoryId(Long id);
 }

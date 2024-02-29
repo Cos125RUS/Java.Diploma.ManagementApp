@@ -3,6 +3,7 @@ package ru.steeldv.catalog.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.catalog.model.Product;
+import ru.steeldv.catalog.model.Subcategory;
 import ru.steeldv.catalog.service.ProductService;
 
 import java.util.List;
@@ -38,5 +39,15 @@ public class ProductController {
     @GetMapping("/findProduct/{id}")
     public Product findProduct(@PathVariable Long id) {
         return service.findById(id).get();
+    }
+
+    @GetMapping("/findByCategoryId/{id}")
+    public List<Product> findByCategoryId(@PathVariable Long id) {
+        return service.findByCategoryId(id).get();
+    }
+
+    @GetMapping("/findBySubcategoryId/{id}")
+    public List<Product> findBySubcategoryId(@PathVariable Long id) {
+        return service.findBySubcategoryId(id).get();
     }
 }

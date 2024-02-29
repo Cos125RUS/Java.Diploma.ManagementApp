@@ -45,4 +45,9 @@ public class UnitServiceImpl implements UnitService {
         unitRepository.deleteById(id);
         return true;
     }
+
+    @Override
+    public List<Position> findByPositionId(Long id) {
+        return unitRepository.findByPositionId(id).get();
+    }
 }

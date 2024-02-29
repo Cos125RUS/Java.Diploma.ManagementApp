@@ -40,4 +40,5 @@ public class PositionController {
     public Position findPosition(@PathVariable Long id) {
         return service.findById(id).get();
     }
+
 }
