@@ -6,17 +6,11 @@ spring:
   application:
     name:
       storage
-
-  datasource:
-    url: jdbc:postgresql://localhost:54323/storage_db
-    username: user
-    password: password
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      fail-fast: true
 
 
 #management:

@@ -8,7 +8,7 @@ spring:
   cloud:
     config:
       server:
-#        git:
-#          uri: https://github.com/Evgen986/shop-config.git
-#          basedir: file://c:/tmp/shop
-#          default-label: main
+        git:
+          uri: https://github.com/Cos125RUS/Manager.Config
+          default-label: main
+          search-paths: "{application}"

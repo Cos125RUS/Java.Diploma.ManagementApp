@@ -6,26 +6,9 @@ spring:
   application:
     name:
       catalog
-
-  datasource:
-    url: jdbc:postgresql://localhost:65432/catalog_db
-    username: user
-    password: password
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
-
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#  metrics:
-#    export:
-#      prometheus:
-#        enable: true
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      fail-fast: true
 

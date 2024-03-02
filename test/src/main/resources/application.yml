@@ -1,11 +1,9 @@
 server:
-  port:
-    8765
+  port: 8088
 
 spring:
   application:
-    name:
-      gateway
+    name: test
   config:
     import: optional:configserver:http://localhost:8888
   cloud:

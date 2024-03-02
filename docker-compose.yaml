@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  clients:
+    image: postgres:16.2-alpine
+    container_name: clientsdb
+    environment:
+      - POSTGRES_DB=clients_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./.containers/databases/clients:/var/lib/postgresql
+    ports:
+      - 54321:5432
+  catalog:
+    image: postgres:16.2-alpine
+    container_name: catalogdb
+    environment:
+      - POSTGRES_DB=catalog_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./.containers/databases/catalog:/var/lib/postgresql
+    ports:
+      - 54322:5432
+  storage:
+    image: postgres:16.2-alpine
+    container_name: storagedb
+    environment:
+      - POSTGRES_DB=storage_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./.containers/databases/storage:/var/lib/postgresql
+    ports:
+      - 54323:5432
