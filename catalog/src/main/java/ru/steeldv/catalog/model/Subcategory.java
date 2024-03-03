@@ -26,4 +26,9 @@ public class Subcategory {
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = {"subcategory", "category"})
     private List<Product> products;
+
+    public Subcategory(String name, Category category) {
+        this.name = name;
+        this.category = category;
+    }
 }

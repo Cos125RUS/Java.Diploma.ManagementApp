@@ -30,4 +30,10 @@ public class Product {
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("product")
     private List<Item> items;
+
+    public Product(String name, Category category, Subcategory subcategory) {
+        this.name = name;
+        this.category = category;
+        this.subcategory = subcategory;
+    }
 }

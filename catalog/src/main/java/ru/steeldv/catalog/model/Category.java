@@ -23,4 +23,7 @@ public class Category {
     @JsonIgnoreProperties("category")
     private List<Subcategory> subcategories;
 
+    public Category(String name) {
+        this.name = name;
+    }
 }
