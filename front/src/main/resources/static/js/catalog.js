@@ -7,6 +7,11 @@
 // }, 1000)
 
 let categories = null;
+const units = {
+    kilogram: "кг", 
+    ton: "т", 
+    unit: "шт"
+};
 window.addEventListener('load', function (e) {
     const url = "/api/catalog/category/findAll";
     const req = new XMLHttpRequest();
@@ -32,19 +37,21 @@ const createUl = (parentElement, list) => {
 const createLi = (element) => {
     const liElement = document.createElement('li');
     const pName = document.createElement('p');
-    pName.textContent = element.name;
     liElement.appendChild(pName);
-    Array.from(Object.values(element)).forEach(values => {
-        if (Array.isArray(values)) {
-            createUl(liElement, values);
-        }
-    });
+    if (Object.keys(element).indexOf('name') !== -1) {
+        pName.textContent = element.name;
+        Array.from(Object.values(element)).forEach(values => {
+            if (Array.isArray(values)) {
+                createUl(liElement, values);
+            }
+        });
+    } else if (Object.keys(element).indexOf('print') !== -1) {
+        pName.textContent = element.print + ' | ' + element.weight + ' | ' + element.unitPrice + 'р/' + units[element.baseUnitType];
+    }
     return liElement;
 };
 
 const catalogFilling = () => {
-    console.log(categories);
-
     const contentDiv = document.querySelector('.content');
     createUl(contentDiv, categories);
 };
