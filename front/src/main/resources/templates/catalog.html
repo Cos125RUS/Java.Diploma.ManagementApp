@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
@@ -20,18 +22,75 @@
         </header>
         <main class="main">
             <h1 class="main__title">Catalog</h1>
-            <div class="main__content">
-                <table class="catalog-table">
+            <div class="content">
+                <!-- <table class="catalog-table">
                     <thead></thead>
                     <tbody class="catalog-table__body">
                         <tr class="catalog-table__row" th:each="category: ${categories}">
                             <td th:text="${category.name}"></td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
+                <!-- <ul class="content__category">
+                    <li>
+                        <p>Труба</p>
+                        <ul class="content__subcategory" id="1">
+                            <li>
+                                <p>Профильная</p>
+                                <ul class="content__product" id="1.1">
+                                    <li>
+                                        <p>40x40</p>
+                                        <ul class="content__item 1 1" id="1">
+                                            <li>Труба проф.40х40х2 - 6,0м</li>
+                                        </ul>
+                                    </li>
+                                    <li>100x100</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>ВГП</p>
+                                <ul class="content__product" id="1.2">
+                                    <li>89x3,5</li>
+                                    <li>100x100</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Лист</p>
+                        <ul class="content__subcategory" id="2">
+                            <li>
+                                <p>Горячекатанный</p>
+                                <ul class="content__product" id="2.1">
+                                    <li>4мм</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Холоднокатаный</p>
+                                <ul class="content__product" id="2.2">
+                                    <li>1мм</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Арматура</p>
+                        <ul class="content__subcategory" id="3">
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Балка</p>
+                        <ul class="content__subcategory" id="4">
+                        </ul>
+                    </li>
+                </ul> -->
             </div>
         </main>
         <footer class="footer"></footer>
     </div>
+
+    <script type="text/javascript" th:src="@{/js/catalog.js}"></script>
+    <!--    <script th:inline="javascript" class="categories-data" th:data-categories="${categories}"></script>-->
 </body>
+
 </html>
