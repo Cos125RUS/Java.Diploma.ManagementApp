@@ -4,11 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.steeldv.front.service.CatalogService;
 
 @Controller
 @RequiredArgsConstructor
-public class MainController {
-
+public class PageController {
+    private final CatalogService catalogService;
 
     @GetMapping
     public String index(Model model) {
@@ -17,6 +18,7 @@ public class MainController {
 
     @GetMapping("/catalog")
     public String catalog(Model model) {
+        model.addAttribute("categories", catalogService.findAllCategories());
         return "catalog";
     }
 }

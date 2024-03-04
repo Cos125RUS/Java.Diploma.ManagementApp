@@ -20,7 +20,16 @@
         </header>
         <main class="main">
             <h1 class="main__title">Catalog</h1>
-            
+            <div class="main__content">
+                <table class="catalog-table">
+                    <thead></thead>
+                    <tbody class="catalog-table__body">
+                        <tr class="catalog-table__row" th:each="category: ${categories}">
+                            <td th:text="${category.name}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </main>
         <footer class="footer"></footer>
     </div>
