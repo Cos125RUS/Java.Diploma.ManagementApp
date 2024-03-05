@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
+    <title>Страница каталога товаров</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
 </head>
 
@@ -13,15 +13,26 @@
         <header class="header">
             <nav class="header__nav">
                 <div class="index__box">
-                    <a th:href="@{/}" href="index.html" class="catalog__link">Index</a>
+                    <a th:href="@{/}" href="index.html" class="catalog__link">Главная</a>
                 </div>
                 <div class="catalog__box">
-                    <a th:href="@{/catalog}" href="catalog.html" class="catalog__link">Catalog</a>
+                    <a th:href="@{/catalog}" href="catalog.html" class="catalog__link">Каталог</a>
                 </div>
             </nav>
         </header>
         <main class="main">
-            <h1 class="main__title">Catalog</h1>
+            <h1 class="main__title">Каталог</h1>
+            <div class="user-interface">
+                <div class="user-interface__top">
+                    <button type="submit">Добавить</button>
+                    <button type="submit">Удалить</button>
+                    <input type="text" name="" id="">
+                </div>
+                <div class="user-interface__add-field hidden">
+                    <input type="text" name="" id="">
+                </div>
+                <div class="user-interface__current-element"></div>
+            </div>
             <div class="content"></div>
         </main>
         <footer class="footer"></footer>

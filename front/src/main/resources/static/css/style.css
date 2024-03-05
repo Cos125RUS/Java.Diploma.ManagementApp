@@ -9,4 +9,8 @@
 
 .hidden {
   display: none;
+}
+
+ul {
+  list-style-type: none;
 }/*# sourceMappingURL=style.css.map */
