@@ -31,6 +31,18 @@ const createUl = (parentElement, list, className, hidden) => {
     const ulElement = document.createElement('ul');
     parentElement.appendChild(ulElement);
     ulElement.classList.add(className);
+    ulElement.addEventListener('click', function (e) {
+        e.stopPropagation();
+        try {
+            if (e.target.nextElementSibling.classList.contains('hidden')) {
+                e.target.nextElementSibling.classList.remove('hidden');
+            } else {
+                e.target.nextElementSibling.classList.add('hidden');
+            }
+        } catch (error) {
+            console.log(error);            
+        }
+    });
     if (hidden) {
         ulElement.classList.add(hidden);
     }
