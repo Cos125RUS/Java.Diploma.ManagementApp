@@ -7,3 +7,20 @@
 .hidden {
     display: none;
 }
+
+.li-elements-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.li-buttons {
+    max-height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.position:hover {
+    cursor: pointer;
+}
