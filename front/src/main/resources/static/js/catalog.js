@@ -47,7 +47,6 @@ const currentElement = {
 
 const catalogAddButton = document.querySelector('button.add-category-button');
 catalogAddButton.addEventListener('click', function (e) {
-
     showAddInterface('catalog');
 });
 
@@ -146,34 +145,93 @@ const showAddInterface = (className, id) => {
     switch (className) {
         case 'catalog':
             console.log('catalog');
-            addForm.appendChild(createInputField('Категория:'));
+            addForm.appendChild(createInputField('Категория:', 'category-input'));
             break;
         case 'category':
             console.log('category', id);
-            addForm.appendChild(createInputField('Подкатегория:'));
+            addForm.appendChild(createInputField('Подкатегория:', 'subcategory-input'));
             break;
         case 'subcategories':
             console.log('subcategory', id);
-            addForm.appendChild(createInputField('Позиция:'));
+            addForm.appendChild(createInputField('Позиция:', 'product-input'));
             break;
         case 'products':
             console.log('product', id);
-            addForm.appendChild(createInputField('Отображение:'));
-            // TODO: add all fields item
+            addForm.appendChild(createInputField('Отображение:','print-input'));
+            addForm.appendChild(createInputField('Толщина:', 'thickness-input'));
+            addForm.appendChild(createInputField('Габариты:', 'size-input'));
+            addForm.appendChild(createInputField('Вес:', 'weight-input'));
+            addForm.appendChild(createUnitTypeSection());
+            addForm.appendChild(createInputField('Цена:', 'price-input'));
+            addForm.appendChild(createInputField('Стоимость резки:', 'cutting-input'));
             break;
     }
     const addButton = document.createElement('button');
     addButton.innerHTML = 'Добавить';
+    addButton.type = 'submit';
     addForm.appendChild(addButton);
+    addButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        addSubmit(addForm, className, id);
+    });
     // TODO: Add POST request
 };
 
-const createInputField = (title) => {
+const createInputField = (title, className) => {
     const labelName = document.createElement('label');
     const inputEl = document.createElement('input');
+    inputEl.classList.add(className);
     labelName.innerHTML = title;
     labelName.appendChild(inputEl);
     return labelName;
+};
+
+const createUnitTypeSection = () => {
+    const unitTypeSelectEl = document.createElement('select');
+    unitTypeSelectEl.classList.add('unit-type-select');
+    unitTypeSelectEl.appendChild(createOption('kilogram', 'кг'));
+    unitTypeSelectEl.appendChild(createOption('ton', 'т'));
+    unitTypeSelectEl.appendChild(createOption('unit', 'шт'));
+    return unitTypeSelectEl;
+};
+
+const createOption = (value, text) => {
+    const optionEl = document.createElement('option');
+    optionEl.value = value;
+    optionEl.innerHTML = text;
+    return optionEl;
+};
+
+const addSubmit = (formEl, className, id) => {
+    switch (className) {
+        case 'catalog':
+            const value = fieldCheck(formEl, '.category-input');
+            if (value) {
+                console.log(value);
+                
+            }
+            break;
+        case 'category':
+            
+            break;
+        case 'subcategories':
+            
+            break;
+        case 'products':
+        
+            break;
+    }
+};
+
+const fieldCheck = (formEl, className) => {
+    const inputEl = formEl.querySelector(className);
+    if (inputEl.value === "") {
+        inputEl.classList.add('error');
+        return false;
+    } else {
+        inputEl.classList.remove('error');
+        return inputEl.value;
+    }
 };
 
 const catalogFilling = () => {
