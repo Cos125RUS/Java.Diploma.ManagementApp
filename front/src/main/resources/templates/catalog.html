@@ -10,16 +10,7 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <nav class="header__nav">
-                <div class="index__box">
-                    <a th:href="@{/}" href="index.html" class="catalog__link">Главная</a>
-                </div>
-                <div class="catalog__box">
-                    <a th:href="@{/catalog}" href="catalog.html" class="catalog__link">Каталог</a>
-                </div>
-            </nav>
-        </header>
+        <header th:replace="~{page-templates :: header}"></header>
         <main class="main">
             <h1 class="main__title">Каталог</h1>
             <div class="user-interface">
