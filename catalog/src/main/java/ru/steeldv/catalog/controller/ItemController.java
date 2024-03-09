@@ -1,6 +1,8 @@
 package ru.steeldv.catalog.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.catalog.model.Item;
 import ru.steeldv.catalog.model.Product;
@@ -15,34 +17,34 @@ public class ItemController {
     private final ItemService service;
 
     @GetMapping("/findAll")
-    public List<Item> findAll() {
-        return service.getAllItems();
+    public ResponseEntity<List<Item>> findAll() {
+        return new ResponseEntity<>(service.getAllItems(), HttpStatus.OK);
     }
 
     @PostMapping("/addItem")
-    public Item addItem(@RequestBody Item item) {
-        return service.addItem(item);
+    public ResponseEntity<Item> addItem(@RequestBody Item item) {
+        return new ResponseEntity<>(service.addItem(item), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public Item update(@RequestBody Item item, @PathVariable Long id) {
+    public ResponseEntity<Item> update(@RequestBody Item item, @PathVariable Long id) {
         Item oldItem = service.findById(id).get();
         item.setId(oldItem.getId());
-        return service.update(item);
+        return new ResponseEntity<>(service.update(item), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Long id) {
-        return service.deleteById(id);
+    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
+        return new ResponseEntity<>(service.deleteById(id), HttpStatus.OK);
     }
 
     @GetMapping("/findItem/{id}")
-    public Item findItem(@PathVariable Long id) {
-        return service.findById(id).get();
+    public ResponseEntity<Item> findItem(@PathVariable Long id) {
+        return new ResponseEntity<>(service.findById(id).get(), HttpStatus.OK);
     }
 
     @GetMapping("/findByProductId/{id}")
-    public List<Item> findByProductId(@PathVariable Long id) {
-        return service.findByProductId(id).get();
+    public ResponseEntity<List<Item>> findByProductId(@PathVariable Long id) {
+        return new ResponseEntity<>(service.findByProductId(id).get(), HttpStatus.OK);
     }
 }

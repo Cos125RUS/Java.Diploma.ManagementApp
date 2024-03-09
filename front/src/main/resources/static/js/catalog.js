@@ -144,20 +144,16 @@ const showAddInterface = (className, id) => {
     Array.from(addForm.children).forEach(el => el.remove());
     switch (className) {
         case 'catalog':
-            console.log('catalog');
             addForm.appendChild(createInputField('Категория:', 'category-input'));
             break;
         case 'category':
-            console.log('category', id);
             addForm.appendChild(createInputField('Подкатегория:', 'subcategory-input'));
             break;
         case 'subcategories':
-            console.log('subcategory', id);
             addForm.appendChild(createInputField('Позиция:', 'product-input'));
             break;
         case 'products':
-            console.log('product', id);
-            addForm.appendChild(createInputField('Отображение:','print-input'));
+            addForm.appendChild(createInputField('Отображение:', 'print-input'));
             addForm.appendChild(createInputField('Толщина:', 'thickness-input'));
             addForm.appendChild(createInputField('Габариты:', 'size-input'));
             addForm.appendChild(createInputField('Вес:', 'weight-input'));
@@ -203,22 +199,65 @@ const createOption = (value, text) => {
 };
 
 const addSubmit = (formEl, className, id) => {
+    let value = null;
     switch (className) {
         case 'catalog':
-            const value = fieldCheck(formEl, '.category-input');
+            value = fieldCheck(formEl, '.category-input');
             if (value) {
-                console.log(value);
-                
+                postRequest({ "name": value }, className);
             }
             break;
         case 'category':
-            
+            value = fieldCheck(formEl, '.subcategory-input');
+            if (value) {
+                const subcategory = {
+                    "name": value,
+                    "category": {
+                        "id": id
+                    }
+                };
+                postRequest(subcategory, className);
+            }
             break;
         case 'subcategories':
-            
+            value = fieldCheck(formEl, '.product-input');
+            if (value) {
+                const content = document.querySelector('div.container>main.main>div.content>ul.category');
+                const positions = content.querySelectorAll('p.position');
+                const subcategoryEl = Array.from(positions).filter(el => el.dataset.id == id && el.dataset.catalogType == 'subcategories')[0];
+                const categoryEl = subcategoryEl.parentElement.parentElement.parentElement.previousElementSibling.firstChild;
+                const catalogId = categoryEl.dataset.id;
+                const product = {
+                    "name": value,
+                    "category": {
+                        "id": catalogId
+                    },
+                    "subcategory": {
+                        "id": id
+                    }
+                };
+                postRequest(product, className);
+            }
             break;
         case 'products':
-        
+            const print = fieldCheck(formEl, '.print-input');
+            const unitType = fieldCheck(formEl, '.unit-type-select');
+            const price = fieldCheck(formEl, '.price-input');
+            if (print && unitType && price) {
+                const item = {
+                    "product": {
+                        "id": id
+                    },
+                    "print": print,
+                    "thickness": fieldCheck(formEl, '.thickness-input'),
+                    "size": fieldCheck(formEl, '.size-input'),
+                    "weight": fieldCheck(formEl, '.weight-input'),
+                    "baseUnitType": unitType,
+                    "unitPrice": price,
+                    "cutting": fieldCheck(formEl, '.cutting-input')
+                }
+                postRequest(item, className);
+            }
             break;
     }
 };
@@ -231,6 +270,38 @@ const fieldCheck = (formEl, className) => {
     } else {
         inputEl.classList.remove('error');
         return inputEl.value;
+    }
+};
+
+const postRequest = (data, className) => {
+    if (data) {
+        let url = null;
+        switch (className) {
+            case 'catalog':
+                url = 'http://localhost:8765/catalog/category/addCategory';
+                break;
+            case 'category':
+                url = 'http://localhost:8765/catalog/subcategory/addSubcategory';
+                break;
+            case 'subcategories':
+                url = 'http://localhost:8765/catalog/product/addProduct';
+                break;
+            case 'products':
+                url = 'http://localhost:8765/catalog/item/addItem';
+                break;
+        }
+        console.log(url, data);
+        const req = new XMLHttpRequest();
+        req.open("POST", url);
+        req.send(data);
+        req.onreadystatechange = (e) => {
+            try {
+                response = JSON.parse(req.responseText);
+                console.log(response);
+            } catch (error) {
+                console.log(error);
+            }
+        }
     }
 };
 
