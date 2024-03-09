@@ -3,14 +3,6 @@
   gap: 20px;
 }
 
-.main__title {
-  text-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
 .li-elements-block {
   display: flex;
   align-items: center;
@@ -28,10 +20,18 @@
   cursor: pointer;
 }
 
-.error {
-  border: 2px solid red;
-}
-
 ul {
   list-style-type: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.main__title {
+  text-align: center;
+}
+
+.error {
+  border: 2px solid red;
 }/*# sourceMappingURL=style.css.map */

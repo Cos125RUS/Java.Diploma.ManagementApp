@@ -21,4 +21,9 @@ public class PageController {
         model.addAttribute("categories", catalogService.findAllCategories());
         return "catalog";
     }
+
+    @GetMapping("/clients")
+    public String clients(Model model) {
+        return "clients";
+    }
 }

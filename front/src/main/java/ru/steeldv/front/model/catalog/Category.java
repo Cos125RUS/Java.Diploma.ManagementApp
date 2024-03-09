@@ -1,4 +1,4 @@
-package ru.steeldv.front.model;
+package ru.steeldv.front.model.catalog;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +9,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Product {
+public class Category {
     private Long id;
     private String name;
-    private Category category;
-    private Subcategory subcategory;
-    private List<Item> items;
+    private List<Subcategory> subcategories;
+
 }

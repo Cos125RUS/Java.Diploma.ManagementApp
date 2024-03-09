@@ -2,12 +2,11 @@ package ru.steeldv.front.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 import ru.steeldv.front.client.CatalogClientApi;
-import ru.steeldv.front.model.Category;
-import ru.steeldv.front.model.Item;
-import ru.steeldv.front.model.Product;
-import ru.steeldv.front.model.Subcategory;
+import ru.steeldv.front.model.catalog.Category;
+import ru.steeldv.front.model.catalog.Item;
+import ru.steeldv.front.model.catalog.Product;
+import ru.steeldv.front.model.catalog.Subcategory;
 
 import java.util.List;
 

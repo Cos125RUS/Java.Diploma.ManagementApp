@@ -1,11 +1,9 @@
-package ru.steeldv.front.model;
+package ru.steeldv.front.model.catalog;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.front.model.enums.UnitType;
-
-import java.util.List;
+import ru.steeldv.front.model.catalog.enums.UnitType;
 
 @NoArgsConstructor
 @AllArgsConstructor

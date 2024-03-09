@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.front.model.Category;
-import ru.steeldv.front.model.Item;
-import ru.steeldv.front.model.Product;
-import ru.steeldv.front.model.Subcategory;
+import ru.steeldv.front.model.catalog.Category;
+import ru.steeldv.front.model.catalog.Item;
+import ru.steeldv.front.model.catalog.Product;
+import ru.steeldv.front.model.catalog.Subcategory;
 import ru.steeldv.front.service.CatalogService;
 
 import java.util.List;

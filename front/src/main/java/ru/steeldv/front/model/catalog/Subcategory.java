@@ -1,4 +1,4 @@
-package ru.steeldv.front.model;
+package ru.steeldv.front.model.catalog;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

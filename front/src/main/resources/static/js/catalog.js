@@ -12,7 +12,12 @@
 const units = {
     kilogram: "кг",
     ton: "т",
-    unit: "шт"
+    unit: "шт",
+    coil: "бухты",
+    roll: "рулоны",
+    meter: "метры",
+    m2: "кв.метры",
+    m3: "кубометры"
 };
 
 const postUrl = {
@@ -87,7 +92,6 @@ const createUl = (parentElement, list, className, hidden) => {
     const ulElement = document.createElement('ul');
     parentElement.appendChild(ulElement);
     ulElement.classList.add(className);
-    let liElement = null;
     list.forEach(element => {
         ulElement.appendChild(createLi(element, className));
     });

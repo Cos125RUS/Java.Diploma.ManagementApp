@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страница каталога товаров</title>
+    <title>Страница контрагентов</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
 </head>
 
@@ -12,10 +12,10 @@
     <div class="container">
         <header th:replace="~{page-templates :: header}"></header>
         <main class="main">
-            <h1 class="main__title">Каталог</h1>
+            <h1 class="main__title">Контрагенты</h1>
             <div class="user-interface">
                 <div class="user-interface__top">
-                    <button type="submit" class="add-category-button">Создать категорию</button>
+                    <button type="submit" class="add-client-button">Создать контрагента</button>
                 </div>
                 <div class="user-interface__add-field hidden">
                     <form action="#" method="post" class="add-form"></form>
@@ -26,8 +26,7 @@
         <footer class="footer"></footer>
     </div>
 
-    <script type="text/javascript" th:src="@{/js/catalog.js}"></script>
-    <!--    <script th:inline="javascript" class="categories-data" th:data-categories="${categories}"></script>-->
+    <script type="text/javascript" th:src="@{/js/clients.js}"></script>
 </body>
 
 </html>
