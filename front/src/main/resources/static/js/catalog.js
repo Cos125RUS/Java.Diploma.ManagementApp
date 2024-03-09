@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
     const url = "/api/catalog/category/findAll";
     const req = new XMLHttpRequest();
     req.open("GET", url);
-    req.send(null);
+    req.send();
     req.onreadystatechange = (e) => {
         try {
             categories = JSON.parse(req.responseText);
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 });
 
 const createUl = (parentElement, list, className, hidden) => {
@@ -249,12 +249,12 @@ const addSubmit = (formEl, className, id) => {
                         "id": id
                     },
                     "print": print,
-                    "thickness": fieldCheck(formEl, '.thickness-input'),
+                    "thickness": Number(fieldCheck(formEl, '.thickness-input')),
                     "size": fieldCheck(formEl, '.size-input'),
-                    "weight": fieldCheck(formEl, '.weight-input'),
+                    "weight": Number(fieldCheck(formEl, '.weight-input')),
                     "baseUnitType": unitType,
-                    "unitPrice": price,
-                    "cutting": fieldCheck(formEl, '.cutting-input')
+                    "unitPrice": Number(price),
+                    "cuttingPrise": Number(fieldCheck(formEl, '.cutting-input'))
                 }
                 postRequest(item, className);
             }
@@ -278,30 +278,30 @@ const postRequest = (data, className) => {
         let url = null;
         switch (className) {
             case 'catalog':
-                url = 'http://localhost:8765/catalog/category/addCategory';
+                url = '/api/catalog/category/addCategory';
                 break;
             case 'category':
-                url = 'http://localhost:8765/catalog/subcategory/addSubcategory';
+                url = '/api/catalog/subcategory/addSubcategory';
                 break;
             case 'subcategories':
-                url = 'http://localhost:8765/catalog/product/addProduct';
+                url = '/api/catalog/product/addProduct';
                 break;
             case 'products':
-                url = 'http://localhost:8765/catalog/item/addItem';
+                url = '/api/catalog/item/addItem';
                 break;
         }
-        console.log(url, data);
-        const req = new XMLHttpRequest();
-        req.open("POST", url);
-        req.send(data);
-        req.onreadystatechange = (e) => {
-            try {
-                response = JSON.parse(req.responseText);
-                console.log(response);
-            } catch (error) {
-                console.log(error);
-            }
-        }
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json;charset=UTF-8"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                }
+            });
     }
 };
 
