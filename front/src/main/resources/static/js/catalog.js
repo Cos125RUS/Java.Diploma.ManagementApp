@@ -15,6 +15,20 @@ const units = {
     unit: "шт"
 };
 
+const postUrl = {
+    catalog: '/api/catalog/category/addCategory',
+    category: '/api/catalog/subcategory/addSubcategory',
+    subcategories: '/api/catalog/product/addProduct',
+    products: '/api/catalog/item/addItem'
+};
+
+const delUrl = {
+    category: '/api/catalog/category/delete/',
+    subcategories: '/api/catalog/subcategory/delete/',
+    products: '/api/catalog/product/delete/',
+    items: '/api/catalog/item/delete/'
+};
+
 const currentElement = {
     category: {
         name: null,
@@ -104,8 +118,7 @@ const createLi = (element, className) => {
     delButton.classList.add('li-buttons');
     divLi.appendChild(delButton);
     delButton.addEventListener('click', function (e) {
-        console.log(className, element.id);
-        // TODO: Add DELETE request
+        deleteRequest(className, element.id);
     });
     if (Object.keys(element).indexOf('name') !== -1) {
         pName.textContent = element.name;
@@ -170,7 +183,6 @@ const showAddInterface = (className, id) => {
         e.preventDefault();
         addSubmit(addForm, className, id);
     });
-    // TODO: Add POST request
 };
 
 const createInputField = (title, className) => {
@@ -275,35 +287,31 @@ const fieldCheck = (formEl, className) => {
 
 const postRequest = (data, className) => {
     if (data) {
-        let url = null;
-        switch (className) {
-            case 'catalog':
-                url = '/api/catalog/category/addCategory';
-                break;
-            case 'category':
-                url = '/api/catalog/subcategory/addSubcategory';
-                break;
-            case 'subcategories':
-                url = '/api/catalog/product/addProduct';
-                break;
-            case 'products':
-                url = '/api/catalog/item/addItem';
-                break;
-        }
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json;charset=UTF-8"
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => {
-                if (response.ok) {
-                    window.location.reload();
-                }
-            });
+        let url = postUrl[className];
+        let body = JSON.stringify(data);
+        doRequest(url, "POST", body);
     }
 };
+
+const deleteRequest = (className, id) => {
+    const url = `${delUrl[className]} + ${id}`;
+    doRequest(url, "DELETE");
+};
+
+const doRequest = (url, method, body) => {
+    fetch(url, {
+        method: method,
+        headers: {
+            "Content-type": "application/json;charset=UTF-8"
+        },
+        body: body
+    })
+        .then(response => {
+            if (response.ok) {
+                window.location.reload();
+            }
+        });
+}
 
 const catalogFilling = () => {
     const contentDiv = document.querySelector('.content');

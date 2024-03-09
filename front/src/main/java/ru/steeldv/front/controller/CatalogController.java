@@ -28,9 +28,19 @@ public class CatalogController {
         return new ResponseEntity<>(catalogService.addCategory(category), HttpStatus.OK);
     }
 
+    @DeleteMapping("/category/delete/{id}")
+    public ResponseEntity<Boolean> deleteCategory(@PathVariable Long id) {
+        return new ResponseEntity<>(catalogService.deleteCategory(id), HttpStatus.OK);
+    }
+
     @PostMapping("/subcategory/addSubcategory")
     public ResponseEntity<Subcategory> addSubcategory(@RequestBody Subcategory subcategory) {
         return new ResponseEntity<>(catalogService.addSubcategory(subcategory), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/subcategory/delete/{id}")
+    public ResponseEntity<Boolean> deleteSubcategory(@PathVariable Long id) {
+        return new ResponseEntity<>(catalogService.deleteSubcategory(id), HttpStatus.OK);
     }
 
     @PostMapping("/product/addProduct")
@@ -38,8 +48,18 @@ public class CatalogController {
         return new ResponseEntity<>(catalogService.addProduct(product), HttpStatus.OK);
     }
 
+    @DeleteMapping("/product/delete/{id}")
+    public ResponseEntity<Boolean> deleteProduct(@PathVariable Long id) {
+        return new ResponseEntity<>(catalogService.deleteProduct(id), HttpStatus.OK);
+    }
+
     @PostMapping("/item/addItem")
     public ResponseEntity<Item> addItem(@RequestBody Item item) {
         return new ResponseEntity<>(catalogService.addItem(item), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/item/delete/{id}")
+    public ResponseEntity<Boolean> deleteItem(@PathVariable Long id) {
+        return new ResponseEntity<>(catalogService.deleteItem(id), HttpStatus.OK);
     }
 }
