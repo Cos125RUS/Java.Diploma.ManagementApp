@@ -3,6 +3,22 @@
   gap: 20px;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.main__title {
+  text-align: center;
+}
+
+.error {
+  border: 2px solid red;
+}
+
 .li-elements-block {
   display: flex;
   align-items: center;
@@ -18,20 +34,4 @@
 
 .position:hover {
   cursor: pointer;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.hidden {
-  display: none;
-}
-
-.main__title {
-  text-align: center;
-}
-
-.error {
-  border: 2px solid red;
 }/*# sourceMappingURL=style.css.map */

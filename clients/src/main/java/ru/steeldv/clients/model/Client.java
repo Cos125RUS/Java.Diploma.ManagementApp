@@ -35,10 +35,10 @@ public class Client {
     private String address;
     private String phone;
     private String email;
-    /**
-     * ID менеджера
-     */
-    private Long manager;
+//    /**
+//     * ID менеджера
+//     */
+//    private Long manager;
 
     public Client(String name, OrganizationType type) {
         this.name = name;

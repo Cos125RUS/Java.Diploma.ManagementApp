@@ -21,7 +21,20 @@
                     <form action="#" method="post" class="add-form"></form>
                 </div>
             </div>
-            <div class="content"></div>
+            <div class="content">
+                <table class="clients-table">
+                    <tr class="clients-table__row" th:id="${client.id}" th:each="client: ${clients}">
+                        <td class="clients-id" th:id="${client.id}" th:text="${client.id}"></td>
+                        <td class="clients-type" th:id="${client.type}" th:text="${client.type}"></td>
+                        <td class="clients-name" th:id="${client.name}" th:text="${client.name}"></td>
+                        <td class="clients-address" th:id="${client.address}" th:text="${client.address}"></td>
+                        <td class="clients-email" th:id="${client.email}" th:text="${client.email}"></td>
+                        <td class="clients-phone" th:id="${client.phone}" th:text="${client.phone}"></td>
+                        <td class="clients-itn" th:id="${client.itn}" th:text="${client.itn}"></td>
+                        <td class="clients-cor" th:id="${client.cor}" th:text="${client.cor}"></td>
+                    </tr>
+                </table>
+            </div>
         </main>
         <footer class="footer"></footer>
     </div>

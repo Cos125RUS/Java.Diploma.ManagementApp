@@ -1,5 +1,12 @@
 let clients = null;
 
+const clientType = {
+    ie: "ИП",
+    llc: "ООО",
+    jsc: "ОАО",
+    pp: "частное лицо"
+}
+
 document.addEventListener('DOMContentLoaded', function (e) {
     const url = "/api/clients/findAll";
     const req = new XMLHttpRequest();
