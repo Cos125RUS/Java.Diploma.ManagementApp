@@ -24,14 +24,14 @@
             <div class="content">
                 <table class="clients-table">
                     <tr class="clients-table__row" th:id="${client.id}" th:each="client: ${clients}">
-                        <td class="clients-id" th:id="${client.id}" th:text="${client.id}"></td>
-                        <td class="clients-type" th:id="${client.type}" th:text="${client.type}"></td>
-                        <td class="clients-name" th:id="${client.name}" th:text="${client.name}"></td>
-                        <td class="clients-address" th:id="${client.address}" th:text="${client.address}"></td>
-                        <td class="clients-email" th:id="${client.email}" th:text="${client.email}"></td>
-                        <td class="clients-phone" th:id="${client.phone}" th:text="${client.phone}"></td>
-                        <td class="clients-itn" th:id="${client.itn}" th:text="${client.itn}"></td>
-                        <td class="clients-cor" th:id="${client.cor}" th:text="${client.cor}"></td>
+                        <td class="clients-id" th:id="${client.id}" th:text="${client.id}">1</td>
+                        <td class="clients-type" th:id="${client.type}" th:text="${client.type}">ie</td>
+                        <td class="clients-name" th:id="${client.name}" th:text="${client.name}">Рога и копыта</td>
+                        <td class="clients-address" th:id="${client.address}" th:text="${client.address}">ул.Сельская, амбар №5</td>
+                        <td class="clients-email" th:id="${client.email}" th:text="${client.email}">horns_and_hooves@mail.ru</td>
+                        <td class="clients-phone" th:id="${client.phone}" th:text="${client.phone}">+79535462678</td>
+                        <td class="clients-itn" th:id="${client.itn}" th:text="${client.itn}">250123456789</td>
+                        <td class="clients-cor" th:id="${client.cor}" th:text="${client.cor}">null</td>
                     </tr>
                 </table>
             </div>
@@ -39,7 +39,7 @@
         <footer class="footer"></footer>
     </div>
 
-    <script type="text/javascript" th:src="@{/js/clients.js}"></script>
+    <script type="text/javascript" th:src="@{/js/clients.js}" src="../static/js/clients.js"></script>
 </body>
 
 </html>

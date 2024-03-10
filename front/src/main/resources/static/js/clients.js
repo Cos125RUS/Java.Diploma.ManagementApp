@@ -1,37 +1,31 @@
-let clients = null;
-
-const clientType = {
-    ie: "ИП",
-    llc: "ООО",
-    jsc: "ОАО",
-    pp: "частное лицо"
-}
-
-document.addEventListener('DOMContentLoaded', function (e) {
-    const url = "/api/clients/findAll";
-    const req = new XMLHttpRequest();
-    req.open("GET", url);
-    req.send();
-    req.onreadystatechange = (e) => {
-        try {
-            clients = JSON.parse(req.responseText);
-        } catch (error) {
-            console.log(error);
-        }
+// #region models
+class clientTable {
+    clientType = {
+        ie: "ИП",
+        llc: "ООО",
+        jsc: "ОАО",
+        pp: "Частное лицо"
     };
-});
 
-const clientsPageFilling = () => {
-    const contentDiv = document.querySelector('.content');
-    console.log(clients);
-};
+    constructor() {
+        this.table = document.querySelector('div.content>table.clients-table');
+        this.rows = this.table.querySelectorAll('tr.clients-table__row');
+        this.types = this.table.querySelectorAll('tr.clients-table__row>td.clients-type');
+        this.replaceTypes();
+    }
 
-const wait = () => {
-    if (clients === null) {
-        setTimeout(wait, 100);
-    } else {
-        clientsPageFilling();
+    replaceTypes() {
+        this.types.forEach(el => el.innerHTML = this.clientType[el.innerHTML]);
     }
 };
 
-window.addEventListener('load', wait);
+// #endregion models
+
+let table = null;
+
+
+// #region init
+document.addEventListener('DOMContentLoaded', event => {
+    table = new clientTable();
+});
+// #endregion init
