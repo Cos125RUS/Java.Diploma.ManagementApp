@@ -34,4 +34,11 @@ ul {
 
 .position:hover {
   cursor: pointer;
+}
+
+.del-button {
+  max-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */
