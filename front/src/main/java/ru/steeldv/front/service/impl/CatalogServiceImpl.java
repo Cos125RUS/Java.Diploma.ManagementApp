@@ -1,4 +1,4 @@
-package ru.steeldv.front.service;
+package ru.steeldv.front.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,12 +7,16 @@ import ru.steeldv.front.model.catalog.Category;
 import ru.steeldv.front.model.catalog.Item;
 import ru.steeldv.front.model.catalog.Product;
 import ru.steeldv.front.model.catalog.Subcategory;
+import ru.steeldv.front.service.catalog.CategoryService;
+import ru.steeldv.front.service.catalog.ItemService;
+import ru.steeldv.front.service.catalog.ProductService;
+import ru.steeldv.front.service.catalog.SubcategoryService;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CatalogService {
+public class CatalogServiceImpl implements CategoryService, SubcategoryService, ProductService, ItemService {
     private final CatalogClientApi catalogClientApi;
 
     //    region category

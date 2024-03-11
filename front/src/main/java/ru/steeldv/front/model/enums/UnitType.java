@@ -1,4 +1,4 @@
-package ru.steeldv.front.model.catalog.enums;
+package ru.steeldv.front.model.enums;
 
 public enum UnitType {
     kilogram, //килограммы

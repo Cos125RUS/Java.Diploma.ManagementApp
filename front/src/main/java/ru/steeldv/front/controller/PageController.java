@@ -4,13 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.steeldv.front.service.CatalogService;
+import ru.steeldv.front.service.impl.CatalogServiceImpl;
 import ru.steeldv.front.service.ClientsService;
 
 @Controller
 @RequiredArgsConstructor
 public class PageController {
-    private final CatalogService catalogService;
+    private final CatalogServiceImpl catalogService;
     private final ClientsService clientsService;
 
     @GetMapping
@@ -28,5 +28,10 @@ public class PageController {
     public String clients(Model model) {
         model.addAttribute("clients", clientsService.findAll());
         return "clients";
+    }
+
+    @GetMapping("/storage")
+    public String storage(Model model) {
+        return "storage";
     }
 }
