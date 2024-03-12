@@ -1,5 +1,5 @@
 // #region models
-class ClientTable {
+class ClientTable extends DataTable{
     clientType = {
         ie: "ИП",
         llc: "ООО",
@@ -8,8 +8,7 @@ class ClientTable {
     };
 
     constructor() {
-        this.table = document.querySelector('div.content>table.clients-table');
-        this.rows = this.table.querySelectorAll('tr.clients-table__row');
+        super('clients');
         this.types = this.table.querySelectorAll('tr.clients-table__row>td.clients-type');
         this.replaceTypes();
     }
@@ -18,21 +17,11 @@ class ClientTable {
         this.types.forEach(el => el.innerHTML = this.clientType[el.innerHTML]);
     }
 };
-
-class Client {
-    constructor(type, name, itn, cor, address, phone, email) {
-        this.type = type,
-            this.name = name,
-            this.itn = itn,
-            this.cor = cor,
-            this.address = address,
-            this.phone = phone,
-            this.email = email
-    }
-};
 // #endregion models
 
 // #region fields
+const postUrl = '/api/clients/addClient';
+const deleteUrl = '/api/clients/delete/';
 let addFieldDiv = null;
 let table = null;
 let addForm = null;
@@ -43,27 +32,6 @@ const addOption = function (name, selectEl) {
     const optionEl = document.createElement('option');
     optionEl.innerHTML = name;
     selectEl.appendChild(optionEl);
-};
-
-const createInput = function (text, className, type) {
-    const labelEl = document.createElement('label');
-    labelEl.textContent = text;
-    const inputEl = document.createElement('input');
-    inputEl.classList.add(className);
-    inputEl.type = type;
-    labelEl.appendChild(inputEl);
-    return labelEl;
-};
-
-const getValue = function (element) {
-    const inputEl = element.lastChild;
-    const value = inputEl.value;
-    if (value == '') {
-        inputEl.classList.add('error');
-    } else if (inputEl.classList.contains('error')) {
-        inputEl.classList.remove('error');
-    }
-    return value;
 };
 
 const getType = function (element) {
@@ -90,48 +58,12 @@ const submitData = function () {
 
     if (flag) {
         const client = new Client(...args);
-        postRequest(client);
+        postRequest(postUrl, client);
     }
 };
 // #endregion functions
 
-// #region requests
-const postRequest = function (data) {
-    const url = '/api/clients/addClient';
-    const body = JSON.stringify(data);
-    doRequest(url, 'POST', body);
-};
-
-const deleteRequest = function (id) {
-    const url = `/api/clients/delete/${id}`;
-    doRequest(url, 'DELETE');
-};
-
-const doRequest = (url, method, body) => {
-    fetch(url, {
-        method: method,
-        headers: {
-            "Content-type": "application/json;charset=UTF-8"
-        },
-        body: body
-    })
-        .then(response => {
-            if (response.ok) {
-                window.location.reload();
-            }
-        });
-}
-// #endregion requests
-
 // #region init
-const addButtonInit = function () {
-    const addButton = document.querySelector('button.add-client-button');
-    addButton.addEventListener('click', function (e) {
-        addFieldDiv.classList.toggle('hidden');
-        addButton.classList.toggle('hidden');
-    });
-};
-
 const addFormInit = function (clientType) {
     addForm = document.querySelector('form.add-form');
 
@@ -158,21 +90,11 @@ const addFormInit = function (clientType) {
     addForm.appendChild(submitButton);
 };
 
-const addDelButtons = function() {
-    Array.from(table.rows).forEach(row => {
-        const delButton = row.querySelector('button.del-button');
-        delButton.addEventListener('click', function (e) {
-            const id = row.id;
-            deleteRequest(id);
-        });
-    });
-};
-
 window.addEventListener('load', event => {
     table = new ClientTable();
+    table.addDelButtons(deleteUrl);
     addFieldDiv = document.querySelector('div.user-interface__add-field');
-    addButtonInit();
+    addButtonInit('client');
     addFormInit(table.clientType);
-    addDelButtons();
 });
 // #endregion init

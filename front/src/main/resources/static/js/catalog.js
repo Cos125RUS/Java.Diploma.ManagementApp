@@ -1,25 +1,4 @@
-// #region thymeleaf
-// let categories = null;
-// setTimeout(() => {
-//     const data = document.querySelector("script.categories-data")
-//     console.log(data);
-//     // categories = JSON.parse(data.dataset.categories);
-//     // console.log(categories);
-// }, 100)
-// #endregion
-
 // #region models
-const units = {
-    kilogram: "кг",
-    ton: "т",
-    unit: "шт",
-    coil: "бухты",
-    roll: "рулоны",
-    meter: "метры",
-    m2: "кв.метры",
-    m3: "кубометры"
-};
-
 const postUrl = {
     catalog: '/api/catalog/category/addCategory',
     category: '/api/catalog/subcategory/addSubcategory',
@@ -55,15 +34,6 @@ const currentElement = {
 // #endregion
 
 // #region userInterface
-// let currentElementDiv = null;
-// let currentElementView = null;
-
-// // document.addEventListener('DOMContentLoaded', function (e) {
-// //     currentElementDiv = document.querySelector('div.user-interface>div.user-interface__current-element');
-// //     currentElementView = document.createElement('p');
-// //     currentElementDiv.appendChild(currentElementView);
-// // });
-
 const catalogAddButton = document.querySelector('button.add-category-button');
 catalogAddButton.addEventListener('click', function (e) {
     showAddInterface('catalog');
@@ -122,7 +92,7 @@ const createLi = (element, className) => {
     delButton.classList.add('li-buttons');
     divLi.appendChild(delButton);
     delButton.addEventListener('click', function (e) {
-        deleteRequest(className, element.id);
+        deleteRequestProcessing(className, element.id);
     });
     if (Object.keys(element).indexOf('name') !== -1) {
         pName.textContent = element.name;
@@ -220,7 +190,7 @@ const addSubmit = (formEl, className, id) => {
         case 'catalog':
             value = fieldCheck(formEl, '.category-input');
             if (value) {
-                postRequest({ "name": value }, className);
+                postRequestProcessing({ "name": value }, className);
             }
             break;
         case 'category':
@@ -232,7 +202,7 @@ const addSubmit = (formEl, className, id) => {
                         "id": id
                     }
                 };
-                postRequest(subcategory, className);
+                postRequestProcessing(subcategory, className);
             }
             break;
         case 'subcategories':
@@ -252,7 +222,7 @@ const addSubmit = (formEl, className, id) => {
                         "id": id
                     }
                 };
-                postRequest(product, className);
+                postRequestProcessing(product, className);
             }
             break;
         case 'products':
@@ -272,7 +242,7 @@ const addSubmit = (formEl, className, id) => {
                     "unitPrice": Number(price),
                     "cuttingPrise": Number(fieldCheck(formEl, '.cutting-input'))
                 }
-                postRequest(item, className);
+                postRequestProcessing(item, className);
             }
             break;
     }
@@ -288,35 +258,21 @@ const fieldCheck = (formEl, className) => {
         return inputEl.value;
     }
 };
+// #endregion
 
-const postRequest = (data, className) => {
+// #region requests
+const postRequestProcessing = (data, className) => {
     if (data) {
-        let url = postUrl[className];
-        let body = JSON.stringify(data);
-        doRequest(url, "POST", body);
+        postRequest(postUrl[className], data);
     }
 };
 
-const deleteRequest = (className, id) => {
-    const url = `${delUrl[className]} + ${id}`;
-    doRequest(url, "DELETE");
+const deleteRequestProcessing = (className, id) => {
+    deleteRequest(`${delUrl[className]} + ${id}`);
 };
+// #endregion requests
 
-const doRequest = (url, method, body) => {
-    fetch(url, {
-        method: method,
-        headers: {
-            "Content-type": "application/json;charset=UTF-8"
-        },
-        body: body
-    })
-        .then(response => {
-            if (response.ok) {
-                window.location.reload();
-            }
-        });
-}
-
+// #region init
 const catalogFilling = () => {
     const contentDiv = document.querySelector('.content');
     createUl(contentDiv, categories, "category", false);
@@ -331,5 +287,4 @@ const wait = () => {
 };
 
 window.addEventListener('load', wait);
-// #endregion
-
+// #endregion init

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Остатки товаров на складе</title>
+    <title>Остатки товаров на складах</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
 </head>
 
@@ -12,15 +12,35 @@
     <div class="container">
         <header th:replace="~{page-templates :: header}"></header>
         <main class="main">
-            <h1 class="main__title">Склад</h1>
+            <h1 class="main__title">Склады</h1>
             <div class="user-interface">
-                <div class="user-interface__top"></div>
+                <div class="user-interface__top">
+                    <button type="submit" class="add-storage-button">Добавить склад</button>
+                </div>
+                <div class="user-interface__add-field hidden">
+                    <form action="#" method="post" class="add-form"></form>
+                </div>
             </div>
-            <div class="content"></div>
+            <div class="content">
+                <table class="storage-table">
+                    <tr class="storage-table__row" th:id="${storage.id}" th:each="storage: ${storages}">
+                        <td class="storage-id" th:id="${storage.id}" th:text="${storage.id}">1</td>
+                        <td class="storage-name" th:id="${storage.name}" th:text="${storage.name}">Рыбацкая</td>
+                        <td class="storage-address" th:id="${storage.address}" th:text="${storage.address}">Рыбацкая 56</td>
+                        <td class="storage-phone" th:id="${storage.phone}" th:text="${storage.phone}">2593675workingTime</td>
+                        <td class="storage-working-time" th:id="${storage.workingTime}" th:text="${storage.workingTime}">9:00 - 17:00</td>
+                        <td class="storage-delete">
+                            <button class="del-button">x</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </main>
         <footer class="footer"></footer>
     </div>
 
+    <script type="text/javascript" th:src="@{/js/models.js}" src="../static/js/models.js"></script>
+    <script type="text/javascript" th:src="@{/js/functions.js}" src="../static/js/functions.js"></script>
     <script type="text/javascript" th:src="@{/js/storage.js}"></script>
 </body>
 

@@ -4,14 +4,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.steeldv.front.service.catalog.CategoryService;
 import ru.steeldv.front.service.impl.CatalogServiceImpl;
 import ru.steeldv.front.service.ClientsService;
+import ru.steeldv.front.service.impl.StorageServiceImpl;
+import ru.steeldv.front.service.storage.StorageService;
 
 @Controller
 @RequiredArgsConstructor
 public class PageController {
-    private final CatalogServiceImpl catalogService;
+    private final CategoryService categoryService;
     private final ClientsService clientsService;
+    private final StorageService storageService;
 
     @GetMapping
     public String index(Model model) {
@@ -20,7 +24,7 @@ public class PageController {
 
     @GetMapping("/catalog")
     public String catalog(Model model) {
-        model.addAttribute("categories", catalogService.findAllCategories());
+        model.addAttribute("categories", categoryService.findAllCategories());
         return "catalog";
     }
 
@@ -32,6 +36,7 @@ public class PageController {
 
     @GetMapping("/storage")
     public String storage(Model model) {
+        model.addAttribute("storages", storageService.findAllStorage());
         return "storage";
     }
 }
