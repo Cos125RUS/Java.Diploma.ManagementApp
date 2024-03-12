@@ -15,7 +15,7 @@ public class StorageUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "availability_id")
     @JsonIgnoreProperties("units")
     private Availability availability;

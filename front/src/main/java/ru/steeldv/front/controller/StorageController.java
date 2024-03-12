@@ -21,7 +21,7 @@ public class StorageController {
     private final UnitService unitService;
 
     @GetMapping("/position/findByItemId/{id}")
-    public ResponseEntity<List<Position>> findPositionByItemId(@PathVariable Long id) {
+    public ResponseEntity<Position> findPositionByItemId(@PathVariable Long id) {
         return new ResponseEntity<>(positionService.findPositionByItemId(id), HttpStatus.OK);
     }
 

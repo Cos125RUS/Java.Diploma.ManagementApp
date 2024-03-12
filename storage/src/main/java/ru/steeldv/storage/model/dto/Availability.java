@@ -16,11 +16,11 @@ public class Availability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "position_id")
     @JsonIgnoreProperties("availabilities")
     private Position position;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "storage_id")
     @JsonIgnoreProperties("availabilities")
     private Storage storage;

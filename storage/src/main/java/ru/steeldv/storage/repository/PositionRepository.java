@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface PositionRepository extends JpaRepository<Position, Long> {
     Optional<Position> findById(Long id);
-    Optional<List<Position>> findByItemId(Long id);
+    Optional<Position> findByItemId(Long id);
 }

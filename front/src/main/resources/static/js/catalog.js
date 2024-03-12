@@ -13,6 +13,10 @@ const delUrl = {
     items: '/api/catalog/item/delete/'
 };
 
+const getUrl = {
+    positions: '/api/storage/position/findByItemId/'
+}
+
 const currentElement = {
     category: {
         name: null,
@@ -114,8 +118,18 @@ const createLi = (element, className) => {
         });
     } else if (Object.keys(element).indexOf('print') !== -1) {
         pName.textContent = element.print + ' | ' + element.weight + ' | ' + element.unitPrice + 'р/' + units[element.baseUnitType];
+        pName.dataset.catalogType = className;
+        pName.dataset.id = element.id;
         pName.addEventListener('click', function (e) {
-            pName.classList.add(className);
+            const url = `${getUrl['positions']}${element.id}`;
+            const request = getRequest(url);
+            let position = null;
+            request
+                .then(response => response.text())
+                .then(responseText => { 
+                    position = responseText;
+                    console.log(position);
+                });
         });
     }
     return liElement;

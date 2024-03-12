@@ -47,7 +47,7 @@ public interface StorageClientApi {
 
     //    region position
     @GetMapping("position/findByItemId/{itemId}")
-    List<Position> findPositionByItemId(@PathVariable Long itemId);
+    Position findPositionByItemId(@PathVariable Long itemId);
 
     @PostMapping("position/addPosition")
     Position addPosition(@RequestBody Position position);

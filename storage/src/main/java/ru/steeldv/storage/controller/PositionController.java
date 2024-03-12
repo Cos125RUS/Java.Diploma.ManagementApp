@@ -14,7 +14,7 @@ public class PositionController {
     private final PositionService service;
 
     @GetMapping("/findByItemId/{itemId}")
-    public List<Position> findByItemId(@PathVariable Long itemId) {
+    public Position findByItemId(@PathVariable Long itemId) {
         return service.findByItemId(itemId);
     }
 

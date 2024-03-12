@@ -1,4 +1,13 @@
 // #region requests
+const getRequest = function (url) {
+    return fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json;charset=UTF-8"
+        }
+    });
+};
+
 const postRequest = function (url, data) {
     const body = JSON.stringify(data);
     doRequest(url, 'POST', body);

@@ -49,7 +49,7 @@ public class StorageServiceImpl implements AvailabilityService, PositionService,
     //    region availability
 
     @Override
-    public List<Position> findPositionByItemId(Long itemId) {
+    public Position findPositionByItemId(Long itemId) {
         return storageClientApi.findPositionByItemId(itemId);
     }
 
