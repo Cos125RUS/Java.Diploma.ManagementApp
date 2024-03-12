@@ -8,7 +8,7 @@ class StorageTable extends DataTable {
 
 // #region fields
 const postUrl = '/api/storage/storage/addStorage';
-const deleteUrl = '/api/storage/storage/deleteStorage/';
+const deleteUrl = '/api/storage/storage/delete/';
 let addFieldDiv = null;
 let table = null;
 let addForm = null;

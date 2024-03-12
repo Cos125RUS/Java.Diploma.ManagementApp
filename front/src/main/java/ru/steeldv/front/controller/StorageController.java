@@ -30,7 +30,7 @@ public class StorageController {
         return new ResponseEntity<>(storageService.addStorage(storage), HttpStatus.OK);
     }
 
-    @DeleteMapping("/storage/deleteStorage/{id}")
+    @DeleteMapping("/storage/delete/{id}")
     public ResponseEntity<Boolean> deleteStorage(@PathVariable Long id) {
         return new ResponseEntity<>(storageService.deleteStorage(id), HttpStatus.OK);
     }

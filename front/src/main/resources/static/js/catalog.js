@@ -268,7 +268,7 @@ const postRequestProcessing = (data, className) => {
 };
 
 const deleteRequestProcessing = (className, id) => {
-    deleteRequest(`${delUrl[className]} + ${id}`);
+    deleteRequest(`${delUrl[className]}${id}`);
 };
 // #endregion requests
 
