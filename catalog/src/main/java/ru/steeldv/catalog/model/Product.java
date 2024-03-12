@@ -18,11 +18,11 @@ public class Product {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     @JsonIgnoreProperties("products")
     private Category category;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategory_id")
     @JsonIgnoreProperties("products")
     private Subcategory subcategory;

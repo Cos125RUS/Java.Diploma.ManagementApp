@@ -18,7 +18,7 @@ public class Subcategory {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     @JsonIgnoreProperties("subcategories")
     private Category category;

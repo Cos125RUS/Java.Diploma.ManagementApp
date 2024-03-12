@@ -16,11 +16,11 @@ public class Availability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "position_id")
     @JsonIgnoreProperties("availabilities")
     private Position position;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "storage_id")
     @JsonIgnoreProperties("availabilities")
     private Storage storage;
