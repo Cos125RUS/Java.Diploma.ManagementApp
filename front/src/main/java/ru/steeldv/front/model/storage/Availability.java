@@ -14,5 +14,5 @@ public class Availability {
     private Long id;
     private Position position;
     private Storage storage;
-    private List<StorageUnit> units;
+    private StorageUnit unit;
 }

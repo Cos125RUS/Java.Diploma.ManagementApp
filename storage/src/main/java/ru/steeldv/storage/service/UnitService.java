@@ -1,7 +1,6 @@
 package ru.steeldv.storage.service;
 
-import ru.steeldv.storage.model.dto.Position;
-import ru.steeldv.storage.model.dto.Unit;
+import ru.steeldv.storage.model.entity.Unit;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,5 +11,5 @@ public interface UnitService {
     Optional<Unit> findById(Long id);
     Unit update(Unit unit);
     boolean deleteById(Long id);
-    List<Unit> findByPositionId(Long id);
+    Unit findByPositionId(Long id);
 }

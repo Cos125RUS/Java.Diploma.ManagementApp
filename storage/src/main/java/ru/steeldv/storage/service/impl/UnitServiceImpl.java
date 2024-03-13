@@ -2,8 +2,8 @@ package ru.steeldv.storage.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.storage.model.dto.Position;
-import ru.steeldv.storage.model.dto.Unit;
+import ru.steeldv.storage.model.entity.Position;
+import ru.steeldv.storage.model.entity.Unit;
 import ru.steeldv.storage.repository.PositionRepository;
 import ru.steeldv.storage.repository.UnitRepository;
 import ru.steeldv.storage.service.UnitService;
@@ -46,7 +46,7 @@ public class UnitServiceImpl implements UnitService {
     }
 
     @Override
-    public List<Unit> findByPositionId(Long id) {
+    public Unit findByPositionId(Long id) {
         return unitRepository.findByPositionId(id).get();
     }
 }

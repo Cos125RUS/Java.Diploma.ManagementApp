@@ -1,4 +1,4 @@
-package ru.steeldv.storage.model.dto;
+package ru.steeldv.storage.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -24,8 +24,8 @@ public class Availability {
     @JoinColumn(name = "storage_id")
     @JsonIgnoreProperties("availabilities")
     private Storage storage;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("availability")
-    private List<StorageUnit> units;
+    private StorageUnit unit;
 }

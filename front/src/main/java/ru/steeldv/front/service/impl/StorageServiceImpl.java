@@ -163,7 +163,7 @@ public class StorageServiceImpl implements AvailabilityService, PositionService,
     }
 
     @Override
-    public List<Unit> findUnitByPositionId(Long id) {
+    public Unit findUnitByPositionId(Long id) {
         return storageClientApi.findUnitByPositionId(id);
     }
 //    endregion unit

@@ -16,5 +16,5 @@ public interface UnitService {
 
     Unit findUnit(Long id);
 
-    List<Unit> findUnitByPositionId(Long id);
+    Unit findUnitByPositionId(Long id);
 }

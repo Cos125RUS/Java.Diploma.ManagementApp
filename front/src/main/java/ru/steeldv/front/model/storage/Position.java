@@ -13,6 +13,6 @@ import java.util.List;
 public class Position {
     private Long id;
     private Long itemId;
-    private List<Unit> units;
+    private Unit unit;
     private List<Availability> availabilities;
 }

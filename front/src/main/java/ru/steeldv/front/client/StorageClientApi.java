@@ -99,6 +99,6 @@ public interface StorageClientApi {
     Unit findUnit(@PathVariable Long id);
 
     @GetMapping("unit/findByPositionId/{id}")
-    List<Unit> findUnitByPositionId(@PathVariable Long id);
+    Unit findUnitByPositionId(@PathVariable Long id);
 //    endregion unit
 }

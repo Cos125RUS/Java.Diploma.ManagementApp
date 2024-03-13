@@ -2,9 +2,9 @@ package ru.steeldv.storage.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.storage.model.dto.Availability;
-import ru.steeldv.storage.model.dto.Position;
-import ru.steeldv.storage.model.dto.Storage;
+import ru.steeldv.storage.model.entity.Availability;
+import ru.steeldv.storage.model.entity.Position;
+import ru.steeldv.storage.model.entity.Storage;
 import ru.steeldv.storage.repository.AvailabilityRepository;
 import ru.steeldv.storage.repository.PositionRepository;
 import ru.steeldv.storage.repository.StorageRepository;

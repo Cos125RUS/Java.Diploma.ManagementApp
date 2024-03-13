@@ -1,4 +1,4 @@
-package ru.steeldv.storage.model.dto;
+package ru.steeldv.storage.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

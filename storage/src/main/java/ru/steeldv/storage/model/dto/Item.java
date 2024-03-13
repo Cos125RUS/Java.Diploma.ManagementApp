@@ -1,9 +1,9 @@
-package ru.steeldv.storage.model;
+package ru.steeldv.storage.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.storage.model.dto.Position;
+import ru.steeldv.storage.model.entity.Position;
 import ru.steeldv.storage.model.enums.UnitType;
 
 import java.util.List;

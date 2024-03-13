@@ -1,7 +1,5 @@
-package ru.steeldv.storage.model;
+package ru.steeldv.storage.model.dto;
 
-import com.fasterxml.jackson.annotation.*;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,9 +9,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Subcategory {
+public class Category {
     private Long id;
     private String name;
-    private Category category;
-    private List<Product> products;
+    private List<Subcategory> subcategories;
+
 }

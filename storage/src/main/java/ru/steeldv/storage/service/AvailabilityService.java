@@ -1,8 +1,7 @@
 package ru.steeldv.storage.service;
 
-import ru.steeldv.storage.model.dto.Availability;
+import ru.steeldv.storage.model.entity.Availability;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 

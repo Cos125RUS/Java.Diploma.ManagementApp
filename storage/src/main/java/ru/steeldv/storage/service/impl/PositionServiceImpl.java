@@ -2,7 +2,7 @@ package ru.steeldv.storage.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.storage.model.dto.Position;
+import ru.steeldv.storage.model.entity.Position;
 import ru.steeldv.storage.repository.PositionRepository;
 import ru.steeldv.storage.service.PositionService;
 
@@ -38,5 +38,10 @@ public class PositionServiceImpl implements PositionService {
     public boolean deleteById(Long id) {
         positionRepository.deleteById(id);
         return true;
+    }
+
+    @Override
+    public List<Position> findAll() {
+        return positionRepository.findAll();
     }
 }

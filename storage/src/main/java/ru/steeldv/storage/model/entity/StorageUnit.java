@@ -1,4 +1,4 @@
-package ru.steeldv.storage.model.dto;
+package ru.steeldv.storage.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -15,9 +15,9 @@ public class StorageUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "availability_id")
-    @JsonIgnoreProperties("units")
+    @JsonIgnoreProperties("unit")
     private Availability availability;
     @Enumerated
     @Column(nullable = false, name = "unit_type")

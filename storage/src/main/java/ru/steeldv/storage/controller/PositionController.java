@@ -2,7 +2,7 @@ package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.storage.model.dto.Position;
+import ru.steeldv.storage.model.entity.Position;
 import ru.steeldv.storage.service.PositionService;
 
 import java.util.List;
@@ -12,6 +12,11 @@ import java.util.List;
 @RequestMapping("/storage/position")
 public class PositionController {
     private final PositionService service;
+
+    @GetMapping("/findAll")
+    public List<Position> findAll() {
+        return service.findAll();
+    }
 
     @GetMapping("/findByItemId/{itemId}")
     public Position findByItemId(@PathVariable Long itemId) {

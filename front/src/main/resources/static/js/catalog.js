@@ -117,23 +117,29 @@ const createLi = (element, className) => {
             showAddInterface(className, element.id);
         });
     } else if (Object.keys(element).indexOf('print') !== -1) {
-        pName.textContent = element.print + ' | ' + element.weight + ' | ' + element.unitPrice + 'р/' + units[element.baseUnitType];
+        pName.textContent = element.print + ' | ' + element.weight + units[element.baseUnitType] + ' | ' + element.unitPrice + 'р/' + units[element.baseUnitType];
+        getPosition(element.id, pName);
         pName.dataset.catalogType = className;
         pName.dataset.id = element.id;
         pName.addEventListener('click', function (e) {
-            const url = `${getUrl['positions']}${element.id}`;
-            const request = getRequest(url);
-            let position = null;
-            request
-                .then(response => response.text())
-                .then(responseText => { 
-                    position = responseText;
-                    console.log(position);
-                });
+            // TODO: дополнительная информация по остаткам на складах
         });
     }
     return liElement;
 };
+
+const getPosition = function(id, element) {
+    const url = `${getUrl['positions']}${id}`;
+    const request = getRequest(url);
+    request
+        .then(response => response.text())
+        .then(responseText => {
+            const position = JSON.parse(responseText);
+            element.textContent += ' | ' + position.unit.quantity + units[position.unit.unitType];
+            element.dataset.positionId = position.id;
+            element.dataset.unitId = position.unit.id;
+        });
+}
 
 const showAddInterface = (className, id) => {
     catalogAddButton.classList.add('hidden');
