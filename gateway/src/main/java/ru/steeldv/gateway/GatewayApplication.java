@@ -21,6 +21,7 @@ public class GatewayApplication {
 				.route("clients", r -> r.path("/clients/**").uri("http://localhost:8081/"))
 				.route("catalog", r -> r.path("/catalog/**").uri("http://localhost:8082/"))
 				.route("storage", r -> r.path("/storage/**").uri("http://localhost:8083/"))
+				.route("documents", r -> r.path("/documents/**").uri("http://localhost:8084/"))
 				.build();
 	}
 }

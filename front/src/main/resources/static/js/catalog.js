@@ -14,6 +14,7 @@ const delUrl = {
 };
 
 const getUrl = {
+    catalog: '/api/catalog/category/findAll',
     positions: '/api/storage/position/findByItemId/'
 }
 
@@ -49,17 +50,11 @@ catalogAddButton.addEventListener('click', function (e) {
 let categories = null;
 
 document.addEventListener('DOMContentLoaded', function (e) {
-    const url = "/api/catalog/category/findAll";
-    const req = new XMLHttpRequest();
-    req.open("GET", url);
-    req.send();
-    req.onreadystatechange = (e) => {
-        try {
-            categories = JSON.parse(req.responseText);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    getRequest(getUrl['catalog'])
+        .then(response => response.text())
+        .then(responseText => {
+            categories = JSON.parse(responseText);
+    });
 });
 
 const createUl = (parentElement, list, className, hidden) => {
@@ -132,12 +127,14 @@ const getPosition = function(id, element) {
     const url = `${getUrl['positions']}${id}`;
     const request = getRequest(url);
     request
-        .then(response => response.text())
+        .then(response => response.text())//TODO: добавить проверку найденного значения
         .then(responseText => {
             const position = JSON.parse(responseText);
-            element.textContent += ' | ' + position.unit.quantity + units[position.unit.unitType];
-            element.dataset.positionId = position.id;
-            element.dataset.unitId = position.unit.id;
+            if (typeof position.unit !== 'undefined') {
+                element.textContent += ' | ' + position.unit.quantity + units[position.unit.unitType];
+                element.dataset.positionId = position.id;
+                element.dataset.unitId = position.unit.id;
+            }
         });
 }
 

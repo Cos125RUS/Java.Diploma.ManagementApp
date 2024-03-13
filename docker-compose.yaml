@@ -34,3 +34,14 @@ services:
       - ./.containers/databases/storage:/var/lib/postgresql
     ports:
       - 54323:5432
+  documents:
+    image: postgres:16.2-alpine
+    container_name: documentsdb
+    environment:
+      - POSTGRES_DB=documents_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./.containers/databases/documents:/var/lib/postgresql
+    ports:
+      - 54324:5432

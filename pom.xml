@@ -17,6 +17,7 @@
         <module>catalog</module>
         <module>config</module>
         <module>test</module>
+        <module>documents</module>
     </modules>
 
     <properties>
