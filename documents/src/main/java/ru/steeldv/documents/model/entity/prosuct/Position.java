@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.documents.model.entity.docs.Doc;
+import ru.steeldv.documents.model.entity.doc.Doc;
 
 import java.util.List;
 
@@ -19,10 +19,10 @@ public class Position {
     private Long id;
     @Column(nullable = false, name = "item_id")
     private Long itemId;
-    @ManyToOne
-    @JoinColumn(name = "doc_id")
-    @JsonIgnoreProperties("positions")
-    private Doc doc;
+//    @ManyToOne
+//    @JoinColumn(name = "doc_id")
+//    @JsonIgnoreProperties("positions")
+//    private Doc doc;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "position", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("position")

@@ -1,4 +1,4 @@
-package ru.steeldv.documents.model.dto.clients;
+package ru.steeldv.documents.model.dto.organization;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

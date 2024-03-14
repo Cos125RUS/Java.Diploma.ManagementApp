@@ -1,4 +1,4 @@
-package ru.steeldv.documents.model.entity.docs;
+package ru.steeldv.documents.model.entity.doc;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -6,18 +6,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.steeldv.documents.model.entity.prosuct.Position;
-import ru.steeldv.documents.model.entity.stransportation.Delivery;
 import ru.steeldv.documents.model.enums.DocType;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+/**
+ * Документ о покупке
+ */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public abstract class Doc {
+public class BuyDoc extends Doc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,14 +33,13 @@ public abstract class Doc {
     private LocalTime time;
     private boolean passed; //проведён / не проведён
     @Column(nullable = false)
-    private Long client; // id контрагента
+    private Long salesman; // id продавца
     @Column(nullable = false)
     private Long manager; // id менеджера
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "docs", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("docs")
-    private List<Delivery> delivery; //вид поставки(поставок)
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "doc", orphanRemoval = true,
-            fetch = FetchType.LAZY)
-    @JsonIgnoreProperties("doc")
-    private List<Position> positions;
+    private Long transportation; //id транспортировки
+    private Long positions; // id списка позиций
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "doc", orphanRemoval = true,
+//            fetch = FetchType.LAZY)
+//    @JsonIgnoreProperties("doc")
+//    private List<Position> positions;
 }

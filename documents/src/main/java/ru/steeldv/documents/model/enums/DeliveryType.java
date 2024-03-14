@@ -4,5 +4,6 @@ public enum DeliveryType {
     train, //поездом
     car, //машиной
     ship, //судно
-    pickup //самовывоз
+    pickup, //самовывоз
+    transshipment //перевалка
 }
