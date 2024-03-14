@@ -1,9 +1,9 @@
-package ru.steeldv.front.model.clients;
+package ru.steeldv.documents.model.dto.clients;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.front.model.enums.OrganizationType;
+import ru.steeldv.documents.model.enums.OrganizationType;
 
 @Data
 @NoArgsConstructor

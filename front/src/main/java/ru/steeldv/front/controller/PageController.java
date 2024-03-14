@@ -19,24 +19,34 @@ public class PageController {
 
     @GetMapping
     public String index(Model model) {
+        model.addAttribute("title", "Главная");
         return "index";
     }
 
     @GetMapping("/catalog")
     public String catalog(Model model) {
+        model.addAttribute("title", "Каталог");
         model.addAttribute("categories", categoryService.findAllCategories());
         return "catalog";
     }
 
     @GetMapping("/clients")
     public String clients(Model model) {
+        model.addAttribute("title", "Контрагенты");
         model.addAttribute("clients", clientsService.findAll());
         return "clients";
     }
 
     @GetMapping("/storage")
     public String storage(Model model) {
+        model.addAttribute("title", "Склады");
         model.addAttribute("storages", storageService.findAllStorage());
         return "storage";
+    }
+
+    @GetMapping("/documents")
+    public String documents(Model model) {
+        model.addAttribute("title", "Документы");
+        return "documents";
     }
 }

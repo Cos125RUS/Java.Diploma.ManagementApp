@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страница каталога товаров</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
-</head>
+<head th:replace="~{page-templates :: head}"></head>
 
 <body>
     <div class="container">
         <header th:replace="~{page-templates :: header}"></header>
         <main class="main">
-            <h1 class="main__title">Каталог</h1>
+            <h1 th:replace="~{page-templates :: title}"></h1>
             <div class="user-interface">
                 <div class="user-interface__top">
                     <button type="submit" class="add-category-button">Создать категорию</button>
@@ -26,10 +21,8 @@
         <footer class="footer"></footer>
     </div>
 
-    <script type="text/javascript" th:src="@{/js/functions.js}" src="../static/js/functions.js"></script>
-    <script type="text/javascript" th:src="@{/js/models.js}" src="../static/js/models.js"></script>
-    <script type="text/javascript" th:src="@{/js/catalog.js}"></script>
-    <!--    <script th:inline="javascript" class="categories-data" th:data-categories="${categories}"></script>-->
+    <div th:replace="~{page-templates :: scripts}"></div>
+    <script type="text/javascript" th:src="@{/js/catalog.js}" src="../static/js/catalog.js"></script>
 </body>
 
 </html>

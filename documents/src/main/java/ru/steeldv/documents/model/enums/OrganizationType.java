@@ -1,4 +1,4 @@
-package ru.steeldv.front.model.clients;
+package ru.steeldv.documents.model.enums;
 
 public enum OrganizationType {
     ie, //ИП

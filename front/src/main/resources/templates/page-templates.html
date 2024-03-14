@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<head th:feagment="head">
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Spring Boot Tutorial</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
 </head>
 <body>
 <header class="header" th:fragment="header">
@@ -24,7 +24,19 @@
         <div class="storage__box">
             <a th:href="@{/storage}" href="storage.html" class="storage__link">Склады</a>
         </div>
+        <div class="documents__box">
+            <a th:href="@{/documents}" href="documents.html" class="documents__link">Документы</a>
+        </div>
     </nav>
 </header>
+
+<h1 class="main__title" th:fragment="title" th:text="${title}"></h1>
+
+
+<div th:fragment="scripts">
+    <script type="text/javascript" th:src="@{/js/models.js}" src="../static/js/models.js"></script>
+    <script type="text/javascript" th:src="@{/js/functions.js}" src="../static/js/functions.js"></script>
+</div>
+
 </body>
 </html>

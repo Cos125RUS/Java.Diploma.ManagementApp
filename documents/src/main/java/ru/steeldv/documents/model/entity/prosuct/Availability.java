@@ -1,0 +1,29 @@
+package ru.steeldv.documents.model.entity.prosuct;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class Availability {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "position_id")
+    @JsonIgnoreProperties("availabilities")
+    private Position position;
+    @ManyToOne
+    @JoinColumn(name = "storage_id")
+    @JsonIgnoreProperties("availabilities")
+    private Storage storage;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
+            fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("availability")
+    private StorageUnit unit;
+}

@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
-</head>
+<head th:replace="~{page-templates :: head}"></head>
+
 <body>
     <div class="container">
         <header th:replace="~{page-templates :: header}"></header>
         <main class="main">
-            <h1 class="main__title">Главная</h1>
+            <h1 th:replace="~{page-templates :: title}"></h1>
 
         </main>
         <footer class="footer"></footer>
