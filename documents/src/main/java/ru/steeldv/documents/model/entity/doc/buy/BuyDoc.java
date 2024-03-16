@@ -5,15 +5,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.steeldv.documents.model.entity.doc.Applicable;
 import ru.steeldv.documents.model.entity.doc.Doc;
 import ru.steeldv.documents.model.entity.doc.storage.ComingDoc;
-import ru.steeldv.documents.model.entity.prosuct.Position;
-import ru.steeldv.documents.model.enums.DocType;
+import ru.steeldv.documents.model.entity.doc.LinkedDocCreator;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.List;
 
 /**
  * Документ о покупке
@@ -22,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class BuyDoc extends Doc {
+public class BuyDoc extends Doc implements LinkedDocCreator, Applicable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,4 +52,18 @@ public class BuyDoc extends Doc {
     @PrimaryKeyJoinColumn(name = "coming_doc_id")
     private ComingDoc comingDoc; // документ поступления на склад
 //    TODO: Денежные операции (Расчётный счёт / поступление средств / счёт-фактура и т.д.)
+
+    @Override
+    public Doc createLinkedDoc() {
+        if (passed) {
+            return new ComingDoc();//TODO: создать конструктор под все идентичные значения
+        } else {
+            return null; //TODO: заменить на кастомное исключение (непроведённый документ)
+        }
+    }
+
+    @Override
+    public void apply() {
+        // TODO: Провести документ (запрос на процессор)
+    }
 }
