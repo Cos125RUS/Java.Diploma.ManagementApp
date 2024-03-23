@@ -6,11 +6,12 @@ import ru.steeldv.clients.model.Client;
 import ru.steeldv.clients.repository.ClientsRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class ClientServiceImpl implements ClientService{
+public class ClientServiceImpl implements ClientService {
     private final ClientsRepository clientsRepository;
 
     @Override
@@ -29,13 +30,14 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public Client update(Client client) {
+    public Client update(Client client, Long id) {
+        findById(id).ifPresentOrElse(it -> client.setId(it.getId()), NoSuchElementException::new);
+        //TODO: Добавить информацию об id к сообщению об ошибке
         return clientsRepository.save(client);
     }
 
     @Override
-    public boolean deleteById(Long id) {
+    public void deleteById(Long id) {
         clientsRepository.deleteById(id);
-        return true;
     }
 }

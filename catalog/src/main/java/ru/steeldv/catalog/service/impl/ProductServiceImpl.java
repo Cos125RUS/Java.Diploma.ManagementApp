@@ -11,6 +11,7 @@ import ru.steeldv.catalog.repository.SubcategoryRepository;
 import ru.steeldv.catalog.service.ProductService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -27,10 +28,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product addProduct(Product product) {
-        Category category = categoryRepository.findById(product.getCategory().getId()).get();
-        product.setCategory(category);
-        Subcategory subcategory = subcategoryRepository.findById(product.getSubcategory().getId()).get();
-        product.setSubcategory(subcategory);
+        categoryRepository.findById(product.getCategory().getId())
+                .ifPresentOrElse(product::setCategory, NoSuchElementException::new);
+        subcategoryRepository.findById(product.getSubcategory().getId())
+                .ifPresentOrElse(product::setSubcategory, NoSuchElementException::new);
         return productRepository.save(product);
     }
 
@@ -40,7 +41,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product update(Product product) {
+    public Product update(Product product, Long id) {
+        findById(id).ifPresentOrElse(it -> product.setId(it.getId()), NoSuchElementException::new);
         return productRepository.save(product);
     }
 

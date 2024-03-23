@@ -11,19 +11,15 @@ import java.util.List;
 
 @FeignClient(name = "catalog")
 public interface CatalogClientApi {
-
     //    region category
     @GetMapping("/category/findAll")
     public List<Category> findAllCategories();
-
     @PostMapping("/category/addCategory")
     public Category addCategory(@RequestBody Category category);
-
     @PutMapping("/category/update/{id}")
     public Category updateCategory(@RequestBody Category category, @PathVariable Long id);
-
     @DeleteMapping("/category/delete/{id}")
-    public boolean deleteCategory(@PathVariable Long id);
+    public void deleteCategory(@PathVariable Long id);
 //    endregion category
 
     //    region subcategory
@@ -34,7 +30,7 @@ public interface CatalogClientApi {
     public Subcategory updateSubcategory(@RequestBody Subcategory subcategory, @PathVariable Long id);
 
     @DeleteMapping("/subcategory/delete/{id}")
-    public boolean deleteSubcategory(@PathVariable Long id);
+    public void deleteSubcategory(@PathVariable Long id);
 
     @GetMapping("/subcategory/findByCategoryId/{id}")
     public List<Subcategory> findSubcategoryByCategoryId(@PathVariable Long id);
@@ -48,7 +44,7 @@ public interface CatalogClientApi {
     public Product updateProduct(@RequestBody Product product, @PathVariable Long id);
 
     @DeleteMapping("/product/delete/{id}")
-    public boolean deleteProduct(@PathVariable Long id);
+    public void deleteProduct(@PathVariable Long id);
 
     @GetMapping("/product/findByCategoryId/{id}")
     public List<Product> findProductByCategoryId(@PathVariable Long id);
@@ -68,7 +64,7 @@ public interface CatalogClientApi {
     public Item updateItem(@RequestBody Item item, @PathVariable Long id);
 
     @DeleteMapping("/item/delete/{id}")
-    public boolean deleteItem(@PathVariable Long id);
+    public void deleteItem(@PathVariable Long id);
 
     @GetMapping("/item/findItem/{id}")
     public Item findItem(@PathVariable Long id);

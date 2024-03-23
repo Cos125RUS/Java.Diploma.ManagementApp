@@ -27,9 +27,7 @@ public class SubcategoryController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Subcategory> update(@RequestBody Subcategory subcategory, @PathVariable Long id) {
-        Subcategory oldSubcategory = subcategoryService.findById(id).get();
-        subcategory.setId(oldSubcategory.getId());
-        return new ResponseEntity<>(subcategoryService.update(subcategory), HttpStatus.OK);
+        return new ResponseEntity<>(subcategoryService.update(subcategory, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")

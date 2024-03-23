@@ -10,16 +10,12 @@ import java.util.List;
 public interface ClientsClientApi {
     @GetMapping("/findAll")
     public List<Client> findAll();
-
     @PostMapping("/addClient")
     public Client addClient(@RequestBody Client client);
-
     @PutMapping("/update/{id}")
     public Client update(@RequestBody Client client, @PathVariable Long id);
-
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Long id);
-
+    public void delete(@PathVariable Long id);
     @GetMapping("/findClient/{id}")
     public Client findClient(@PathVariable Long id);
 }

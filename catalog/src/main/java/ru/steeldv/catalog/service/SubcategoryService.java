@@ -10,6 +10,6 @@ public interface SubcategoryService {
     Subcategory addSubcategory(Subcategory subcategory);
     Optional<Subcategory> findById(Long id);
     Optional<List<Subcategory>> findByCategoryId(Long id);
-    Subcategory update(Subcategory subcategory);
+    Subcategory update(Subcategory subcategory, Long id);
     boolean deleteById(Long id);
 }

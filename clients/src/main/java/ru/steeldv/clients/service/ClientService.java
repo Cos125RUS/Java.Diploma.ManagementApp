@@ -9,6 +9,6 @@ public interface ClientService {
     List<Client> getAllClients();
     Client addClient(Client client);
     Optional<Client> findById(Long id);
-    Client update(Client client);
-    boolean deleteById(Long id);
+    Client update(Client client, Long id);
+    void deleteById(Long id);
 }

@@ -30,8 +30,8 @@ public class ClientsServiceImpl implements ClientsService {
     }
 
     @Override
-    public boolean delete(Long id) {
-        return clientsClientApi.delete(id);
+    public void delete(Long id) {
+        clientsClientApi.delete(id);
     }
 
     @Override

@@ -32,8 +32,8 @@ public class CatalogServiceImpl implements CategoryService, SubcategoryService, 
         return catalogClientApi.updateCategory(category, id);
     }
 
-    public boolean deleteCategory(Long id) {
-        return catalogClientApi.deleteCategory(id);
+    public void deleteCategory(Long id) {
+        catalogClientApi.deleteCategory(id);
     }
 //    endregion category
 
@@ -46,8 +46,8 @@ public class CatalogServiceImpl implements CategoryService, SubcategoryService, 
         return catalogClientApi.updateSubcategory(subcategory, id);
     }
 
-    public boolean deleteSubcategory(Long id) {
-        return catalogClientApi.deleteSubcategory(id);
+    public void deleteSubcategory(Long id) {
+        catalogClientApi.deleteSubcategory(id);
     }
 
     public List<Subcategory> findSubcategoryByCategoryId(Long id) {
@@ -65,8 +65,8 @@ public class CatalogServiceImpl implements CategoryService, SubcategoryService, 
         return catalogClientApi.updateProduct(product, id);
     }
 
-    public boolean deleteProduct(Long id) {
-        return catalogClientApi.deleteProduct(id);
+    public void deleteProduct(Long id) {
+        catalogClientApi.deleteProduct(id);
     }
 
     public List<Product> findProductByCategoryId(Long id) {
@@ -91,8 +91,8 @@ public class CatalogServiceImpl implements CategoryService, SubcategoryService, 
         return catalogClientApi.updateItem(item, id);
     }
 
-    public boolean deleteItem(Long id){
-        return catalogClientApi.deleteItem(id);
+    public void deleteItem(Long id){
+        catalogClientApi.deleteItem(id);
     }
 
     public Item findItem(Long id){

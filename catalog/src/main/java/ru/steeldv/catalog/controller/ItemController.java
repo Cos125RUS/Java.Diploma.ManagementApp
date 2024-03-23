@@ -28,14 +28,13 @@ public class ItemController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Item> update(@RequestBody Item item, @PathVariable Long id) {
-        Item oldItem = service.findById(id).get();
-        item.setId(oldItem.getId());
-        return new ResponseEntity<>(service.update(item), HttpStatus.OK);
+        return new ResponseEntity<>(service.update(item, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        return new ResponseEntity<>(service.deleteById(id), HttpStatus.OK);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/findItem/{id}")

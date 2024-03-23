@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.steeldv.documents.model.entity.doc.Applicable;
 import ru.steeldv.documents.model.entity.doc.Doc;
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
 
@@ -16,7 +17,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ComingDoc extends Doc {
+public class ComingDoc extends Doc implements Applicable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,4 +41,20 @@ public class ComingDoc extends Doc {
     @JsonIgnoreProperties("comingDoc")
     @PrimaryKeyJoinColumn(name = "buy_doc_id")
     private BuyDoc buyDoc;
+
+    public ComingDoc(BuyDoc buyDoc) {
+        date = LocalDate.now();
+        time = LocalTime.now();
+        lastChange = LocalDateTime.now();
+        salesman = buyDoc.getSalesman();
+        manager = buyDoc.getManager();
+        transportation = buyDoc.getTransportation();
+        positions = buyDoc.getPositions();
+        this.buyDoc = buyDoc;
+    }
+
+    @Override
+    public void apply() {
+
+    }
 }

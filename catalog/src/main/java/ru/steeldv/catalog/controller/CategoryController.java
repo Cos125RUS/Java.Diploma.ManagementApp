@@ -28,14 +28,13 @@ public class CategoryController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Category> update(@RequestBody Category category, @PathVariable Long id) {
-        Category oldCategory = service.findById(id).get();
-        category.setId(oldCategory.getId());
-        return new ResponseEntity<>(service.update(category), HttpStatus.OK);
+        return new ResponseEntity<>(service.update(category, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        return new ResponseEntity<>(service.deleteById(id), HttpStatus.OK);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/findCategory/{id}")

@@ -28,14 +28,13 @@ public class ClientsController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Client> update(@RequestBody Client client, @PathVariable Long id) {
-        Client oldClient = clientService.findById(id).get();
-        client.setId(oldClient.getId());
-        return new ResponseEntity<>(clientService.update(client), HttpStatus.OK);
+        return new ResponseEntity<>(clientService.update(client, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        return new ResponseEntity<>(clientService.deleteById(id), HttpStatus.OK);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        clientService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/findClient/{id}")

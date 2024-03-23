@@ -9,7 +9,7 @@ public interface ItemService {
     List<Item> getAllItems();
     Item addItem(Item item);
     Optional<Item> findById(Long id);
-    Item update(Item item);
+    Item update(Item item, Long id);
     boolean deleteById(Long id);
     Optional<List<Item>> findByProductId(Long id);
 }

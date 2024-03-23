@@ -56,9 +56,10 @@ public class BuyDoc extends Doc implements LinkedDocCreator, Applicable {
     @Override
     public Doc createLinkedDoc() {
         if (passed) {
-            return new ComingDoc();//TODO: создать конструктор под все идентичные значения
+            return new ComingDoc(this);
         } else {
-            return null; //TODO: заменить на кастомное исключение (непроведённый документ)
+            throw new RuntimeException("Документ не проведён");
+            //TODO: заменить на кастомное исключение (непроведённый документ)
         }
     }
 

@@ -9,7 +9,7 @@ public interface SubcategoryService {
 
     Subcategory updateSubcategory(Subcategory subcategory, Long id);
 
-    boolean deleteSubcategory(Long id);
+    void deleteSubcategory(Long id);
 
     List<Subcategory> findSubcategoryByCategoryId(Long id);
 }

@@ -9,6 +9,7 @@ import ru.steeldv.catalog.repository.ProductRepository;
 import ru.steeldv.catalog.service.ItemService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -24,8 +25,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item addItem(Item item) {
-        Product product = productRepository.findById(item.getProduct().getId()).get();
-        item.setProduct(product);
+        productRepository.findById(item.getProduct().getId())
+                .ifPresentOrElse(item::setProduct, NoSuchElementException::new);
         return itemRepository.save(item);
     }
 
@@ -35,7 +36,8 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item update(Item item) {
+    public Item update(Item item, Long id) {
+        findById(id).ifPresentOrElse(it -> item.setId(it.getId()), NoSuchElementException::new);
         return itemRepository.save(item);
     }
 

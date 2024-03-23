@@ -21,7 +21,7 @@ public class Position {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "position", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("position")
-    private Unit unit;
+    private Unit unit; //TODO: Сделать array или map с ключом в виде UnitType, для хранения остатков в разных единицах измерения
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "position", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("position")

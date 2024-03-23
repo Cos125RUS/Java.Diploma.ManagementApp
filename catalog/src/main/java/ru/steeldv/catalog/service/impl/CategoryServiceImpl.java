@@ -7,6 +7,7 @@ import ru.steeldv.catalog.repository.CategoryRepository;
 import ru.steeldv.catalog.service.CategoryService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -29,7 +30,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category update(Category category) {
+    public Category update(Category category, Long id) {
+        findById(id).ifPresentOrElse(it -> category.setId(it.getId()), NoSuchElementException::new);
         return repository.save(category);
     }
 

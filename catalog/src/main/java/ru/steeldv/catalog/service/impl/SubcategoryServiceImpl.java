@@ -9,6 +9,7 @@ import ru.steeldv.catalog.repository.SubcategoryRepository;
 import ru.steeldv.catalog.service.SubcategoryService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -24,8 +25,8 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     @Override
     public Subcategory addSubcategory(Subcategory subcategory) {
-        Category category = categoryRepository.findById(subcategory.getCategory().getId()).get();
-        subcategory.setCategory(category);
+        categoryRepository.findById(subcategory.getCategory().getId())
+                .ifPresentOrElse(subcategory::setCategory, NoSuchElementException::new);
         return subcategoryRepository.save(subcategory);
     }
 
@@ -40,7 +41,8 @@ public class SubcategoryServiceImpl implements SubcategoryService {
     }
 
     @Override
-    public Subcategory update(Subcategory subcategory) {
+    public Subcategory update(Subcategory subcategory, Long id) {
+        findById(id).ifPresentOrElse(it -> subcategory.setId(it.getId()), NoSuchElementException::new);
         return subcategoryRepository.save(subcategory);
     }
 

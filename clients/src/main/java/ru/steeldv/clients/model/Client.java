@@ -35,13 +35,27 @@ public class Client {
     private String address;
     private String phone;
     private String email;
-//    /**
-//     * ID менеджера
-//     */
-//    private Long manager;
+    /**
+     * ID менеджера
+     */
+    private Long manager;
 
-    public Client(String name, OrganizationType type) {
+    public Client(Long id, String name, OrganizationType type) {
+        this.id = id;
         this.name = name;
         this.type = type;
+    }
+
+
+    public Client(String name, OrganizationType type, Long itn, Long cor, String address,
+                  String phone, String email, Long manager) {
+        this.name = name;
+        this.type = type;
+        this.itn = itn;
+        this.cor = cor;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.manager = manager;
     }
 }

@@ -33,7 +33,8 @@ public class ClientsController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        return new ResponseEntity<>(clientsService.delete(id), HttpStatus.OK);
+        clientsService.delete(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/findClient/{id}")
