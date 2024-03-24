@@ -24,7 +24,6 @@ public class ClientsRepositoryTest {
     private TestEntityManager entityManager;
     @Autowired
     private ClientsRepository clientsRepository;
-
     private final Client client = new Client("Organization name", OrganizationType.ie, 123456798L,
             123456001L,"Street #1 Office #1", "+79876543215",
             "org@mail.org", 1L);
@@ -34,10 +33,8 @@ public class ClientsRepositoryTest {
     public void findByIdTest() {
         // given
         entityManager.persistAndFlush(client);
-
         // when
         Client foundClient = clientsRepository.findById(client.getId()).get();
-
         // then
         assertEquals(foundClient.getId(), client.getId());
         assertEquals(foundClient.getName(), client.getName());
@@ -54,10 +51,8 @@ public class ClientsRepositoryTest {
     public void deleteByIdTest() {
         // given
         entityManager.persistAndFlush(client);
-
         // when
         clientsRepository.deleteById(client.getId());
-
         // then
         assertFalse(clientsRepository.existsById(client.getId()));
     }

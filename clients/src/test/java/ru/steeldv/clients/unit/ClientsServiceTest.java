@@ -3,6 +3,7 @@ package ru.steeldv.clients.unit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -19,19 +20,17 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class ClientsServiceTest {
     @Mock
     public ClientsRepository clientsRepository;
-
     @InjectMocks
     public ClientServiceImpl clientService;
 
     public List<Client> clients;
-    public Client client1;
-    public Client client2;
-    public Client client3;
+    public Client client1, client2, client3;
 
 
     @BeforeEach
@@ -54,6 +53,7 @@ public class ClientsServiceTest {
         List<Client> allClients = clientService.getAllClients();
 //        then
         assertEquals(Objects.requireNonNull(allClients).size(), 2);
+        verify(clientsRepository).findAll();
     }
 
     @Test
@@ -104,12 +104,22 @@ public class ClientsServiceTest {
     }
 
     @Test
+    public void deleteClientTest() {
+//        given
+
+//        when
+        clientService.deleteById(1L);
+//        then
+        verify(clientsRepository).deleteById(1L);
+    }
+
+    @Test
     public void findByIdTest() {
 //        given
         given(clientsRepository.findById(1L)).willReturn(Optional.of(client1));
 //        when
-        Optional<Client> returnedClient = clientService.findById(1L);
+        Client returnedClient = clientService.findById(1L).get();
 //        then
-        assertEquals(returnedClient.get(), client1);
+        assertEquals(returnedClient, client1);
     }
 }

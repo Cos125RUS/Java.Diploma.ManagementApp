@@ -30,7 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ClientsControllerTest {
     @MockBean
     private ClientServiceImpl clientService;
-
     @Autowired
     private MockMvc mvc;
 

@@ -24,7 +24,7 @@ public class ClientsIntegrationTest {
     private ClientsController clientsController;
 
     @Test
-    public void saveNoteTest() {
+    public void addClientTest() {
 //        given
         Client client = new Client("Organization name", OrganizationType.ie, 123456798L,
                 123456001L,"Street #1 Office #1", "+79876543215",
