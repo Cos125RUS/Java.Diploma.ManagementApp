@@ -42,7 +42,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product update(Product product, Long id) {
-        findById(id).ifPresentOrElse(it -> product.setId(it.getId()), NoSuchElementException::new);
+        findById(id).ifPresentOrElse(it -> product.setId(it.getId()), () -> {
+            throw new NoSuchElementException();
+        });
         return productRepository.save(product);
     }
 

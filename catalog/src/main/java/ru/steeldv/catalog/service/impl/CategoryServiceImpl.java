@@ -31,7 +31,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category update(Category category, Long id) {
-        findById(id).ifPresentOrElse(it -> category.setId(it.getId()), NoSuchElementException::new);
+        findById(id).ifPresentOrElse(it -> category.setId(it.getId()), () -> {
+            throw new NoSuchElementException();
+        });
         return repository.save(category);
     }
 

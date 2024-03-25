@@ -42,7 +42,9 @@ public class SubcategoryServiceImpl implements SubcategoryService {
 
     @Override
     public Subcategory update(Subcategory subcategory, Long id) {
-        findById(id).ifPresentOrElse(it -> subcategory.setId(it.getId()), NoSuchElementException::new);
+        findById(id).ifPresentOrElse(it -> subcategory.setId(it.getId()), () -> {
+            throw new NoSuchElementException();
+        });
         return subcategoryRepository.save(subcategory);
     }
 

@@ -36,8 +36,9 @@ public class ClientServiceImpl implements ClientService {
     @Logging
     @Override
     public Client update(Client client, Long id) {
-        findById(id).ifPresentOrElse(it -> client.setId(it.getId()), NoSuchElementException::new);
-        //TODO: Добавить информацию об id к сообщению об ошибке
+        findById(id).ifPresentOrElse(it -> client.setId(it.getId()), () -> {
+            throw new NoSuchElementException();
+        });
         return clientsRepository.save(client);
     }
 
