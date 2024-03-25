@@ -7,6 +7,9 @@ import ru.steeldv.storage.service.AvailabilityService;
 
 import java.util.List;
 
+/**
+ * Остатки по обозначенным складам
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/storage/availability")

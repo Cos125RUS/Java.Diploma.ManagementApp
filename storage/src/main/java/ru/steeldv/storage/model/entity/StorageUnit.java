@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.steeldv.storage.model.enums.UnitType;
 
+/**
+ * Остатки в указанных единицах измерения на определённом складе
+ */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,9 +18,9 @@ public class StorageUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "availability_id")
-    @JsonIgnoreProperties("unit")
+    @JsonIgnoreProperties("units")
     private Availability availability;
     @Enumerated
     @Column(nullable = false, name = "unit_type")

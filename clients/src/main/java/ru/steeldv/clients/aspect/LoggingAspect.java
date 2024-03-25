@@ -14,8 +14,13 @@ import java.util.Arrays;
 @Log
 public class LoggingAspect {
 
+    /**
+     * Логирование вызовов методов
+     * @param joinPoint
+     * @throws Throwable
+     */
     @AfterReturning(value = "@annotation(Logging)")
-    public void addLog(JoinPoint joinPoint) throws Throwable {
+    public void callingLog(JoinPoint joinPoint) throws Throwable {
         StringBuilder args = new StringBuilder();
         String name = joinPoint.getSignature().getName();
         Arrays.stream(joinPoint.getArgs()).forEach(args::append);
@@ -23,6 +28,11 @@ public class LoggingAspect {
         log.info("Аргументы: " + args);
     }
 
+    /**
+     * Логирование ошибок
+     * @param joinPoint
+     * @throws Throwable
+     */
     @AfterReturning(value = "@annotation(ErrorLog)")
     public void errorLog(JoinPoint joinPoint) throws Throwable {
         String name = joinPoint.getSignature().getName();

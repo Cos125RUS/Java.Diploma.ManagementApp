@@ -7,6 +7,9 @@ import ru.steeldv.storage.service.PositionService;
 
 import java.util.List;
 
+/**
+ * Позиции на остатках
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/storage/position")

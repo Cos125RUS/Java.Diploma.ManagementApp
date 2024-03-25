@@ -1,4 +1,4 @@
-package ru.steeldv.documents.exception;
+package ru.steeldv.catalog.controller.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

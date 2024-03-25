@@ -2,7 +2,7 @@ package ru.steeldv.clients.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.clients.aspect.Logging;
+import ru.steeldv.clients.aspect.annotation.CallingLog;
 import ru.steeldv.clients.model.Client;
 import ru.steeldv.clients.repository.ClientsRepository;
 
@@ -15,25 +15,25 @@ import java.util.Optional;
 public class ClientServiceImpl implements ClientService {
     private final ClientsRepository clientsRepository;
 
-    @Logging
+    @CallingLog
     @Override
     public List<Client> getAllClients() {
         return clientsRepository.findAll();
     }
 
-    @Logging
+    @CallingLog
     @Override
     public Client addClient(Client client) {
         return clientsRepository.save(client);
     }
 
-    @Logging
+    @CallingLog
     @Override
     public Optional<Client> findById(Long id) {
         return clientsRepository.findById(id);
     }
 
-    @Logging
+    @CallingLog
     @Override
     public Client update(Client client, Long id) {
         findById(id).ifPresentOrElse(it -> client.setId(it.getId()), () -> {
@@ -42,7 +42,7 @@ public class ClientServiceImpl implements ClientService {
         return clientsRepository.save(client);
     }
 
-    @Logging
+    @CallingLog
     @Override
     public void deleteById(Long id) {
         clientsRepository.deleteById(id);

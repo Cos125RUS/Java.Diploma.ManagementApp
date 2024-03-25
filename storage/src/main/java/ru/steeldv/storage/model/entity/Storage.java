@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Склады
+ */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,11 +20,14 @@ public class Storage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String name;
+    private String name; //Название склада
     private String address;
     private String phone;
     @Column(name = "working_time")
-    private String workingTime;
+    private String workingTime; // Рабочие часы
+    /**
+     * Доступные остатки на складе
+     */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "storage", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("storage")

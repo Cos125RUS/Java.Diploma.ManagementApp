@@ -7,6 +7,9 @@ import ru.steeldv.storage.service.StorageUnitService;
 
 import java.util.List;
 
+/**
+ * Остатки в указанных единицах измерения по обозначенному складу
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/storage/storageUnit")

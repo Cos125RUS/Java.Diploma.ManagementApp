@@ -7,6 +7,9 @@ import ru.steeldv.storage.service.StorageService;
 
 import java.util.List;
 
+/**
+ * Склады
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/storage/storage")

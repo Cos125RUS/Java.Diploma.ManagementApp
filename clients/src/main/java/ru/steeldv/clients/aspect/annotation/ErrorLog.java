@@ -1,4 +1,4 @@
-package ru.steeldv.clients.aspect;
+package ru.steeldv.clients.aspect.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Логирование метода
+ * Логирование ошибок
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Logging {
+public @interface ErrorLog {
 }

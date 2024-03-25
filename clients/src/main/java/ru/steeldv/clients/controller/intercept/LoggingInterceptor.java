@@ -1,4 +1,4 @@
-package ru.steeldv.clients.configuration;
+package ru.steeldv.clients.controller.intercept;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,5 +1,8 @@
 package ru.steeldv.storage.model.enums;
 
+/**
+ * Единицы измерения товаров
+ */
 public enum UnitType {
     kilogram, //килограммы
     ton, //тонны

@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Доступные остатки по указанному складу
+ */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,8 +27,11 @@ public class Availability {
     @JoinColumn(name = "storage_id")
     @JsonIgnoreProperties("availabilities")
     private Storage storage;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
+    /**
+     * Список с остатками на складе в разных единицах измерения
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("availability")
-    private StorageUnit unit;
+    private List<StorageUnit> units;
 }

@@ -1,4 +1,4 @@
-package ru.steeldv.catalog.exception;
+package ru.steeldv.storage.controller.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +16,22 @@ import java.util.NoSuchElementException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+     * Элемент не найден в репозитории
+     * @param e
+     * @return 404
+     */
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<String> noSuchElementException(NoSuchElementException e) {
         //TODO: Добавить указание элемента
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Элемент не найден");
     }
 
+    /**
+     * Все прочие ошибки
+     * @param e
+     * @return 400
+     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> otherExceptions(Exception e) {
         return ResponseEntity.badRequest().body(e.getMessage());
