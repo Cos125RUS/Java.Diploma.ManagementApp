@@ -1,10 +1,12 @@
-package ru.steeldv.documents.model.entity.prosuct;
+package ru.steeldv.documents.model.entity.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -22,8 +24,8 @@ public class Availability {
     @JoinColumn(name = "storage_id")
     @JsonIgnoreProperties("availabilities")
     private Storage storage;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("availability")
-    private StorageUnit unit;
+    private List<StorageUnit> units;
 }

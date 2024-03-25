@@ -18,6 +18,7 @@
         <module>config</module>
         <module>test</module>
         <module>documents</module>
+        <module>processor</module>
     </modules>
 
     <properties>

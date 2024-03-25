@@ -1,4 +1,4 @@
-package ru.steeldv.documents.model.entity.prosuct;
+package ru.steeldv.documents.model.entity.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -11,14 +11,14 @@ import ru.steeldv.documents.model.enums.UnitType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Unit {
+public class StorageUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    @JoinColumn(name = "position_id")
-    @JsonIgnoreProperties("unit")
-    private Position position;
+    @ManyToOne
+    @JoinColumn(name = "availability_id")
+    @JsonIgnoreProperties("units")
+    private Availability availability;
     @Enumerated
     @Column(nullable = false, name = "unit_type")
     private UnitType unitType; // единицы измерения

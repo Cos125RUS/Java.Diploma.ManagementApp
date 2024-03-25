@@ -1,0 +1,13 @@
+server:
+  port:
+    8090
+
+spring:
+  application:
+    name:
+      processor
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      fail-fast: true

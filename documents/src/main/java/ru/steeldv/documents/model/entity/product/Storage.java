@@ -1,4 +1,4 @@
-package ru.steeldv.documents.model.entity.prosuct;
+package ru.steeldv.documents.model.entity.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

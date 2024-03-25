@@ -1,4 +1,4 @@
-package ru.steeldv.documents.repository;
+package ru.steeldv.documents.repository.storage;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

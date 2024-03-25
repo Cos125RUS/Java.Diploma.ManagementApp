@@ -1,4 +1,4 @@
-package ru.steeldv.documents.service;
+package ru.steeldv.documents.service.storage;
 
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
 import ru.steeldv.documents.model.entity.doc.storage.ComingDoc;

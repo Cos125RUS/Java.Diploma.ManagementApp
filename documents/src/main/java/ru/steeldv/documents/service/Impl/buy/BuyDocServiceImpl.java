@@ -1,15 +1,14 @@
-package ru.steeldv.documents.service.Impl;
+package ru.steeldv.documents.service.Impl.buy;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
-import ru.steeldv.documents.repository.BuyDocRepository;
-import ru.steeldv.documents.service.BuyDocService;
+import ru.steeldv.documents.repository.buy.BuyDocRepository;
+import ru.steeldv.documents.service.buy.BuyDocService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
