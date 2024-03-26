@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.steeldv.processor.model.enums.UnitType;
-import ru.steeldv.processor.model.storage.Availability;
 
 @NoArgsConstructor
 @AllArgsConstructor

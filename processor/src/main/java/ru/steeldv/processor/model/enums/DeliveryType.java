@@ -1,4 +1,4 @@
-package ru.steeldv.documents.model.enums;
+package ru.steeldv.processor.model.enums;
 
 public enum DeliveryType {
     TRAIN, //поездом

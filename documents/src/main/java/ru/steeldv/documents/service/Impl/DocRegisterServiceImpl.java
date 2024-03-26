@@ -2,6 +2,7 @@ package ru.steeldv.documents.service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.steeldv.documents.aspect.annotation.CallingLog;
 import ru.steeldv.documents.model.entity.doc.DocRegister;
 import ru.steeldv.documents.model.enums.DocType;
 import ru.steeldv.documents.repository.DocRegisterRepository;
@@ -17,9 +18,10 @@ import java.util.NoSuchElementException;
 public class DocRegisterServiceImpl implements DocRegisterService {
     private final DocRegisterRepository docRegisterRepository;
 
+    @CallingLog
     @Override
-    public DocRegister addDocRegister(DocRegister docRegister) {
-        return docRegisterRepository.save(docRegister);
+    public DocRegister addDocRegister(String docType) {
+        return docRegisterRepository.save(new DocRegister(DocType.valueOf(docType)));
     }
 
     @Override

@@ -1,5 +1,7 @@
 package ru.steeldv.documents.model.enums;
 
 public enum DocType {
-    buy //Покупка
+    BUY_DOC, //Покупка
+
+    COMING_DOC //Поступление товара
 }

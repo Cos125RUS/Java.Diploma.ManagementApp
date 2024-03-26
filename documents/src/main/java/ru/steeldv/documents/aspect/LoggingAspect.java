@@ -1,4 +1,4 @@
-package ru.steeldv.clients.aspect;
+package ru.steeldv.documents.aspect;
 
 import lombok.extern.java.Log;
 import org.aspectj.lang.JoinPoint;
@@ -19,7 +19,7 @@ public class LoggingAspect {
      * @param joinPoint
      * @throws Throwable
      */
-    @AfterReturning(value = "@annotation(ru.steeldv.clients.aspect.annotation.CallingLog)")
+    @AfterReturning(value = "@annotation(ru.steeldv.documents.aspect.annotation.CallingLog)")
     public void callingLog(JoinPoint joinPoint) throws Throwable {
         StringBuilder args = new StringBuilder();
         String name = joinPoint.getSignature().getName();
@@ -33,7 +33,7 @@ public class LoggingAspect {
      * @param joinPoint
      * @throws Throwable
      */
-    @AfterReturning(value = "@annotation(ru.steeldv.clients.aspect.annotation.ErrorLog)")
+    @AfterReturning(value = "@annotation(ru.steeldv.documents.aspect.annotation.ErrorLog)")
     public void errorLog(JoinPoint joinPoint) throws Throwable {
         String name = joinPoint.getSignature().getName();
         String message = ((Exception) joinPoint.getArgs()[0]).getMessage();

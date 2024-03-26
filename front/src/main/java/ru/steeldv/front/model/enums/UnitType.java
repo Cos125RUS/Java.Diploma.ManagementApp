@@ -1,12 +1,12 @@
 package ru.steeldv.front.model.enums;
 
 public enum UnitType {
-    kilogram, //килограммы
-    ton, //тонны
-    unit, //штуки
-    coil, //бухты
-    roll, //рулоны
-    meter, //метры
-    m2, //квадратные метры
-    m3 //кубические метры
+    KILOGRAM, //килограммы
+    TON, //тонны
+    UNIT, //штуки
+    COIL, //бухты
+    ROLL, //рулоны
+    METER, //метры
+    M2, //квадратные метры
+    M3 //кубические метры
 }

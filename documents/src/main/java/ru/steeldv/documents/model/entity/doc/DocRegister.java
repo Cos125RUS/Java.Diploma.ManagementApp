@@ -13,16 +13,23 @@ import ru.steeldv.documents.model.enums.DocType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class DocRegister {
+public class DocRegister implements Registered{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true, name = "doc_type")
+    @Column(nullable = false, unique = true, updatable = false, name = "doc_type")
     private DocType docType;
-    private int count;
+    private long totalCount;
+    private long yearCount;
 
     public DocRegister(DocType docType) {
         this.docType = docType;
-        count = 0;
+        totalCount = 0;
+        yearCount = 0;
+    }
+
+    @Override
+    public void newYear() {
+        yearCount = 0;
     }
 }

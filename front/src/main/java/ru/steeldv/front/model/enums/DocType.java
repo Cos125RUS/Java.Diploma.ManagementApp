@@ -1,6 +1,7 @@
 package ru.steeldv.front.model.enums;
 
 public enum DocType {
-    storage, // хранение товара
-    sales // продажи
+    BUY_DOC, //Покупка
+
+    COMING_DOC //Поступление товара
 }

@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.steeldv.catalog.model.enums.UnitType;
 
-import java.math.BigInteger;
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

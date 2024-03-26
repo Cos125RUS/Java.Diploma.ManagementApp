@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.steeldv.documents.aspect.annotation.CallingLog;
 import ru.steeldv.documents.model.entity.doc.DocRegister;
 import ru.steeldv.documents.model.enums.DocType;
 import ru.steeldv.documents.service.DocRegisterService;
@@ -17,23 +18,24 @@ import ru.steeldv.documents.service.DocRegisterService;
 public class DocRegisterController {
     private final DocRegisterService docRegisterService;
 
-    @GetMapping("/findByDocType")
-    public ResponseEntity<DocRegister> findByDocType(DocType docType) {
-        return ResponseEntity.ok(docRegisterService.findByDocType(docType));
+    @GetMapping("/findByDocType/{docType}")
+    public ResponseEntity<DocRegister> findByDocType(@PathVariable String docType) {
+        return ResponseEntity.ok(docRegisterService.findByDocType(DocType.valueOf(docType)));
     }
 
-    @PostMapping("/addDocRegister")
-    public ResponseEntity<DocRegister> addDocRegister(DocRegister docRegister) {
-        return ResponseEntity.ok(docRegisterService.addDocRegister(docRegister));
+    @PostMapping("/addDocRegister/{docType}")
+    public ResponseEntity<DocRegister> addDocRegister(@PathVariable String docType) {
+        return ResponseEntity.ok(docRegisterService.addDocRegister(docType));
     }
 
-    @PutMapping("/updateDocRegister")
-    public ResponseEntity<DocRegister> updateDocRegister(DocRegister docRegister, Long id) {
+    @PutMapping("/update")
+    public ResponseEntity<DocRegister> updateDocRegister(@RequestBody DocRegister docRegister,
+                                                         @PathVariable Long id) {
         return ResponseEntity.ok(docRegisterService.updateDocRegister(docRegister, id));
     }
 
-    @DeleteMapping("/deleteDocRegister")
-    public ResponseEntity<Void> deleteDocRegisterById(Long id) {
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteDocRegisterById(@PathVariable Long id) {
         docRegisterService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

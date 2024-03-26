@@ -1,19 +1,17 @@
-package ru.steeldv.clients.configuration;
+package ru.steeldv.documents.configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import ru.steeldv.clients.aspect.LoggingAspect;
-import ru.steeldv.clients.controller.intercept.LoggingInterceptor;
+import ru.steeldv.documents.aspect.LoggingAspect;
+import ru.steeldv.documents.controller.intercept.LoggingInterceptor;
 
 /**
  * Бины клиентского сервиса
  */
 @Configuration
-public class ClientsConfig implements WebMvcConfigurer {
+public class DocumentsConfig implements WebMvcConfigurer {
 
     /**
      * Аспекты логирования

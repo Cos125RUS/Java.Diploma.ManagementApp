@@ -1,8 +1,8 @@
 package ru.steeldv.processor.model.enums;
 
 public enum OrganizationType {
-    ie, //ИП
-    llc, //ООО
-    jsc, //ОАО
-    pp //частное лицо
+    IE, //ИП
+    LLC, //ООО
+    JSC, //ОАО
+    PP //частное лицо
 }

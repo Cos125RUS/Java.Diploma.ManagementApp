@@ -3,7 +3,6 @@ package ru.steeldv.processor.model.catalog;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.processor.model.catalog.Product;
 import ru.steeldv.processor.model.enums.UnitType;
 
 @NoArgsConstructor
