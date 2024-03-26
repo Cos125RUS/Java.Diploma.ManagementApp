@@ -1,11 +1,11 @@
-package ru.steeldv.documents.service.Impl.buy;
+package ru.steeldv.documents.service.doc.Impl.buy;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
 import ru.steeldv.documents.model.enums.DocType;
-import ru.steeldv.documents.repository.buy.BuyDocRepository;
-import ru.steeldv.documents.service.buy.BuyDocService;
+import ru.steeldv.documents.repository.doc.buy.BuyDocRepository;
+import ru.steeldv.documents.service.doc.buy.BuyDocService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

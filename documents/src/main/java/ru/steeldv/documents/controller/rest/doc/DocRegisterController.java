@@ -4,10 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.documents.aspect.annotation.CallingLog;
 import ru.steeldv.documents.model.entity.doc.DocRegister;
 import ru.steeldv.documents.model.enums.DocType;
-import ru.steeldv.documents.service.DocRegisterService;
+import ru.steeldv.documents.service.doc.DocRegisterService;
 
 /**
  * Контролёр журнала документов

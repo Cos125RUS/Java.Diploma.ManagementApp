@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
-import ru.steeldv.documents.service.buy.BuyDocService;
+import ru.steeldv.documents.service.doc.buy.BuyDocService;
 
 import java.util.List;
 

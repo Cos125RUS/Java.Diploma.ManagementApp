@@ -1,4 +1,4 @@
-package ru.steeldv.documents.service;
+package ru.steeldv.documents.service.doc;
 
 import ru.steeldv.documents.model.entity.doc.DocRegister;
 import ru.steeldv.documents.model.enums.DocType;

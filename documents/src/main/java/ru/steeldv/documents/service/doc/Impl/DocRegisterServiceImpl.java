@@ -1,12 +1,12 @@
-package ru.steeldv.documents.service.Impl;
+package ru.steeldv.documents.service.doc.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.documents.aspect.annotation.CallingLog;
 import ru.steeldv.documents.model.entity.doc.DocRegister;
 import ru.steeldv.documents.model.enums.DocType;
-import ru.steeldv.documents.repository.DocRegisterRepository;
-import ru.steeldv.documents.service.DocRegisterService;
+import ru.steeldv.documents.repository.doc.DocRegisterRepository;
+import ru.steeldv.documents.service.doc.DocRegisterService;
 
 import java.util.NoSuchElementException;
 

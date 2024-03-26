@@ -18,6 +18,8 @@ public class Position {
     private Long id;
     @Column(nullable = false, name = "item_id")
     private Long itemId;
+    @Column(nullable = false, name = "list_id")
+    private Long listId; // идентификатор списка позиций
 //    @ManyToOne
 //    @JoinColumn(name = "doc_id")
 //    @JsonIgnoreProperties("positions")

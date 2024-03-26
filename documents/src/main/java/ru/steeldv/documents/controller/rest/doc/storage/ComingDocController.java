@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.documents.model.entity.doc.storage.ComingDoc;
-import ru.steeldv.documents.service.storage.ComingDocService;
+import ru.steeldv.documents.service.doc.storage.ComingDocService;
 
 import java.util.List;
 
