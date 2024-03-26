@@ -8,4 +8,5 @@ public interface DocRegisterService {
     DocRegister updateDocRegister(DocRegister docRegister, Long id);
     void deleteById(Long id);
     DocRegister findByDocType(DocType docType);
+    String getNumber(DocType docType);
 }

@@ -37,8 +37,16 @@ public class DocRegisterServiceImpl implements DocRegisterService {
         docRegisterRepository.deleteById(id);
     }
 
+    @CallingLog
     @Override
     public DocRegister findByDocType(DocType docType) {
         return docRegisterRepository.findByDocType(docType).get();
+    }
+
+    @CallingLog
+    @Override
+    public String getNumber(DocType docType) {
+        DocRegister docRegister = docRegisterRepository.findByDocType(docType).get();
+        return docRegister.getNumber();
     }
 }

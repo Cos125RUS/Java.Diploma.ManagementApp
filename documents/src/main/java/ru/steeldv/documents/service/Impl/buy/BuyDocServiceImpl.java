@@ -3,6 +3,7 @@ package ru.steeldv.documents.service.Impl.buy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
+import ru.steeldv.documents.model.enums.DocType;
 import ru.steeldv.documents.repository.buy.BuyDocRepository;
 import ru.steeldv.documents.service.buy.BuyDocService;
 
@@ -23,6 +24,7 @@ public class BuyDocServiceImpl implements BuyDocService {
 
     @Override
     public BuyDoc addBuyDoc(BuyDoc buyDoc) {
+        buyDoc.setType(DocType.BUY_DOC);
         buyDoc.setDate(LocalDate.now());
         buyDoc.setTime(LocalTime.now());
         buyDoc.setLastChange(LocalDateTime.now());

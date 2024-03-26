@@ -1,4 +1,4 @@
-package ru.steeldv.documents.controller.rest.storage;
+package ru.steeldv.documents.controller.rest.doc.storage;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

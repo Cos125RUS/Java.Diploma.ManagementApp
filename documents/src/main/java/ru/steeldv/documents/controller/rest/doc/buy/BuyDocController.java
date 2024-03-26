@@ -1,4 +1,4 @@
-package ru.steeldv.documents.controller.rest.buy;
+package ru.steeldv.documents.controller.rest.doc.buy;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

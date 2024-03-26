@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
 import ru.steeldv.documents.model.entity.doc.storage.ComingDoc;
+import ru.steeldv.documents.model.enums.DocType;
 import ru.steeldv.documents.repository.buy.BuyDocRepository;
 import ru.steeldv.documents.repository.storage.ComingDocRepository;
 import ru.steeldv.documents.service.storage.ComingDocService;
@@ -26,6 +27,7 @@ public class ComingDocServiceImpl implements ComingDocService {
 
     @Override
     public ComingDoc addComingDoc(ComingDoc comingDoc) {
+        comingDoc.setType(DocType.COMING_DOC);
         comingDoc.setDate(LocalDate.now());
         comingDoc.setTime(LocalTime.now());
         comingDoc.setLastChange(LocalDateTime.now());

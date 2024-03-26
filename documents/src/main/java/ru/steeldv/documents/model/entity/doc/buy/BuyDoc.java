@@ -9,6 +9,7 @@ import ru.steeldv.documents.model.entity.doc.Applicable;
 import ru.steeldv.documents.model.entity.doc.Doc;
 import ru.steeldv.documents.model.entity.doc.storage.ComingDoc;
 import ru.steeldv.documents.model.entity.doc.LinkedDocCreator;
+import ru.steeldv.documents.model.enums.DocType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -25,8 +26,8 @@ public class BuyDoc extends Doc implements LinkedDocCreator, Applicable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(nullable = false)
-//    private DocType type;
+    @Column(nullable = false)
+    private DocType type;
     @Column(nullable = false, unique = true)
     private String number;
     @Column(nullable = false)

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import ru.steeldv.documents.model.entity.doc.Applicable;
 import ru.steeldv.documents.model.entity.doc.Doc;
 import ru.steeldv.documents.model.entity.doc.buy.BuyDoc;
+import ru.steeldv.documents.model.enums.DocType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,6 +22,8 @@ public class ComingDoc extends Doc implements Applicable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
+    private DocType type;
     @Column(nullable = false, unique = true)
     private String number;
     @Column(nullable = false)
@@ -43,6 +46,7 @@ public class ComingDoc extends Doc implements Applicable {
     private BuyDoc buyDoc;
 
     public ComingDoc(BuyDoc buyDoc) {
+        type = DocType.COMING_DOC;
         date = LocalDate.now();
         time = LocalTime.now();
         lastChange = LocalDateTime.now();
