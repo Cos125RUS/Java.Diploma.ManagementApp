@@ -3,7 +3,7 @@ package ru.steeldv.documents.model.dto.transportation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.documents.model.entity.doc.Doc;
+import ru.steeldv.documents.model.entity.Doc;
 import ru.steeldv.documents.model.enums.DeliveryType;
 
 import java.time.LocalDate;

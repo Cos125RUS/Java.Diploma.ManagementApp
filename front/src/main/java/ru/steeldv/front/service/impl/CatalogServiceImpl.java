@@ -2,7 +2,7 @@ package ru.steeldv.front.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.front.client.CatalogClientApi;
+import ru.steeldv.front.api.CatalogApi;
 import ru.steeldv.front.model.catalog.Category;
 import ru.steeldv.front.model.catalog.Item;
 import ru.steeldv.front.model.catalog.Product;
@@ -17,90 +17,90 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CatalogServiceImpl implements CategoryService, SubcategoryService, ProductService, ItemService {
-    private final CatalogClientApi catalogClientApi;
+    private final CatalogApi catalogApi;
 
     //    region category
     public List<Category> findAllCategories() {
-        return catalogClientApi.findAllCategories();
+        return catalogApi.findAllCategories();
     }
 
     public Category addCategory(Category category) {
-        return catalogClientApi.addCategory(category);
+        return catalogApi.addCategory(category);
     }
 
     public Category updateCategory(Category category, Long id) {
-        return catalogClientApi.updateCategory(category, id);
+        return catalogApi.updateCategory(category, id);
     }
 
     public void deleteCategory(Long id) {
-        catalogClientApi.deleteCategory(id);
+        catalogApi.deleteCategory(id);
     }
 //    endregion category
 
     //    region subcategory
     public Subcategory addSubcategory(Subcategory subcategory) {
-        return catalogClientApi.addSubcategory(subcategory);
+        return catalogApi.addSubcategory(subcategory);
     }
 
     public Subcategory updateSubcategory(Subcategory subcategory, Long id) {
-        return catalogClientApi.updateSubcategory(subcategory, id);
+        return catalogApi.updateSubcategory(subcategory, id);
     }
 
     public void deleteSubcategory(Long id) {
-        catalogClientApi.deleteSubcategory(id);
+        catalogApi.deleteSubcategory(id);
     }
 
     public List<Subcategory> findSubcategoryByCategoryId(Long id) {
-        return catalogClientApi.findSubcategoryByCategoryId(id);
+        return catalogApi.findSubcategoryByCategoryId(id);
     }
 
 //    endregion subcategory
 
     //    region product
     public Product addProduct(Product product) {
-        return catalogClientApi.addProduct(product);
+        return catalogApi.addProduct(product);
     }
 
     public Product updateProduct(Product product, Long id) {
-        return catalogClientApi.updateProduct(product, id);
+        return catalogApi.updateProduct(product, id);
     }
 
     public void deleteProduct(Long id) {
-        catalogClientApi.deleteProduct(id);
+        catalogApi.deleteProduct(id);
     }
 
     public List<Product> findProductByCategoryId(Long id) {
-        return catalogClientApi.findProductByCategoryId(id);
+        return catalogApi.findProductByCategoryId(id);
     }
 
     public List<Product> findProductBySubcategoryId(Long id) {
-        return catalogClientApi.findProductBySubcategoryId(id);
+        return catalogApi.findProductBySubcategoryId(id);
     }
 //    endregion product
 
     //    region item
     public List<Item> findAllItems(){
-        return catalogClientApi.findAllItems();
+        return catalogApi.findAllItems();
     }
 
     public Item addItem(Item item){
-        return catalogClientApi.addItem(item);
+        return catalogApi.addItem(item);
     }
 
     public Item updateItem(Item item, Long id){
-        return catalogClientApi.updateItem(item, id);
+        return catalogApi.updateItem(item, id);
     }
 
     public void deleteItem(Long id){
-        catalogClientApi.deleteItem(id);
+        catalogApi.deleteItem(id);
     }
 
     public Item findItem(Long id){
-        return catalogClientApi.findItem(id);
+        return catalogApi.findItem(id);
     }
 
     public List<Item> findItemByProductId(Long id){
-        return catalogClientApi.findItemByProductId(id);
+        return catalogApi.findItemByProductId(id);
     }
 //    endregion item
 }

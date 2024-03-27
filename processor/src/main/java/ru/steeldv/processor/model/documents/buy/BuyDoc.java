@@ -1,13 +1,11 @@
 package ru.steeldv.processor.model.documents.buy;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.steeldv.processor.model.catalog.Product;
 import ru.steeldv.processor.model.documents.storage.ComingDoc;
 import ru.steeldv.processor.model.enums.DocType;
-import ru.steeldv.processor.model.storage.Position;
+import ru.steeldv.processor.model.nomenclature.Position;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

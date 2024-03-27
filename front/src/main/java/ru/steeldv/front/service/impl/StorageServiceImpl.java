@@ -2,7 +2,7 @@ package ru.steeldv.front.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.front.client.StorageClientApi;
+import ru.steeldv.front.api.StorageApi;
 import ru.steeldv.front.model.storage.*;
 import ru.steeldv.front.service.storage.*;
 
@@ -11,38 +11,38 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class StorageServiceImpl implements AvailabilityService, PositionService, StorageService, StorageUnitService, UnitService {
-    private final StorageClientApi storageClientApi;
+    private final StorageApi storageApi;
 
     //    region storage
 
     @Override
     public List<Availability> findAllAvailability() {
-        return storageClientApi.findAllAvailability();
+        return storageApi.findAllAvailability();
     }
 
     @Override
     public Availability addAvailability(Availability availability) {
-        return storageClientApi.addAvailability(availability);
+        return storageApi.addAvailability(availability);
     }
 
     @Override
     public Availability updateAvailability(Availability availability, Long id) {
-        return storageClientApi.updateAvailability(availability, id);
+        return storageApi.updateAvailability(availability, id);
     }
 
     @Override
     public boolean deleteAvailability(Long id) {
-        return storageClientApi.deleteAvailability(id);
+        return storageApi.deleteAvailability(id);
     }
 
     @Override
     public Availability findAvailability(Long id) {
-        return storageClientApi.findAvailability(id);
+        return storageApi.findAvailability(id);
     }
 
     @Override
     public List<Availability> findAvailabilityByPositionId(Long id) {
-        return storageClientApi.findAvailabilityByPositionId(id);
+        return storageApi.findAvailabilityByPositionId(id);
     }
     //    endregion storage
 
@@ -50,27 +50,27 @@ public class StorageServiceImpl implements AvailabilityService, PositionService,
 
     @Override
     public Position findPositionByItemId(Long itemId) {
-        return storageClientApi.findPositionByItemId(itemId);
+        return storageApi.findPositionByItemId(itemId);
     }
 
     @Override
     public Position addPosition(Position position) {
-        return storageClientApi.addPosition(position);
+        return storageApi.addPosition(position);
     }
 
     @Override
     public Position updatePosition(Position position, Long id) {
-        return storageClientApi.updatePosition(position, id);
+        return storageApi.updatePosition(position, id);
     }
 
     @Override
     public boolean deletePosition(Long id) {
-        return storageClientApi.deletePosition(id);
+        return storageApi.deletePosition(id);
     }
 
     @Override
     public Position findPosition(Long id) {
-        return storageClientApi.findPosition(id);
+        return storageApi.findPosition(id);
     }
 //    endregion availability
 
@@ -78,27 +78,27 @@ public class StorageServiceImpl implements AvailabilityService, PositionService,
 
     @Override
     public List<Storage> findAllStorage() {
-        return storageClientApi.findAllStorage();
+        return storageApi.findAllStorage();
     }
 
     @Override
     public Storage addStorage(Storage storage) {
-        return storageClientApi.addStorage(storage);
+        return storageApi.addStorage(storage);
     }
 
     @Override
     public Storage updateStorage(Storage storage, Long id) {
-        return storageClientApi.updateStorage(storage, id);
+        return storageApi.updateStorage(storage, id);
     }
 
     @Override
     public boolean deleteStorage(Long id) {
-        return storageClientApi.deleteStorage(id);
+        return storageApi.deleteStorage(id);
     }
 
     @Override
     public Storage findStorage(Long id) {
-        return storageClientApi.findStorage(id);
+        return storageApi.findStorage(id);
     }
 //    endregion position
 
@@ -106,32 +106,32 @@ public class StorageServiceImpl implements AvailabilityService, PositionService,
 
     @Override
     public List<StorageUnit> findAllStorageUnit() {
-        return storageClientApi.findAllStorageUnit();
+        return storageApi.findAllStorageUnit();
     }
 
     @Override
     public StorageUnit addStorageUnit(StorageUnit storageUnit) {
-        return storageClientApi.addStorageUnit(storageUnit);
+        return storageApi.addStorageUnit(storageUnit);
     }
 
     @Override
     public StorageUnit updateStorageUnit(StorageUnit storageUnit, Long id) {
-        return storageClientApi.updateStorageUnit(storageUnit, id);
+        return storageApi.updateStorageUnit(storageUnit, id);
     }
 
     @Override
     public boolean deleteStorageUnit(Long id) {
-        return storageClientApi.deleteStorageUnit(id);
+        return storageApi.deleteStorageUnit(id);
     }
 
     @Override
     public StorageUnit findStorageUnit(Long id) {
-        return storageClientApi.findStorageUnit(id);
+        return storageApi.findStorageUnit(id);
     }
 
     @Override
     public List<StorageUnit> findStorageUnitByAvailabilityId(Long id) {
-        return storageClientApi.findStorageUnitByAvailabilityId(id);
+        return storageApi.findStorageUnitByAvailabilityId(id);
     }
 //    endregion storageUnit
 
@@ -139,32 +139,32 @@ public class StorageServiceImpl implements AvailabilityService, PositionService,
 
     @Override
     public List<Unit> findAllUnit() {
-        return storageClientApi.findAllUnit();
+        return storageApi.findAllUnit();
     }
 
     @Override
     public Unit addUnit(Unit unit) {
-        return storageClientApi.addUnit(unit);
+        return storageApi.addUnit(unit);
     }
 
     @Override
     public Unit updateUnit(Unit unit, Long id) {
-        return storageClientApi.updateUnit(unit, id);
+        return storageApi.updateUnit(unit, id);
     }
 
     @Override
     public boolean deleteUnit(Long id) {
-        return storageClientApi.deleteUnit(id);
+        return storageApi.deleteUnit(id);
     }
 
     @Override
     public Unit findUnit(Long id) {
-        return storageClientApi.findUnit(id);
+        return storageApi.findUnit(id);
     }
 
     @Override
     public Unit findUnitByPositionId(Long id) {
-        return storageClientApi.findUnitByPositionId(id);
+        return storageApi.findUnitByPositionId(id);
     }
 //    endregion unit
 

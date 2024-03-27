@@ -45,6 +45,17 @@ services:
       - ./.containers/databases/documents:/var/lib/postgresql
     ports:
       - 54324:5432
+  nomenclature:
+    image: postgres:16.2-alpine
+    container_name: nomenclaturedb
+    environment:
+      - POSTGRES_DB=nomenclature_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./.containers/databases/nomenclature:/var/lib/postgresql
+    ports:
+      - 54325:5432
 
 
   prometheus:
