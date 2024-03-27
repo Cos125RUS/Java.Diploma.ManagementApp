@@ -2,7 +2,7 @@ package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.storage.model.entity.Position;
+import ru.steeldv.storage.entity.Position;
 import ru.steeldv.storage.service.PositionService;
 
 import java.util.List;

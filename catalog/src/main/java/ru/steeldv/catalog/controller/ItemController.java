@@ -4,8 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.catalog.model.Item;
-import ru.steeldv.catalog.model.Product;
+import ru.steeldv.catalog.entity.Item;
 import ru.steeldv.catalog.service.ItemService;
 
 import java.util.List;

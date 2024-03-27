@@ -2,8 +2,8 @@ package ru.steeldv.storage.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.storage.model.entity.Availability;
-import ru.steeldv.storage.model.entity.StorageUnit;
+import ru.steeldv.storage.entity.Availability;
+import ru.steeldv.storage.entity.StorageUnit;
 import ru.steeldv.storage.repository.AvailabilityRepository;
 import ru.steeldv.storage.repository.StorageUnitRepository;
 import ru.steeldv.storage.service.StorageUnitService;

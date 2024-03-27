@@ -1,13 +1,12 @@
 package ru.steeldv.clients.configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import ru.steeldv.clients.aspect.LoggingAspect;
-import ru.steeldv.clients.controller.intercept.LoggingInterceptor;
+import ru.steeldv.library.aspect.LoggingAspect;
+import ru.steeldv.library.controller.exception.GlobalExceptionHandler;
+import ru.steeldv.library.controller.intercept.LoggingInterceptor;
 
 /**
  * Бины клиентского сервиса
@@ -22,6 +21,15 @@ public class ClientsConfig implements WebMvcConfigurer {
     @Bean
     public LoggingAspect aspect() {
         return new LoggingAspect();
+    }
+
+    /**
+     * Глобальный перехватчик ошибок
+     * @return
+     */
+    @Bean
+    public GlobalExceptionHandler globalExceptionHandler() {
+        return new GlobalExceptionHandler();
     }
 
     /**

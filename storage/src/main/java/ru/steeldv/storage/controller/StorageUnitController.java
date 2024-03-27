@@ -2,7 +2,7 @@ package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.storage.model.entity.StorageUnit;
+import ru.steeldv.storage.entity.StorageUnit;
 import ru.steeldv.storage.service.StorageUnitService;
 
 import java.util.List;

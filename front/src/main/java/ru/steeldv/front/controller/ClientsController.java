@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.front.model.clients.Client;
 import ru.steeldv.front.service.ClientsService;
 import ru.steeldv.front.service.impl.ClientsServiceImpl;
+import ru.steeldv.library.model.dto.organization.Client;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package ru.steeldv.documents.service.storage;
 
-import ru.steeldv.documents.model.entity.storage.ComingDoc;
+import ru.steeldv.documents.entity.storage.ComingDoc;
 
 import java.util.List;
 

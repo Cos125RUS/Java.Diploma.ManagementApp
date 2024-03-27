@@ -1,6 +1,6 @@
 package ru.steeldv.clients.service;
 
-import ru.steeldv.clients.model.Client;
+import ru.steeldv.clients.entity.Client;
 
 import java.util.List;
 import java.util.Optional;

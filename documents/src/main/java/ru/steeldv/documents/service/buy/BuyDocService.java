@@ -1,6 +1,6 @@
 package ru.steeldv.documents.service.buy;
 
-import ru.steeldv.documents.model.entity.buy.BuyDoc;
+import ru.steeldv.documents.entity.buy.BuyDoc;
 
 import java.util.List;
 

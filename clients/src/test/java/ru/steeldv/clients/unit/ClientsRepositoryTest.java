@@ -1,17 +1,15 @@
 package ru.steeldv.clients.unit;
 
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.steeldv.clients.model.Client;
-import ru.steeldv.clients.model.OrganizationType;
+import ru.steeldv.clients.entity.Client;
 import ru.steeldv.clients.repository.ClientsRepository;
+import ru.steeldv.library.model.enums.OrganizationType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -24,7 +22,7 @@ public class ClientsRepositoryTest {
     private TestEntityManager entityManager;
     @Autowired
     private ClientsRepository clientsRepository;
-    private final Client client = new Client("Organization name", OrganizationType.ie, 123456798L,
+    private final Client client = new Client("Organization name", OrganizationType.IE, 123456798L,
             123456001L,"Street #1 Office #1", "+79876543215",
             "org@mail.org", 1L);
 

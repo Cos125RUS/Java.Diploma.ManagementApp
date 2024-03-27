@@ -2,15 +2,15 @@ package ru.steeldv.front.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.front.api.CatalogApi;
-import ru.steeldv.front.model.catalog.Category;
-import ru.steeldv.front.model.catalog.Item;
-import ru.steeldv.front.model.catalog.Product;
-import ru.steeldv.front.model.catalog.Subcategory;
 import ru.steeldv.front.service.catalog.CategoryService;
 import ru.steeldv.front.service.catalog.ItemService;
 import ru.steeldv.front.service.catalog.ProductService;
 import ru.steeldv.front.service.catalog.SubcategoryService;
+import ru.steeldv.library.api.CatalogApi;
+import ru.steeldv.library.model.dto.catalog.Category;
+import ru.steeldv.library.model.dto.catalog.Item;
+import ru.steeldv.library.model.dto.catalog.Product;
+import ru.steeldv.library.model.dto.catalog.Subcategory;
 
 import java.util.List;
 

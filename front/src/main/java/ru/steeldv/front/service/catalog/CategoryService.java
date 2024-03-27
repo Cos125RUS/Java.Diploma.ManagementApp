@@ -1,6 +1,7 @@
 package ru.steeldv.front.service.catalog;
 
-import ru.steeldv.front.model.catalog.Category;
+
+import ru.steeldv.library.model.dto.catalog.Category;
 
 import java.util.List;
 

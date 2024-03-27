@@ -3,14 +3,13 @@ package ru.steeldv.clients.unit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.steeldv.clients.model.Client;
-import ru.steeldv.clients.model.OrganizationType;
+import ru.steeldv.clients.entity.Client;
 import ru.steeldv.clients.repository.ClientsRepository;
 import ru.steeldv.clients.service.ClientServiceImpl;
+import ru.steeldv.library.model.enums.OrganizationType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +36,9 @@ public class ClientsServiceTest {
     public void init() {
         clients = new ArrayList<>();
 
-        client1 = new Client(1L, "Org1", OrganizationType.ie);
-        client2 = new Client(2L, "Org2", OrganizationType.pp);
-        client3 = new Client(3L, "Org3", OrganizationType.llc);
+        client1 = new Client(1L, "Org1", OrganizationType.IE);
+        client2 = new Client(2L, "Org2", OrganizationType.PP);
+        client3 = new Client(3L, "Org3", OrganizationType.LLC);
 
         clients.add(client1);
         clients.add(client2);

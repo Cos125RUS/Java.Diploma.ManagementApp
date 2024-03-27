@@ -1,6 +1,6 @@
 package ru.steeldv.nomenclature.service;
 
-import ru.steeldv.nomenclature.model.entity.Position;
+import ru.steeldv.nomenclature.entity.Position;
 
 import java.util.List;
 

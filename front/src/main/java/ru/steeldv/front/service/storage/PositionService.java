@@ -1,7 +1,7 @@
 package ru.steeldv.front.service.storage;
 
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.front.model.storage.Position;
+import ru.steeldv.library.model.dto.nomenclature.Position;
 
 import java.util.List;
 

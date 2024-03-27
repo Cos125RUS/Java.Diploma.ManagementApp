@@ -2,9 +2,9 @@ package ru.steeldv.front.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.front.api.ClientsApi;
-import ru.steeldv.front.model.clients.Client;
 import ru.steeldv.front.service.ClientsService;
+import ru.steeldv.library.api.ClientsApi;
+import ru.steeldv.library.model.dto.organization.Client;
 
 import java.util.List;
 

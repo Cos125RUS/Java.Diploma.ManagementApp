@@ -5,12 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import ru.steeldv.clients.controller.ClientsController;
-import ru.steeldv.clients.model.Client;
-import ru.steeldv.clients.model.OrganizationType;
+import ru.steeldv.clients.entity.Client;
 import ru.steeldv.clients.service.ClientServiceImpl;
+import ru.steeldv.library.model.enums.OrganizationType;
 
 import java.util.Objects;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
@@ -26,7 +25,7 @@ public class ClientsIntegrationTest {
     @Test
     public void addClientTest() {
 //        given
-        Client client = new Client("Organization name", OrganizationType.ie, 123456798L,
+        Client client = new Client("Organization name", OrganizationType.IE, 123456798L,
                 123456001L,"Street #1 Office #1", "+79876543215",
                 "org@mail.org", 1L);
         given(clientService.addClient(client)).willReturn(client);

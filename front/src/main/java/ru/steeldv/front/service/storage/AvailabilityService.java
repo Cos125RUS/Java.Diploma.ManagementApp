@@ -1,7 +1,7 @@
 package ru.steeldv.front.service.storage;
 
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.front.model.storage.Availability;
+import ru.steeldv.library.model.dto.nomenclature.Availability;
 
 import java.util.List;
 

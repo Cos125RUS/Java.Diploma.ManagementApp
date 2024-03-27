@@ -2,7 +2,7 @@ package ru.steeldv.storage.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.steeldv.storage.model.entity.Position;
+import ru.steeldv.storage.entity.Position;
 
 import java.util.Optional;
 

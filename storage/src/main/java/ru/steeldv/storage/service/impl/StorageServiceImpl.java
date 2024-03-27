@@ -2,7 +2,7 @@ package ru.steeldv.storage.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.storage.model.entity.Storage;
+import ru.steeldv.storage.entity.Storage;
 import ru.steeldv.storage.repository.StorageRepository;
 import ru.steeldv.storage.service.StorageService;
 

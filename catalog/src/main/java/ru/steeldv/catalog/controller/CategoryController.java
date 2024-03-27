@@ -2,10 +2,9 @@ package ru.steeldv.catalog.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.catalog.model.Category;
+import ru.steeldv.catalog.entity.Category;
 import ru.steeldv.catalog.service.CategoryService;
 
 import java.util.List;

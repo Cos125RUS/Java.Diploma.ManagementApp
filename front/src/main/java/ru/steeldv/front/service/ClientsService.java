@@ -3,7 +3,7 @@ package ru.steeldv.front.service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import ru.steeldv.front.model.clients.Client;
+import ru.steeldv.library.model.dto.organization.Client;
 
 import java.util.List;
 

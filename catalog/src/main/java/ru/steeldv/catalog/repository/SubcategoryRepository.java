@@ -2,7 +2,7 @@ package ru.steeldv.catalog.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.steeldv.catalog.model.Subcategory;
+import ru.steeldv.catalog.entity.Subcategory;
 
 import java.util.List;
 import java.util.Optional;

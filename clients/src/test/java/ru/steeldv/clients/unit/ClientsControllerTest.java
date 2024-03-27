@@ -10,10 +10,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.steeldv.clients.controller.ClientsController;
-import ru.steeldv.clients.model.Client;
-import ru.steeldv.clients.model.OrganizationType;
-import ru.steeldv.clients.repository.ClientsRepository;
+import ru.steeldv.clients.entity.Client;
 import ru.steeldv.clients.service.ClientServiceImpl;
+import ru.steeldv.library.model.enums.OrganizationType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +40,8 @@ public class ClientsControllerTest {
     public void init() {
         clients = new ArrayList<>();
 
-        client1 = new Client(1L, "Org1", OrganizationType.ie);
-        client2 = new Client(2L, "Org2", OrganizationType.pp);
+        client1 = new Client(1L, "Org1", OrganizationType.IE);
+        client2 = new Client(2L, "Org2", OrganizationType.PP);
 
         clients.add(client1);
         clients.add(client2);

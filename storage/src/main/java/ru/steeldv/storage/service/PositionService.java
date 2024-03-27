@@ -1,6 +1,6 @@
 package ru.steeldv.storage.service;
 
-import ru.steeldv.storage.model.entity.Position;
+import ru.steeldv.storage.entity.Position;
 
 import java.util.List;
 import java.util.Optional;

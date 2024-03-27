@@ -2,7 +2,7 @@ package ru.steeldv.nomenclature.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.nomenclature.model.entity.Position;
+import ru.steeldv.nomenclature.entity.Position;
 import ru.steeldv.nomenclature.repository.PositionRepository;
 import ru.steeldv.nomenclature.service.PositionService;
 

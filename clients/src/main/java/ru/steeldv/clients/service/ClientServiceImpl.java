@@ -2,9 +2,9 @@ package ru.steeldv.clients.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.clients.aspect.annotation.CallingLog;
-import ru.steeldv.clients.model.Client;
+import ru.steeldv.clients.entity.Client;
 import ru.steeldv.clients.repository.ClientsRepository;
+import ru.steeldv.library.aspect.annotation.CallingLog;
 
 import java.util.List;
 import java.util.NoSuchElementException;

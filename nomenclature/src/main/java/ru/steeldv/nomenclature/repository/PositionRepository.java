@@ -2,7 +2,7 @@ package ru.steeldv.nomenclature.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.steeldv.nomenclature.model.entity.Position;
+import ru.steeldv.nomenclature.entity.Position;
 
 import java.util.List;
 import java.util.Optional;

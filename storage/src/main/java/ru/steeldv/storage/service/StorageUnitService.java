@@ -1,6 +1,6 @@
 package ru.steeldv.storage.service;
 
-import ru.steeldv.storage.model.entity.StorageUnit;
+import ru.steeldv.storage.entity.StorageUnit;
 
 import java.util.List;
 import java.util.Optional;

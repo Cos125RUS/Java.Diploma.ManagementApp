@@ -2,7 +2,7 @@ package ru.steeldv.catalog.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.catalog.model.Category;
+import ru.steeldv.catalog.entity.Category;
 import ru.steeldv.catalog.repository.CategoryRepository;
 import ru.steeldv.catalog.service.CategoryService;
 

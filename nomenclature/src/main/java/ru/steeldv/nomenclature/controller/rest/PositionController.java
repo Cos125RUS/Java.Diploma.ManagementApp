@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.steeldv.nomenclature.model.entity.Position;
+import ru.steeldv.nomenclature.entity.Position;
 import ru.steeldv.nomenclature.service.PositionService;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package ru.steeldv.documents.service;
 
-import ru.steeldv.documents.model.entity.DocRegister;
-import ru.steeldv.documents.model.enums.DocType;
+import ru.steeldv.documents.entity.DocRegister;
+import ru.steeldv.library.model.enums.DocType;
 
 public interface DocRegisterService {
     DocRegister addDocRegister(String docType);

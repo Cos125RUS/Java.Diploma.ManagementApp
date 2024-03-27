@@ -2,9 +2,9 @@ package ru.steeldv.front.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.front.api.StorageApi;
-import ru.steeldv.front.model.storage.*;
 import ru.steeldv.front.service.storage.*;
+import ru.steeldv.library.api.StorageApi;
+import ru.steeldv.library.model.dto.nomenclature.*;
 
 import java.util.List;
 

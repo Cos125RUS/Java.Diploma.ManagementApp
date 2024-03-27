@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.front.model.storage.Position;
-import ru.steeldv.front.model.storage.Storage;
 import ru.steeldv.front.service.storage.*;
+import ru.steeldv.library.model.dto.nomenclature.Position;
+import ru.steeldv.library.model.dto.nomenclature.Storage;
 
 import java.util.List;
 

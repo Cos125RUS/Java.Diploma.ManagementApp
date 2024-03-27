@@ -2,12 +2,12 @@ package ru.steeldv.documents.service.Impl.storage;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.steeldv.documents.model.entity.buy.BuyDoc;
-import ru.steeldv.documents.model.entity.storage.ComingDoc;
-import ru.steeldv.documents.model.enums.DocType;
+import ru.steeldv.documents.entity.buy.BuyDoc;
+import ru.steeldv.documents.entity.storage.ComingDoc;
 import ru.steeldv.documents.repository.buy.BuyDocRepository;
 import ru.steeldv.documents.repository.storage.ComingDocRepository;
 import ru.steeldv.documents.service.storage.ComingDocService;
+import ru.steeldv.library.model.enums.DocType;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

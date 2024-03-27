@@ -2,8 +2,8 @@ package ru.steeldv.documents.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.steeldv.documents.model.entity.DocRegister;
-import ru.steeldv.documents.model.enums.DocType;
+import ru.steeldv.documents.entity.DocRegister;
+import ru.steeldv.library.model.enums.DocType;
 
 import java.util.Optional;
 

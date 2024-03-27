@@ -1,7 +1,7 @@
 package ru.steeldv.front.service.storage;
 
 import org.springframework.web.bind.annotation.*;
-import ru.steeldv.front.model.storage.Unit;
+import ru.steeldv.library.model.dto.nomenclature.Unit;
 
 import java.util.List;
 
