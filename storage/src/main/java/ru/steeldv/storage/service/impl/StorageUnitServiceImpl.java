@@ -30,19 +30,20 @@ public class StorageUnitServiceImpl implements StorageUnitService {
     }
 
     @Override
-    public Optional<StorageUnit> findById(Long id) {
-        return storageUnitRepository.findById(id);
+    public StorageUnit findById(Long id) {
+        return storageUnitRepository.findById(id).get();
     }
 
     @Override
-    public StorageUnit update(StorageUnit storageUnit) {
+    public StorageUnit update(StorageUnit storageUnit, Long id) {
+        StorageUnit oldStorageUnit = storageUnitRepository.findById(id).get();
+        storageUnit.setId(oldStorageUnit.getId());
         return storageUnitRepository.save(storageUnit);
     }
 
     @Override
-    public boolean deleteById(Long id) {
+    public void deleteById(Long id) {
         storageUnitRepository.deleteById(id);
-        return true;
     }
 
     @Override

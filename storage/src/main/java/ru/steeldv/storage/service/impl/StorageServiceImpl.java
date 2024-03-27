@@ -25,18 +25,19 @@ public class StorageServiceImpl implements StorageService {
     }
 
     @Override
-    public Optional<Storage> findById(Long id) {
-        return storageRepository.findById(id);
+    public Storage findById(Long id) {
+        return storageRepository.findById(id).get();
     }
 
     @Override
-    public Storage update(Storage storage) {
+    public Storage update(Storage storage, Long id) {
+        Storage oldStorage = storageRepository.findById(id).get();
+        storage.setId(oldStorage.getId());
         return storageRepository.save(storage);
     }
 
     @Override
-    public boolean deleteById(Long id) {
+    public void deleteById(Long id) {
         storageRepository.deleteById(id);
-        return true;
     }
 }

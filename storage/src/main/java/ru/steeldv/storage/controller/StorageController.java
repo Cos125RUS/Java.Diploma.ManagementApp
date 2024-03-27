@@ -1,6 +1,7 @@
 package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.storage.entity.Storage;
 import ru.steeldv.storage.service.StorageService;
@@ -17,29 +18,28 @@ public class StorageController {
     private final StorageService service;
 
     @GetMapping("/findAll")
-    public List<Storage> findAll() {
-        return service.findAll();
+    public ResponseEntity<List<Storage>> findAll() {
+        return ResponseEntity.ok(service.findAll());
     }
 
     @PostMapping("/addStorage")
-    public Storage addStorage(@RequestBody Storage storage) {
-        return service.addStorage(storage);
+    public ResponseEntity<Storage> addStorage(@RequestBody Storage storage) {
+        return ResponseEntity.ok(service.addStorage(storage));
     }
 
     @PutMapping("/update/{id}")
-    public Storage update(@RequestBody Storage storage, @PathVariable Long id) {
-        Storage oldStorage = service.findById(id).get();
-        storage.setId(oldStorage.getId());
-        return service.update(storage);
+    public ResponseEntity<Storage> update(@RequestBody Storage storage, @PathVariable Long id) {
+        return ResponseEntity.ok(service.update(storage, id));
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Long id) {
-        return service.deleteById(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/findStorage/{id}")
-    public Storage findStorage(@PathVariable Long id) {
-        return service.findById(id).get();
+    public ResponseEntity<Storage> findStorage(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 }

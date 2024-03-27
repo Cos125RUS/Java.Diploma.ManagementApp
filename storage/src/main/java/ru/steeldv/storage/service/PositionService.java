@@ -8,8 +8,8 @@ import java.util.Optional;
 public interface PositionService {
     Position findByItemId(Long itemId);
     Position addPosition(Position position);
-    Optional<Position> findById(Long id);
-    Position update(Position position);
-    boolean deleteById(Long id);
+    Position findById(Long id);
+    Position update(Position position, Long id);
+    void deleteById(Long id);
     List<Position> findAll();
 }

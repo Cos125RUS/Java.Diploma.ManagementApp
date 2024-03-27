@@ -30,19 +30,20 @@ public class UnitServiceImpl implements UnitService {
     }
 
     @Override
-    public Optional<Unit> findById(Long id) {
-        return unitRepository.findById(id);
+    public Unit findById(Long id) {
+        return unitRepository.findById(id).get();
     }
 
     @Override
-    public Unit update(Unit unit) {
+    public Unit update(Unit unit, Long id) {
+        Unit oldUnit = unitRepository.findById(id).get();
+        unit.setId(oldUnit.getId());
         return unitRepository.save(unit);
     }
 
     @Override
-    public boolean deleteById(Long id) {
+    public void deleteById(Long id) {
         unitRepository.deleteById(id);
-        return true;
     }
 
     @Override

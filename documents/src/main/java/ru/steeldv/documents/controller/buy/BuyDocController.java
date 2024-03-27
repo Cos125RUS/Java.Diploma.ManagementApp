@@ -33,7 +33,7 @@ public class BuyDocController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteBuyDocById(@PathVariable Long id) {
         buyDocService.deleteBuyDocById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/findById/{id}")

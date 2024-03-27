@@ -11,5 +11,5 @@ public interface SubcategoryService {
     Optional<Subcategory> findById(Long id);
     Optional<List<Subcategory>> findByCategoryId(Long id);
     Subcategory update(Subcategory subcategory, Long id);
-    boolean deleteById(Long id);
+    void deleteById(Long id);
 }

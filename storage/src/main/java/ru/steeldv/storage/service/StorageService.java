@@ -10,9 +10,9 @@ public interface StorageService {
 
     Storage addStorage(Storage storage);
 
-    Optional<Storage> findById(Long id);
+    Storage findById(Long id);
 
-    Storage update(Storage storage);
+    Storage update(Storage storage, Long id);
 
-    boolean deleteById(Long id);
+    void deleteById(Long id);
 }

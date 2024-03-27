@@ -8,14 +8,14 @@ import java.util.Optional;
 public interface AvailabilityService {
     List<Availability> getAllAvailability();
 
-    Optional<Availability> findById(Long id);
+    Availability findById(Long id);
 
     Availability addAvailability(Availability availability);
 
-    Availability update(Availability availability);
+    Availability update(Availability availability, Long id);
 
-    boolean deleteById(Long id);
+    void deleteById(Long id);
 
-    Optional<List<Availability>> findByPositionId(Long id);
+    List<Availability> findByPositionId(Long id);
 
 }

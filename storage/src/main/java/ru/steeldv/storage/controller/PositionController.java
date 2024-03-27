@@ -1,6 +1,7 @@
 package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.storage.entity.Position;
 import ru.steeldv.storage.service.PositionService;
@@ -17,35 +18,34 @@ public class PositionController {
     private final PositionService service;
 
     @GetMapping("/findAll")
-    public List<Position> findAll() {
-        return service.findAll();
+    public ResponseEntity<List<Position>> findAll() {
+        return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping("/findByItemId/{itemId}")
-    public Position findByItemId(@PathVariable Long itemId) {
-        return service.findByItemId(itemId);
+    public ResponseEntity<Position> findByItemId(@PathVariable Long itemId) {
+        return ResponseEntity.ok(service.findByItemId(itemId));
     }
 
     @PostMapping("/addPosition")
-    public Position addPosition(@RequestBody Position position) {
-        return service.addPosition(position);
+    public ResponseEntity<Position> addPosition(@RequestBody Position position) {
+        return ResponseEntity.ok(service.addPosition(position));
     }
 
     @PutMapping("/update/{id}")
-    public Position update(@RequestBody Position position, @PathVariable Long id) {
-        Position oldPosition = service.findById(id).get();
-        position.setId(oldPosition.getId());
-        return service.update(position);
+    public ResponseEntity<Position> update(@RequestBody Position position, @PathVariable Long id) {
+        return ResponseEntity.ok(service.update(position, id));
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Long id) {
-        return service.deleteById(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/findPosition/{id}")
-    public Position findPosition(@PathVariable Long id) {
-        return service.findById(id).get();
+    public ResponseEntity<Position> findPosition(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
 }

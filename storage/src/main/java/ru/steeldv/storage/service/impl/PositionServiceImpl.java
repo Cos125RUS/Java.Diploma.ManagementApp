@@ -25,19 +25,20 @@ public class PositionServiceImpl implements PositionService {
     }
 
     @Override
-    public Optional<Position> findById(Long id) {
-        return positionRepository.findById(id);
+    public Position findById(Long id) {
+        return positionRepository.findById(id).get();
     }
 
     @Override
-    public Position update(Position position) {
+    public Position update(Position position, Long id) {
+        Position oldPosition = positionRepository.findById(id).get();
+        position.setId(oldPosition.getId());
         return positionRepository.save(position);
     }
 
     @Override
-    public boolean deleteById(Long id) {
+    public void deleteById(Long id) {
         positionRepository.deleteById(id);
-        return true;
     }
 
     @Override

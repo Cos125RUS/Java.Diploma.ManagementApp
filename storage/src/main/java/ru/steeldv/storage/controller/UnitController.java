@@ -1,6 +1,7 @@
 package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.storage.entity.Unit;
 import ru.steeldv.storage.service.UnitService;
@@ -17,34 +18,33 @@ public class UnitController {
     private final UnitService service;
 
     @GetMapping("/findAll")
-    public List<Unit> findAll() {
-        return service.getAllUnits();
+    public ResponseEntity<List<Unit>> findAll() {
+        return ResponseEntity.ok(service.getAllUnits());
     }
 
     @PostMapping("/addUnit")
-    public Unit addUnit(@RequestBody Unit unit) {
-        return service.addUnit(unit);
+    public ResponseEntity<Unit> addUnit(@RequestBody Unit unit) {
+        return ResponseEntity.ok(service.addUnit(unit));
     }
 
     @PutMapping("/update/{id}")
-    public Unit update(@RequestBody Unit unit, @PathVariable Long id) {
-        Unit oldUnit = service.findById(id).get();
-        unit.setId(oldUnit.getId());
-        return service.update(unit);
+    public ResponseEntity<Unit> update(@RequestBody Unit unit, @PathVariable Long id) {
+        return ResponseEntity.ok(service.update(unit, id));
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Long id) {
-        return service.deleteById(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/findUnit/{id}")
-    public Unit findUnit(@PathVariable Long id) {
-        return service.findById(id).get();
+    public ResponseEntity<Unit> findUnit(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @GetMapping("/findByPositionId/{id}")
-    public Unit findByPositionId(@PathVariable Long id) {
-        return service.findByPositionId(id);
+    public ResponseEntity<Unit> findByPositionId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findByPositionId(id));
     }
 }

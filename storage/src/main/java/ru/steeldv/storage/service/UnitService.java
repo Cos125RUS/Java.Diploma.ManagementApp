@@ -8,8 +8,8 @@ import java.util.Optional;
 public interface UnitService {
     List<Unit> getAllUnits();
     Unit addUnit(Unit unit);
-    Optional<Unit> findById(Long id);
-    Unit update(Unit unit);
-    boolean deleteById(Long id);
+    Unit findById(Long id);
+    Unit update(Unit unit, Long id);
+    void deleteById(Long id);
     Unit findByPositionId(Long id);
 }

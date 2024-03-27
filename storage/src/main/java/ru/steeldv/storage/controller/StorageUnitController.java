@@ -1,6 +1,7 @@
 package ru.steeldv.storage.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.steeldv.storage.entity.StorageUnit;
 import ru.steeldv.storage.service.StorageUnitService;
@@ -17,34 +18,33 @@ public class StorageUnitController {
     private final StorageUnitService service;
 
     @GetMapping("/findAll")
-    public List<StorageUnit> findAll() {
-        return service.getAllStorageUnits();
+    public ResponseEntity<List<StorageUnit>> findAll() {
+        return ResponseEntity.ok(service.getAllStorageUnits());
     }
 
     @PostMapping("/addStorageUnit")
-    public StorageUnit addStorageUnit(@RequestBody StorageUnit storageUnit) {
-        return service.addStorageUnit(storageUnit);
+    public ResponseEntity<StorageUnit> addStorageUnit(@RequestBody StorageUnit storageUnit) {
+        return ResponseEntity.ok(service.addStorageUnit(storageUnit));
     }
 
     @PutMapping("/update/{id}")
-    public StorageUnit update(@RequestBody StorageUnit storageUnit, @PathVariable Long id) {
-        StorageUnit oldStorageUnit = service.findById(id).get();
-        storageUnit.setId(oldStorageUnit.getId());
-        return service.update(storageUnit);
+    public ResponseEntity<StorageUnit> update(@RequestBody StorageUnit storageUnit, @PathVariable Long id) {
+        return ResponseEntity.ok(service.update(storageUnit, id));
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable Long id) {
-        return service.deleteById(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/findStorageUnit/{id}")
-    public StorageUnit findStorageUnit(@PathVariable Long id) {
-        return service.findById(id).get();
+    public ResponseEntity<StorageUnit> findStorageUnit(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @GetMapping("/findByAvailabilityId/{id}")
-    public List<StorageUnit> findByAvailabilityId(@PathVariable Long id) {
-        return service.findByAvailabilityId(id);
+    public ResponseEntity<List<StorageUnit>> findByAvailabilityId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findByAvailabilityId(id));
     }
 }

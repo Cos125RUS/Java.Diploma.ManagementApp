@@ -27,8 +27,8 @@ public class AvailabilityServiceImpl implements AvailabilityService {
     }
 
     @Override
-    public Optional<Availability> findById(Long id) {
-        return availabilityRepository.findById(id);
+    public Availability findById(Long id) {
+        return availabilityRepository.findById(id).get();
     }
 
     @Override
@@ -41,18 +41,19 @@ public class AvailabilityServiceImpl implements AvailabilityService {
     }
 
     @Override
-    public Availability update(Availability availability) {
+    public Availability update(Availability availability, Long id) {
+        Availability oldAvailability = availabilityRepository.findById(id).get();
+        availability.setId(oldAvailability.getId());
         return availabilityRepository.save(availability);
     }
     @Override
-    public boolean deleteById(Long id) {
+    public void deleteById(Long id) {
         availabilityRepository.deleteById(id);
-        return true;
     }
 
     @Override
-    public Optional<List<Availability>> findByPositionId(Long id) {
-        return availabilityRepository.findByPositionId(id);
+    public List<Availability> findByPositionId(Long id) {
+        return availabilityRepository.findByPositionId(id).get();
     }
 
 }

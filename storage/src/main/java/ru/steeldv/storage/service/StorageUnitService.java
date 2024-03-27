@@ -10,11 +10,11 @@ public interface StorageUnitService {
 
     StorageUnit addStorageUnit(StorageUnit storageUnit);
 
-    Optional<StorageUnit> findById(Long id);
+    StorageUnit findById(Long id);
 
-    StorageUnit update(StorageUnit storageUnit);
+    StorageUnit update(StorageUnit storageUnit, Long id);
 
-    boolean deleteById(Long id);
+    void deleteById(Long id);
 
     List<StorageUnit> findByAvailabilityId(Long id);
 }

@@ -36,6 +36,6 @@ public class DocRegisterController {
     @DeleteMapping("/delete")
     public ResponseEntity<Void> deleteDocRegisterById(@PathVariable Long id) {
         docRegisterService.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
