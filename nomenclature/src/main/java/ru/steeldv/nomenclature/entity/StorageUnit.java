@@ -8,8 +8,7 @@ import ru.steeldv.library.model.enums.UnitType;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class StorageUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +16,7 @@ public class StorageUnit {
     @ManyToOne
     @JoinColumn(name = "availability_id")
     @JsonIgnoreProperties("units")
+    @ToString.Exclude
     private Availability availability;
     @Enumerated
     @Column(nullable = false, name = "unit_type")

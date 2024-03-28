@@ -13,7 +13,7 @@ import ru.steeldv.library.controller.intercept.LoggingInterceptor;
  */
 
 @Configuration
-public class GlobalConfig  {
+public class GlobalConfig implements WebMvcConfigurer {
 
     /**
      * Аспекты логирования
@@ -33,5 +33,13 @@ public class GlobalConfig  {
         return new GlobalExceptionHandler();
     }
 
+    /**
+     * Перехватчик событий
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoggingInterceptor());
+    }
 
 }

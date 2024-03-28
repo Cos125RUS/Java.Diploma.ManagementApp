@@ -14,11 +14,22 @@ public class PositionListController {
 
     @GetMapping("/findPositionList/{id}")
     public ResponseEntity<PositionList> findPositionList(@PathVariable Long id) {
-        return ResponseEntity.ok(positionListService.findPositionListById(id));
+        return ResponseEntity.ok(positionListService.findById(id));
     }
 
     @PostMapping("/addPositionList")
     public ResponseEntity<PositionList> addPositionList(@RequestBody PositionList positionList) {
-        return ResponseEntity.ok(positionListService.addPositionList(positionList));
+        return ResponseEntity.ok(positionListService.add(positionList));
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<PositionList> updatePositionList(@RequestBody PositionList positionList) {
+        return ResponseEntity.ok(positionListService.update(positionList));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deletePositionList(@PathVariable Long id) {
+        positionListService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }

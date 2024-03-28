@@ -38,7 +38,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item update(Item item, Long id) {
-        findById(id).ifPresentOrElse(it -> item.setId(it.getId()), NoSuchElementException::new);
+        findById(id).ifPresentOrElse(it -> item.setId(it.getId()), () -> {
+            throw new NoSuchElementException();
+        });
         return itemRepository.save(item);
     }
 

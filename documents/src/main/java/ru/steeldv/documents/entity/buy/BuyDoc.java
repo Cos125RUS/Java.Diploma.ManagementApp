@@ -43,10 +43,6 @@ public class BuyDoc extends Doc implements LinkedDocCreator, Applicable {
     private Long manager; // id менеджера
     private Long transportation; //id транспортировки
     private Long positions; // id списка позиций
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "doc", orphanRemoval = true,
-//            fetch = FetchType.LAZY)
-//    @JsonIgnoreProperties("doc")
-//    private List<Position> positions;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "buyDoc", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("buyDoc")

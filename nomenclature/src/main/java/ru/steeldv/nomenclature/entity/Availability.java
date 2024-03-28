@@ -12,8 +12,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class Availability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +20,12 @@ public class Availability {
     @ManyToOne
     @JoinColumn(name = "position_id")
     @JsonIgnoreProperties("availabilities")
+    @ToString.Exclude
     private Position position;
     @ManyToOne
     @JoinColumn(name = "storage_id")
     @JsonIgnoreProperties("availabilities")
+    @ToString.Exclude
     private Storage storage;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "availability", orphanRemoval = true,
             fetch = FetchType.LAZY)

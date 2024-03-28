@@ -3,6 +3,7 @@ package ru.steeldv.library.model.dto.documents.storage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import ru.steeldv.library.model.dto.documents.buy.BuyDoc;
 
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ public class ComingDoc {
     private Long manager; // id менеджера
     private Long transportation; //id транспортировки
     private Long positions; // id списка позиций
+    @ToString.Exclude
     private BuyDoc buyDoc;
 
 }

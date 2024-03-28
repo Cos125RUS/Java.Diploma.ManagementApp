@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
 public class Position {
     private Long id;
     private Long itemId;
+    @ToString.Exclude
     private PositionList positionList; // идентификатор списка позиций
     private List<Unit> units; // количество в разных единицах измерения
     private List<Availability> availabilities;// соотношение количества товаров и складов (откуда сколько)

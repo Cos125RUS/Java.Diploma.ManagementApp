@@ -12,8 +12,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +22,7 @@ public class Position {
     @ManyToOne
     @JoinColumn(name = "position_list_id")
     @JsonIgnoreProperties("positions")
+    @ToString.Exclude
     private PositionList positionList; // идентификатор списка позиций
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "position", orphanRemoval = true,
             fetch = FetchType.LAZY)

@@ -27,9 +27,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product addProduct(Product product) {
         categoryRepository.findById(product.getCategory().getId())
-                .ifPresentOrElse(product::setCategory, NoSuchElementException::new);
+                .ifPresentOrElse(product::setCategory, () -> {
+                    throw new NoSuchElementException();
+                });
         subcategoryRepository.findById(product.getSubcategory().getId())
-                .ifPresentOrElse(product::setSubcategory, NoSuchElementException::new);
+                .ifPresentOrElse(product::setSubcategory, () -> {
+                    throw new NoSuchElementException();
+                });
         return productRepository.save(product);
     }
 
