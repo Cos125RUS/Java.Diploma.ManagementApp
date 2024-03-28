@@ -45,8 +45,17 @@ public class DocRegisterServiceImpl implements DocRegisterService {
 
     @CallingLog
     @Override
-    public String getNumber(DocType docType) {
+    public synchronized String getNumber(DocType docType) {
         DocRegister docRegister = docRegisterRepository.findByDocType(docType).get();
-        return docRegister.getNumber();
+        String number = docRegister.getNumber();
+        docRegisterRepository.save(docRegister);
+        return number;
+    }
+
+    @Override
+    public void rollBackNumber(DocType docType) {
+        DocRegister docRegister = docRegisterRepository.findByDocType(docType).get();
+        docRegister.decrement();
+        docRegisterRepository.save(docRegister);
     }
 }

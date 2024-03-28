@@ -9,4 +9,5 @@ public interface DocRegisterService {
     void deleteById(Long id);
     DocRegister findByDocType(DocType docType);
     String getNumber(DocType docType);
+    void rollBackNumber(DocType docType);
 }

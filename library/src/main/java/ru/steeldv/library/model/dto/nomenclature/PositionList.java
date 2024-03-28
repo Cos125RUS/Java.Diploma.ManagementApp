@@ -16,4 +16,8 @@ import java.util.List;
 public class PositionList {
     private Long id;
     private List<Position> positions; // позиции в списке
+
+    public PositionList(List<Position> positions) {
+        this.positions = positions;
+    }
 }
