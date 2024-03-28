@@ -16,7 +16,7 @@ import java.util.List;
 public class Position {
     private Long id;
     private Long itemId;
-    private Long listId; // идентификатор списка позиций
+    private PositionList positionList; // идентификатор списка позиций
     private List<Unit> units; // количество в разных единицах измерения
     private List<Availability> availabilities;// соотношение количества товаров и складов (откуда сколько)
 }

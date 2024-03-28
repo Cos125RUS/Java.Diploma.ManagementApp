@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import ru.steeldv.library.aspect.LoggingAspect;
+import ru.steeldv.library.configuration.Configurator;
 import ru.steeldv.library.controller.exception.GlobalExceptionHandler;
 import ru.steeldv.library.controller.intercept.LoggingInterceptor;
 
@@ -12,7 +13,7 @@ import ru.steeldv.library.controller.intercept.LoggingInterceptor;
  * Бины клиентского сервиса
  */
 @Configuration
-public class NomenclatureConfig implements WebMvcConfigurer {
+public class NomenclatureConfig {
 
     /**
      * Аспекты логирования
@@ -29,12 +30,12 @@ public class NomenclatureConfig implements WebMvcConfigurer {
     }
 
     /**
-     * Перехватчик событий
-     * @param registry
+     * Библиотечный конфиг
+     * @return
      */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoggingInterceptor());
+    @Bean
+    public Configurator configurator() {
+        return new Configurator();
     }
 
 }

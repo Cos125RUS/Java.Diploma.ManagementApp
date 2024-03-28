@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.steeldv.clients.entity.Client;
 import ru.steeldv.clients.repository.ClientsRepository;
-import ru.steeldv.library.aspect.annotation.CallingLog;
+//import ru.steeldv.library.aspect.annotation.CallingLog;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -15,25 +15,25 @@ import java.util.Optional;
 public class ClientServiceImpl implements ClientService {
     private final ClientsRepository clientsRepository;
 
-    @CallingLog
+//    @CallingLog
     @Override
     public List<Client> getAllClients() {
         return clientsRepository.findAll();
     }
 
-    @CallingLog
+//    @CallingLog
     @Override
     public Client addClient(Client client) {
         return clientsRepository.save(client);
     }
 
-    @CallingLog
+//    @CallingLog
     @Override
     public Optional<Client> findById(Long id) {
         return clientsRepository.findById(id);
     }
 
-    @CallingLog
+//    @CallingLog
     @Override
     public Client update(Client client, Long id) {
         findById(id).ifPresentOrElse(it -> client.setId(it.getId()), () -> {
@@ -42,7 +42,7 @@ public class ClientServiceImpl implements ClientService {
         return clientsRepository.save(client);
     }
 
-    @CallingLog
+//    @CallingLog
     @Override
     public void deleteById(Long id) {
         clientsRepository.deleteById(id);

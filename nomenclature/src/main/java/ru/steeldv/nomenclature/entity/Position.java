@@ -2,9 +2,7 @@ package ru.steeldv.nomenclature.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,15 +12,18 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, name = "item_id")
     private Long itemId;
-    @Column(nullable = false, name = "list_id")
-    private Long listId; // идентификатор списка позиций
+    @ManyToOne
+    @JoinColumn(name = "position_list_id")
+    @JsonIgnoreProperties("positions")
+    private PositionList positionList; // идентификатор списка позиций
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "position", orphanRemoval = true,
             fetch = FetchType.LAZY)
     @JsonIgnoreProperties("position")
